@@ -4,5 +4,5 @@ Rails.application.routes.draw do
 
   #get "/books/:id", to: "books#show"
   resources :books
-
+  get "/search", to: "books#search"
 end

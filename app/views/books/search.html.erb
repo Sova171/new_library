@@ -1,0 +1,20 @@
+<h3>Search Students</h3>
+
+<% if @results.blank? %>
+  <strong>Results not found</strong>
+  <br>
+<% end %>
+
+<% @results.each do |result| %>
+
+  <%= link_to book_path(result) do %>
+    <div class="card mb-2">
+      <div class="card-body">
+        <h5 class="card-title"><%= result.title%></h5>
+      </div>
+    </div>
+  <% end %>
+
+<%end %>
+
+<%= link_to "Back", root_path, class: 'btn btn-outline-secondary btn-sm'%>
