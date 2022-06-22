@@ -1,0 +1,32 @@
+<h1>New book</h1>
+
+<%= form_with model: @book do |form| %>
+  <div>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :description %><br>
+    <%= form.text_area :description %>
+  </div>
+
+  <div>
+    <%= form.label :pages_count %><br>
+    <%= form.text_field :pages_count %>
+  </div>
+
+  <div>
+    <%= form.label :published_at %><br>
+    <%= form.text_area :published_at %>
+  </div>
+
+  <div>
+    <%= form.label :publisher %><br>
+    <%= form.text_area :publisher %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

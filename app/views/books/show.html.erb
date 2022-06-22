@@ -1,5 +1,16 @@
-<%= @book.title %>
-<%= @book.description %>
-<%= @book.pages_count %>
-<%= @book.published_at %>
-<%= @book.publisher %>
+<strong>Name:</strong>
+<%= @book.title %><br>
+
+<strong>Description:</strong>
+<%= @book.description %><br>
+
+<strong>Number of pages:</strong>
+<%= @book.pages_count %><br>
+
+<strong>Published at:</strong>
+<%= @book.published_at %><br>
+
+<strong>Publisher:</strong>
+<%= @book.publisher %><br>
+
+<%= link_to "Back to books", root_path %>
