@@ -1,16 +1,33 @@
-<strong>Name:</strong>
-<%= @book.title %><br>
+<div class="card-title d-flex justify-content-between ">
+  <div>
+    <strong>Name:</strong>
+    <%= @book.title %><br>
 
-<strong>Description:</strong>
-<%= @book.description %><br>
+    <strong>Description:</strong>
+    <%= @book.description %><br>
 
-<strong>Number of pages:</strong>
-<%= @book.pages_count %><br>
+    <strong>Number of pages:</strong>
+    <%= @book.pages_count %><br>
 
-<strong>Published at:</strong>
-<%= @book.published_at %><br>
+    <strong>Published at:</strong>
+    <%= @book.published_at %><br>
 
-<strong>Publisher:</strong>
-<%= @book.publisher %><br>
+    <strong>Publisher:</strong>
+    <%= @book.publisher %><br>
+  </div>
+
+  <div>
+    <% if user_signed_in? && current_user.admin? %>
+      <ul class="navbar-nav ms-auto">
+        <li><%= link_to "Edit", edit_book_path(@book) %></li>
+        <li><%= link_to "Destroy", book_path(@book), data: {
+          turbo_method: :delete,
+          turbo_confirm: "Are you sure?"
+        }, class: "text-danger"%></li>
+      </ul>
+    <% end %>
+  </div>
+</div>
 
 <%= link_to "Back to books", root_path %>
+

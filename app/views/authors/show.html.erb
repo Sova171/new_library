@@ -1,10 +1,26 @@
-<strong>Name:</strong>
-<%= @author.full_name %><br>
+<div class="card-title d-flex justify-content-between ">
+  <div>
+    <strong>Name:</strong>
+    <%= @author.full_name %><br>
 
-<strong>Birthdate:</strong>
-<%= @author.birthdate %><br>
+    <strong>Birthdate:</strong>
+    <%= @author.birthdate %><br>
 
-<strong>Biography:</strong>
-<%= @author.biography %><br>
+    <strong>Biography:</strong>
+    <%= @author.biography %><br>
+  </div>
+
+  <div>
+    <% if user_signed_in? && current_user.admin? %>
+      <ul class="navbar-nav ms-auto">
+        <li><%= link_to "Edit", edit_author_path(@author) %></li>
+        <li><%= link_to "Destroy", author_path(@author), data: {
+          turbo_method: :delete,
+          turbo_confirm: "Are you sure?"
+        }, class: "text-danger"%></li>
+      </ul>
+    <% end %>
+  </div>
+</div>
 
 <%= link_to "Back to authors", authors_path %>

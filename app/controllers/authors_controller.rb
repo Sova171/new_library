@@ -1,7 +1,7 @@
 class AuthorsController < ApplicationController
 
   def index
-    @authors = Author.all
+    @authors = Author.all.order('created_at')
   end
 
   def show
@@ -16,10 +16,31 @@ class AuthorsController < ApplicationController
     @author = Author.new(author_params)
 
     if @author.save
-      redirect_to authors_path
+      redirect_to @author
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def edit
+    @author = Author.find(params[:id])
+  end
+
+  def update
+    @author = Author.find(params[:id])
+
+    if @author.update(author_params)
+      redirect_to @author
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @author = Author.find(params[:id])
+    @author.destroy
+
+    redirect_to authors_path, status: :see_other
   end
 
   private
