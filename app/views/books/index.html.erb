@@ -1,3 +1,7 @@
+<% if user_signed_in? && current_user.admin? %>
+  <h5 class="card-subtitle mb-2 text-muted">Welcome admin</h5>
+<% end %>
+
 <h1 class='card-title'>Books</h1>
 
 <%= form_tag(search_path, :method => "get") do %>
