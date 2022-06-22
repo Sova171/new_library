@@ -1437,11 +1437,11 @@ true posixrules
 13163||10|C|G
 13163||-9223372036854775808|U|G
 13163||10|U|G</Grants>
-      <IntrospectionStateNumber>510</IntrospectionStateNumber>
+      <IntrospectionStateNumber>524</IntrospectionStateNumber>
       <ObjectId>16387</ObjectId>
       <Relations>sequence|table|16405|16407|1
-sequence|table|16416|16418|1
 sequence|table|16427|16429|1
+sequence|table|16443|16445|1
 </Relations>
       <OwnerName>vladyslav</OwnerName>
     </database>
@@ -4678,15 +4678,15 @@ sequence|table|16427|16429|1
     <schema id="249" parent="3" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>510</IntrospectionStateNumber>
+      <IntrospectionStateNumber>524</IntrospectionStateNumber>
       <ObjectId>2200</ObjectId>
       <StateNumber>275</StateNumber>
       <OwnerName>postgres</OwnerName>
     </schema>
     <sequence id="250" parent="249" name="authors_id_seq">
       <DataType>bigint|0s</DataType>
-      <ObjectId>16416</ObjectId>
-      <StateNumber>500</StateNumber>
+      <ObjectId>16443</ObjectId>
+      <StateNumber>523</StateNumber>
       <OwnerName>vladyslav</OwnerName>
     </sequence>
     <sequence id="251" parent="249" name="books_id_seq">
@@ -4708,8 +4708,8 @@ sequence|table|16427|16429|1
       <OwnerName>vladyslav</OwnerName>
     </table>
     <table id="254" parent="249" name="authors">
-      <ObjectId>16418</ObjectId>
-      <StateNumber>500</StateNumber>
+      <ObjectId>16445</ObjectId>
+      <StateNumber>523</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>vladyslav</OwnerName>
     </table>
@@ -4783,53 +4783,59 @@ sequence|table|16427|16429|1
       <DefaultExpression>nextval(&apos;authors_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>500</StateNumber>
+      <StateNumber>523</StateNumber>
       <TypeId>20</TypeId>
     </column>
     <column id="265" parent="254" name="full_name">
       <DataType>varchar|0s</DataType>
       <Position>2</Position>
-      <StateNumber>500</StateNumber>
+      <StateNumber>523</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="266" parent="254" name="birth_date">
-      <DataType>timestamp(6)|0s</DataType>
+    <column id="266" parent="254" name="birthdate">
+      <DataType>date|0s</DataType>
       <Position>3</Position>
-      <StateNumber>500</StateNumber>
-      <TypeId>1114</TypeId>
+      <StateNumber>523</StateNumber>
+      <TypeId>1082</TypeId>
     </column>
-    <column id="267" parent="254" name="created_at">
-      <DataType>timestamp(6)|0s</DataType>
-      <NotNull>1</NotNull>
+    <column id="267" parent="254" name="biography">
+      <DataType>text|0s</DataType>
       <Position>4</Position>
-      <StateNumber>500</StateNumber>
-      <TypeId>1114</TypeId>
+      <StateNumber>523</StateNumber>
+      <TypeId>25</TypeId>
     </column>
-    <column id="268" parent="254" name="updated_at">
+    <column id="268" parent="254" name="created_at">
       <DataType>timestamp(6)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>5</Position>
-      <StateNumber>500</StateNumber>
+      <StateNumber>523</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <index id="269" parent="254" name="authors_pkey">
+    <column id="269" parent="254" name="updated_at">
+      <DataType>timestamp(6)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>6</Position>
+      <StateNumber>523</StateNumber>
+      <TypeId>1114</TypeId>
+    </column>
+    <index id="270" parent="254" name="authors_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16425</ObjectId>
+      <ObjectId>16452</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>500</StateNumber>
+      <StateNumber>523</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="270" parent="254" name="authors_pkey">
+    <key id="271" parent="254" name="authors_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16426</ObjectId>
+      <ObjectId>16453</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>500</StateNumber>
-      <UnderlyingIndexId>16425</UnderlyingIndexId>
+      <StateNumber>523</StateNumber>
+      <UnderlyingIndexId>16452</UnderlyingIndexId>
     </key>
-    <column id="271" parent="255" name="id">
+    <column id="272" parent="255" name="id">
       <DataType>bigint|0s</DataType>
       <DefaultExpression>nextval(&apos;books_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
@@ -4837,51 +4843,51 @@ sequence|table|16427|16429|1
       <StateNumber>499</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <column id="272" parent="255" name="title">
+    <column id="273" parent="255" name="title">
       <DataType>varchar|0s</DataType>
       <Position>2</Position>
       <StateNumber>499</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="273" parent="255" name="description">
+    <column id="274" parent="255" name="description">
       <DataType>text|0s</DataType>
       <Position>3</Position>
       <StateNumber>499</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="274" parent="255" name="pages_count">
+    <column id="275" parent="255" name="pages_count">
       <DataType>integer|0s</DataType>
       <Position>4</Position>
       <StateNumber>499</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="275" parent="255" name="published_at">
+    <column id="276" parent="255" name="published_at">
       <DataType>varchar|0s</DataType>
       <Position>5</Position>
       <StateNumber>499</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="276" parent="255" name="publisher">
+    <column id="277" parent="255" name="publisher">
       <DataType>varchar|0s</DataType>
       <Position>6</Position>
       <StateNumber>499</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="277" parent="255" name="created_at">
+    <column id="278" parent="255" name="created_at">
       <DataType>timestamp(6)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>7</Position>
       <StateNumber>499</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <column id="278" parent="255" name="updated_at">
+    <column id="279" parent="255" name="updated_at">
       <DataType>timestamp(6)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>8</Position>
       <StateNumber>499</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <index id="279" parent="255" name="books_pkey">
+    <index id="280" parent="255" name="books_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16414</ObjectId>
@@ -4890,7 +4896,7 @@ sequence|table|16427|16429|1
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="280" parent="255" name="books_pkey">
+    <key id="281" parent="255" name="books_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16415</ObjectId>
@@ -4898,14 +4904,14 @@ sequence|table|16427|16429|1
       <StateNumber>499</StateNumber>
       <UnderlyingIndexId>16414</UnderlyingIndexId>
     </key>
-    <column id="281" parent="256" name="version">
+    <column id="282" parent="256" name="version">
       <DataType>varchar|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StateNumber>497</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="282" parent="256" name="schema_migrations_pkey">
+    <index id="283" parent="256" name="schema_migrations_pkey">
       <ColNames>version</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16395</ObjectId>
@@ -4917,7 +4923,7 @@ sequence|table|16427|16429|1
       <CollationIds>100</CollationIds>
       <CollationParentNames>pg_catalog</CollationParentNames>
     </index>
-    <key id="283" parent="256" name="schema_migrations_pkey">
+    <key id="284" parent="256" name="schema_migrations_pkey">
       <ColNames>version</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16396</ObjectId>
@@ -4925,7 +4931,7 @@ sequence|table|16427|16429|1
       <StateNumber>497</StateNumber>
       <UnderlyingIndexId>16395</UnderlyingIndexId>
     </key>
-    <column id="284" parent="257" name="id">
+    <column id="285" parent="257" name="id">
       <DataType>bigint|0s</DataType>
       <DefaultExpression>nextval(&apos;users_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
@@ -4933,7 +4939,7 @@ sequence|table|16427|16429|1
       <StateNumber>508</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <column id="285" parent="257" name="email">
+    <column id="286" parent="257" name="email">
       <DataType>varchar|0s</DataType>
       <DefaultExpression>&apos;&apos;::character varying</DefaultExpression>
       <NotNull>1</NotNull>
@@ -4941,7 +4947,7 @@ sequence|table|16427|16429|1
       <StateNumber>508</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="286" parent="257" name="encrypted_password">
+    <column id="287" parent="257" name="encrypted_password">
       <DataType>varchar|0s</DataType>
       <DefaultExpression>&apos;&apos;::character varying</DefaultExpression>
       <NotNull>1</NotNull>
@@ -4949,46 +4955,46 @@ sequence|table|16427|16429|1
       <StateNumber>508</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="287" parent="257" name="reset_password_token">
+    <column id="288" parent="257" name="reset_password_token">
       <DataType>varchar|0s</DataType>
       <Position>4</Position>
       <StateNumber>508</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="288" parent="257" name="reset_password_sent_at">
+    <column id="289" parent="257" name="reset_password_sent_at">
       <DataType>timestamp(6)|0s</DataType>
       <Position>5</Position>
       <StateNumber>508</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <column id="289" parent="257" name="remember_created_at">
+    <column id="290" parent="257" name="remember_created_at">
       <DataType>timestamp(6)|0s</DataType>
       <Position>6</Position>
       <StateNumber>508</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <column id="290" parent="257" name="created_at">
+    <column id="291" parent="257" name="created_at">
       <DataType>timestamp(6)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>7</Position>
       <StateNumber>508</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <column id="291" parent="257" name="updated_at">
+    <column id="292" parent="257" name="updated_at">
       <DataType>timestamp(6)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>8</Position>
       <StateNumber>508</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <column id="292" parent="257" name="admin">
+    <column id="293" parent="257" name="admin">
       <DataType>boolean|0s</DataType>
       <DefaultExpression>false</DefaultExpression>
       <Position>9</Position>
       <StateNumber>509</StateNumber>
       <TypeId>16</TypeId>
     </column>
-    <index id="293" parent="257" name="users_pkey">
+    <index id="294" parent="257" name="users_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16438</ObjectId>
@@ -4997,7 +5003,7 @@ sequence|table|16427|16429|1
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <index id="294" parent="257" name="index_users_on_email">
+    <index id="295" parent="257" name="index_users_on_email">
       <ColNames>email</ColNames>
       <ObjectId>16440</ObjectId>
       <StateNumber>508</StateNumber>
@@ -5007,7 +5013,7 @@ sequence|table|16427|16429|1
       <CollationIds>100</CollationIds>
       <CollationParentNames>pg_catalog</CollationParentNames>
     </index>
-    <index id="295" parent="257" name="index_users_on_reset_password_token">
+    <index id="296" parent="257" name="index_users_on_reset_password_token">
       <ColNames>reset_password_token</ColNames>
       <ObjectId>16441</ObjectId>
       <StateNumber>508</StateNumber>
@@ -5017,7 +5023,7 @@ sequence|table|16427|16429|1
       <CollationIds>100</CollationIds>
       <CollationParentNames>pg_catalog</CollationParentNames>
     </index>
-    <key id="296" parent="257" name="users_pkey">
+    <key id="297" parent="257" name="users_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16439</ObjectId>

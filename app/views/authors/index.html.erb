@@ -1,0 +1,11 @@
+<h1 class='card-title'>Authors</h1>
+
+<% @authors.each do |author| %>
+  <div class="card mb-2">
+    <div class="card-body">
+      <h5 class="card-title"><%= link_to author.full_name, author_path(author) %></h5>
+    </div>
+  </div>
+<% end %>
+
+<%= link_to "New author", new_author_path %>

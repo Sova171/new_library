@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   root "books#index"
 
-  #get "/books/:id", to: "books#show"
   resources :books
+  resources :authors
   get "/search", to: "books#search"
 end

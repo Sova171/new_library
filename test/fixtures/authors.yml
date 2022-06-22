@@ -2,8 +2,10 @@
 
 one:
   full_name: MyString
-  birth_date: 2022-06-21 17:33:13
+  birthdate: 2022-06-22
+  biography: MyText
 
 two:
   full_name: MyString
-  birth_date: 2022-06-21 17:33:13
+  birthdate: 2022-06-22
+  biography: MyText
