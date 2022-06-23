@@ -1,11 +1,11 @@
-<% if user_signed_in? && current_user.admin? %>
-  <h5 class="card-subtitle mb-2 text-muted">Welcome admin</h5>
-<% end %>
-
 <div class="card-title d-flex justify-content-between ">
-  <h1 class='card-title'>Authors</h1>
-  <%= link_to "New author", new_author_path %>
+  <% if user_signed_in? && current_user.admin? %>
+    <h5 class="card-subtitle mb-2 text-muted">Welcome admin</h5>
+    <%= link_to "New author", new_author_path %>
+  <% end %>
 </div>
+
+<h1 class='card-title'>Authors</h1>
 
 <% @authors.each do |author| %>
   <div class="card mb-2">

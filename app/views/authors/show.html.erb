@@ -10,8 +10,8 @@
     <%= @author.biography %><br>
   </div>
 
-  <div>
-    <% if user_signed_in? && current_user.admin? %>
+  <% if user_signed_in? && current_user.admin? %>
+    <div>
       <ul class="navbar-nav ms-auto">
         <li><%= link_to "Edit", edit_author_path(@author) %></li>
         <li><%= link_to "Destroy", author_path(@author), data: {
@@ -19,6 +19,14 @@
           turbo_confirm: "Are you sure?"
         }, class: "text-danger"%></li>
       </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <% if @author.avatar.attached? %>
+      <%= image_tag @author.avatar, width: "250pt" %>
+    <% else %>
+      <%= image_tag("NoAvatarImg.png", option = {height: "250pt"}) %>
     <% end %>
   </div>
 </div>
