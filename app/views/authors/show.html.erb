@@ -8,6 +8,15 @@
 
     <strong>Biography:</strong>
     <%= @author.biography %><br>
+
+    <% unless @author.books.empty?%>
+      <strong>Books:</strong>
+      <% @author.books.each do |book| %>
+        <ul>
+          <li><%= link_to book.title, book_path(book) %></li>
+        </ul>
+      <% end %>
+    <% end %>
   </div>
 
   <% if user_signed_in? && current_user.admin? %>

@@ -4,17 +4,14 @@
     <list default="true" id="ed8278cd-8f5f-4282-abbf-58d9f9a86d58" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/5d39c553-bc30-45ed-be7d-0ea6c270da4d.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/5d39c553-bc30-45ed-be7d-0ea6c270da4d.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/5d39c553-bc30-45ed-be7d-0ea6c270da4d/storage_v2/_src_/database/library_development.t98N4g/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/5d39c553-bc30-45ed-be7d-0ea6c270da4d/storage_v2/_src_/database/library_development.t98N4g/schema/public.abK9xQ.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/library.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/library.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/authors_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/authors_controller.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/books_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/books_controller.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/author.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/author.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/book.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/book.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/authors/_form.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/authors/_form.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/authors/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/authors/index.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/authors/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/authors/show.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/books/_form.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/books/_form.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/books/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/books/index.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/books/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/books/show.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.rb" afterDir="false" />
     </list>
@@ -172,6 +169,9 @@
       <workItem from="1655817000364" duration="6115000" />
       <workItem from="1655883478775" duration="28447000" />
       <workItem from="1655971195684" duration="4608000" />
+      <workItem from="1655987164389" duration="4765000" />
+      <workItem from="1655993526017" duration="5410000" />
+      <workItem from="1656060568030" duration="605000" />
     </task>
     <servers />
   </component>

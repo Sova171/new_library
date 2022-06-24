@@ -4,6 +4,15 @@
     <%= form.file_field :avatar%>
   </div>
 
+  <div>
+    <h5>Books:</h5>
+    <%= form.collection_check_boxes(:book_ids, Book.all, :id, :title) do |i| %>
+      <%= i.label { i.check_box } %>
+      <%= i.label %>
+      <br>
+    <% end %>
+  </div>
+
   <div class="form-group mb-2">
     <%= form.date_select :birthdate, start_year: 1800, end_year: Time.now.year , class: 'form-control', placeholder: "Birthdate" %>
   </div>

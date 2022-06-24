@@ -14,6 +14,15 @@
 
     <strong>Publisher:</strong>
     <%= @book.publisher %><br>
+
+    <% unless @book.authors.empty?%>
+      <strong>Authors:</strong>
+      <% @book.authors.each do |author| %>
+        <ul>
+          <li><%= link_to author.full_name, author_path(author) %></li>
+        </ul>
+      <% end %>
+    <% end %>
   </div>
 
   <div>
