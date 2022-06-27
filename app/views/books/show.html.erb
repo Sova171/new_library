@@ -1,3 +1,23 @@
+<div class="float-right">
+  <% if user_signed_in? && current_user.admin? %>
+    <ul class="navbar-nav ms-auto">
+      <li><%= link_to "Edit", edit_book_path(@book) %></li>
+      <li><%= link_to "Destroy", book_path(@book), data: {
+        turbo_method: :delete,
+        turbo_confirm: "Are you sure?"
+      }, class: "text-danger"%></li>
+    </ul>
+  <% else %>
+    <strong>Favorite:</strong>
+
+    <% if !user_signed_in? ||  !current_user.following_book?(@book)%>
+      <%= link_to image_tag("star-empty.jpg", option = {height: "25px"}), { controller: 'favorites', action: "create", id: @book }, method: :post %>
+    <% else %>
+      <%= link_to image_tag("star.jpg", option = {height: "25px"}), { controller: 'favorites', action: "destroy", id: @book }, remote: true, method: :delete %>
+    <% end %>
+  <% end %>
+</div>
+
 <div class="card-title d-flex justify-content-between ">
   <div>
     <strong>Name:</strong>
@@ -21,24 +41,6 @@
         <ul>
           <li><%= link_to author.full_name, author_path(author) %></li>
         </ul>
-      <% end %>
-    <% end %>
-  </div>
-
-  <div>
-    <% if user_signed_in? && current_user.admin? %>
-      <ul class="navbar-nav ms-auto">
-        <li><%= link_to "Edit", edit_book_path(@book) %></li>
-        <li><%= link_to "Destroy", book_path(@book), data: {
-          turbo_method: :delete,
-          turbo_confirm: "Are you sure?"
-        }, class: "text-danger"%></li>
-      </ul>
-    <% else %>
-      <% if !user_signed_in? ||  !current_user.following_book?(@book)%>
-        <%= link_to image_tag("star-empty.jpg", option = {height: "25px"}), { controller: 'favorites', action: "create", id: @book }, method: :post %>
-      <% else %>
-        <%= link_to image_tag("star.jpg", option = {height: "25px"}), { controller: 'favorites', action: "destroy", id: @book }, remote: true, method: :delete %>
       <% end %>
     <% end %>
   </div>

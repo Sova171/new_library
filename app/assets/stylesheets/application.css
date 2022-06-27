@@ -17,3 +17,9 @@
 body {
     background: url('back1.jpg');
 }
+
+.float-right {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}

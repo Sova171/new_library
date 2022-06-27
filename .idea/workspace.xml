@@ -3,9 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="ed8278cd-8f5f-4282-abbf-58d9f9a86d58" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/favorites_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/favorites_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/application.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/application.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/books/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/books/show.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/favorites/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/favorites/index.html.erb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -165,7 +164,7 @@
       <workItem from="1655993526017" duration="5410000" />
       <workItem from="1656060568030" duration="4159000" />
       <workItem from="1656075441533" duration="14306000" />
-      <workItem from="1656307055037" duration="7593000" />
+      <workItem from="1656307055037" duration="12294000" />
     </task>
     <servers />
   </component>
