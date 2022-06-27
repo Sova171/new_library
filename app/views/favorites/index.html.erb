@@ -7,11 +7,18 @@
   <% books.push(Book.find(book)) %>
 <% end %>
 
-<% books.each do |book| %>
-  <% if book.cover.attached? %>
-    <%= image_tag book.cover, width: "250pt" %>
-  <% else %>
-    <%= image_tag("NoBookCover.png", option = {height: "250pt"}) %>
-  <% end %>
-<% end %>
+<div class="row">
+  <% books.each do |book| %>
+    <div class="card text-center mx-auto mb-3" style="width: 18rem;">
+      <% if book.cover.attached? %>
+        <%= link_to image_tag( book.cover, width: "250pt" ), book_path(book), class: "card-img-top"%>
+      <% else %>
+        <%= link_to image_tag( "NoBookCover.png", width: "250pt" ), book_path(book), class: "card-img-top" %>
+      <% end %>
 
+      <div class="card-body">
+        <%= book.title %>
+      </div>
+    </div>
+  <% end %>
+</div>
