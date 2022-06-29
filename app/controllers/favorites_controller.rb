@@ -9,8 +9,8 @@ class FavoritesController < ApplicationController
     if !user_signed_in?
       redirect_to new_user_session_path, notice: "You need to be signed in"
     else
-    current_user.follow_book(@book)
-    redirect_back(fallback_location:"/")
+      current_user.follow_book(@book)
+      redirect_back(fallback_location:"/")
     end
   end
 
