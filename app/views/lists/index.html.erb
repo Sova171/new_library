@@ -8,11 +8,11 @@
     <div class="card mb-2">
       <div class="card-body">
         <div class="float-center"><%= link_to list.name, user_list_path(current_user, list) %></div>
-        <div><%= link_to "Destroy", user_list_path(current_user, list), data: {
+        <div class="float-right"><%= link_to "Destroy", user_list_path(current_user, list), data: {
           turbo_method: :delete,
           turbo_confirm: "Are you sure?"
         }, class: "text-danger"%></div>
-      </div>
+        </div>
     </div>
   <% end %>
 <% end %>

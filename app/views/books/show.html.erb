@@ -56,7 +56,7 @@
 
 <% unless current_user.lists.none? %>
   <%= form_with(scope: "list") do |f| %>
-    <%= f.select :id, List.all.where(user_id: current_user.id).map { |list| [list.name, list.id]} %>
+    <%= f.select :id, List.all.where(user_id: current_user.id).map { |list| [list.name, list.id]}, { include_blank: true } %>
     <%= f.submit class: 'btn btn-outline-success'%>
   <% end %>
 <% end %>
