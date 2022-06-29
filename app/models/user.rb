@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   has_many :favorites, class_name: "Favorite", foreign_key: :user_id, dependent: :destroy
   has_many :favorites_book, through: :favorites, source: :book
-  has_many :lists
+  has_many :lists, dependent: :destroy
 
   def follow_book(book)
     favorites.create(book_id: book.id)
