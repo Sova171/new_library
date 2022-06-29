@@ -9,9 +9,12 @@ Rails.application.routes.draw do
 
   resources :books
   resources :authors
-  get "/search", to: "books#search"
 
-  #resource :favorite, only: [ :index, :create, :destroy ]
+  resources :users do
+    resources :lists
+  end
+
+  get "/search", to: "books#search"
   get "/favorites/:id", to: "favorites#destroy"
   get "/favorites", to: "favorites#create"
   get "/favorite_books", to: "favorites#index"

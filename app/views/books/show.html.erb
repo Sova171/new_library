@@ -54,5 +54,12 @@
   </div>
 </div>
 
+<% unless current_user.lists.none? %>
+  <%= form_with(scope: "list") do |f| %>
+    <%= f.select :id, List.all.where(user_id: current_user.id).map { |list| [list.name, list.id]} %>
+    <%= f.submit class: 'btn btn-outline-success'%>
+  <% end %>
+<% end %>
+
 <%= link_to "Back to books", root_path %>
 
