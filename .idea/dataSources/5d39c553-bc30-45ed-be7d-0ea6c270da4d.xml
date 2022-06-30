@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="postgres@localhost">
-  <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.39">
+  <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.40">
     <root id="1">
       <DateStyle>dmy</DateStyle>
       <ServerVersion>12.11</ServerVersion>
@@ -4863,7 +4863,6 @@ sequence|table|16582|16584|1
       <ObjectId>16477</ObjectId>
       <RefColNames>id</RefColNames>
       <RefColPositions>1</RefColPositions>
-      <RefKeyName>active_storage_blobs_pkey</RefKeyName>
       <StateNumber>543</StateNumber>
       <RefTableId>16456</RefTableId>
       <RefTableName>active_storage_blobs</RefTableName>
@@ -4904,7 +4903,6 @@ pg_catalog</CollationParentNames>
       <AccessMethodId>403</AccessMethodId>
     </index>
     <key id="281" parent="259" name="active_storage_attachments_pkey">
-      <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16476</ObjectId>
       <Primary>1</Primary>
@@ -4992,7 +4990,6 @@ pg_catalog</CollationParentNames>
       <CollationParentNames>pg_catalog</CollationParentNames>
     </index>
     <key id="293" parent="260" name="active_storage_blobs_pkey">
-      <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16464</ObjectId>
       <Primary>1</Primary>
@@ -5026,7 +5023,6 @@ pg_catalog</CollationParentNames>
       <ObjectId>16495</ObjectId>
       <RefColNames>id</RefColNames>
       <RefColPositions>1</RefColPositions>
-      <RefKeyName>active_storage_blobs_pkey</RefKeyName>
       <StateNumber>543</StateNumber>
       <RefTableId>16456</RefTableId>
       <RefTableName>active_storage_blobs</RefTableName>
@@ -5056,7 +5052,6 @@ pg_catalog</CollationParentNames>
 default</CollationNames>
     </index>
     <key id="300" parent="261" name="active_storage_variant_records_pkey">
-      <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16494</ObjectId>
       <Primary>1</Primary>
@@ -5103,7 +5098,6 @@ default</CollationNames>
       <CollationParentNames>pg_catalog</CollationParentNames>
     </index>
     <key id="306" parent="262" name="ar_internal_metadata_pkey">
-      <ColNames>key</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16404</ObjectId>
       <Primary>1</Primary>
@@ -5160,7 +5154,6 @@ default</CollationNames>
       <AccessMethodId>403</AccessMethodId>
     </index>
     <key id="314" parent="263" name="authors_pkey">
-      <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16453</ObjectId>
       <Primary>1</Primary>
@@ -5255,7 +5248,6 @@ default</CollationNames>
       <AccessMethodId>403</AccessMethodId>
     </index>
     <key id="328" parent="265" name="books_pkey">
-      <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16415</ObjectId>
       <Primary>1</Primary>
@@ -5326,7 +5318,6 @@ list_id</ColNames>
       <AccessMethodId>403</AccessMethodId>
     </index>
     <key id="338" parent="266" name="books_lists_pkey">
-      <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16589</ObjectId>
       <Primary>1</Primary>
@@ -5397,7 +5388,6 @@ user_id</ColNames>
       <AccessMethodId>403</AccessMethodId>
     </index>
     <key id="348" parent="267" name="favorites_pkey">
-      <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16561</ObjectId>
       <Primary>1</Primary>
@@ -5444,7 +5434,6 @@ user_id</ColNames>
       <ObjectId>16576</ObjectId>
       <RefColNames>id</RefColNames>
       <RefColPositions>1</RefColPositions>
-      <RefKeyName>users_pkey</RefKeyName>
       <StateNumber>713</StateNumber>
       <RefTableId>16429</RefTableId>
       <RefTableName>users</RefTableName>
@@ -5466,7 +5455,6 @@ user_id</ColNames>
       <AccessMethodId>403</AccessMethodId>
     </index>
     <key id="357" parent="268" name="lists_pkey">
-      <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16575</ObjectId>
       <Primary>1</Primary>
@@ -5493,7 +5481,6 @@ user_id</ColNames>
       <CollationParentNames>pg_catalog</CollationParentNames>
     </index>
     <key id="360" parent="269" name="schema_migrations_pkey">
-      <ColNames>version</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16396</ObjectId>
       <Primary>1</Primary>
@@ -5593,7 +5580,6 @@ user_id</ColNames>
       <CollationParentNames>pg_catalog</CollationParentNames>
     </index>
     <key id="373" parent="270" name="users_pkey">
-      <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16439</ObjectId>
       <Primary>1</Primary>

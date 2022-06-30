@@ -54,14 +54,16 @@
   </div>
 </div>
 
-<% unless current_user.lists.none? %>
-  <% List.all.where(user_id: current_user.id).each do |list| %>
-    <% if list.book_in_list?(@book) %>
-      <%= link_to "delete from list", { controller: 'books_lists', action: "destroy", id: @book, list_id: list.id }, remote: true, method: :delete %>
-      <%= list.name %><br>
-    <% else %>
-      <%= link_to "add to list", { controller: 'books_lists', action: "create", id: @book, list_id: list.id }, remote: true, method: :post %>
-      <%= list.name %><br>
+<% if user_signed_in? %>
+  <% unless current_user.lists.none? %>
+    <% List.all.where(user_id: current_user.id).each do |list| %>
+      <% if list.book_in_list?(@book) %>
+        <%= link_to "delete from list", { controller: 'books_lists', action: "destroy", id: @book, list_id: list.id }, remote: true, method: :delete %>
+        <%= list.name %><br>
+      <% else %>
+        <%= link_to "add to list", { controller: 'books_lists', action: "create", id: @book, list_id: list.id }, remote: true, method: :post %>
+        <%= list.name %><br>
+      <% end %>
     <% end %>
   <% end %>
 <% end %>
