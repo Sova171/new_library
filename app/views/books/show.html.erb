@@ -1,12 +1,11 @@
 <div class="float-right">
   <% if user_signed_in? && current_user.admin? %>
-    <ul class="navbar-nav ms-auto">
-      <li><%= link_to "Edit", edit_book_path(@book) %></li>
-      <li><%= link_to "Destroy", book_path(@book), data: {
+      <%= link_to "Edit", edit_book_path(@book) %>
+      <%= link_to "Destroy", book_path(@book), data: {
         turbo_method: :delete,
         turbo_confirm: "Are you sure?"
-      }, class: "text-danger"%></li>
-    </ul>
+      }, class: "text-danger"%>
+
   <% else %>
     <strong>Favorite:</strong>
 
@@ -67,6 +66,8 @@
     <% end %>
   <% end %>
 <% end %>
-<br>
+
+<%= pie_chart User.group(:admin).count %>
+
 <%= link_to "Back to books", root_path %>
 
