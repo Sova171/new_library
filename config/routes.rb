@@ -15,7 +15,11 @@ Rails.application.routes.draw do
   end
 
   get "/search", to: "books#search"
+
   get "/favorites/:id", to: "favorites#destroy"
   get "/favorites", to: "favorites#create"
   get "/favorite_books", to: "favorites#index"
+
+  get "/books_lists/:id", to: "books_lists#destroy"
+  get "/books_lists", to: "books_lists#create"
 end

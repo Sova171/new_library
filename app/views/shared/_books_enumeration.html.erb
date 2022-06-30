@@ -1,0 +1,10 @@
+<% books = [] %>
+
+<% books_id = [] %>
+<% books_ids.each{ |books| books_id.push(books.book_id) } %>
+
+<% books_id.each do |book| %>
+  <% books.push(Book.find(book)) %>
+<% end %>
+
+<%= render "shared/books_card", books: books %>

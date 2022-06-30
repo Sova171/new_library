@@ -1,10 +1,12 @@
 class ListsController < ApplicationController
+  before_action :find_list, only: [:show, :destroy]
+
   def index
     @lists = List.all.where(user_id: current_user.id)
   end
 
   def show
-    @list = List.find(params[:id])
+    @books_ids = BooksList.all.where(list_id: @list.id)
   end
 
   def create
@@ -14,13 +16,18 @@ class ListsController < ApplicationController
   end
 
   def destroy
-    @list = List.find(params[:id])
     @list.destroy
     redirect_to user_lists_path, alert: "List was successfully destroyed."
   end
 
   private
+
   def list_params
     params.require(:list).permit(:name)
   end
+
+  def find_list
+    @list = List.find(params[:id])
+  end
+
 end

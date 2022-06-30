@@ -10,7 +10,7 @@
   <% else %>
     <strong>Favorite:</strong>
 
-    <% if !user_signed_in? ||  !current_user.following_book?(@book)%>
+    <% if !user_signed_in? || !current_user.following_book?(@book)%>
       <%= link_to image_tag("star-empty.jpg", option = {height: "25px"}), { controller: 'favorites', action: "create", id: @book }, method: :post %>
     <% else %>
       <%= link_to image_tag("star.jpg", option = {height: "25px"}), { controller: 'favorites', action: "destroy", id: @book }, remote: true, method: :delete %>
@@ -55,11 +55,16 @@
 </div>
 
 <% unless current_user.lists.none? %>
-  <%= form_with(scope: "list") do |f| %>
-    <%= f.select :id, List.all.where(user_id: current_user.id).map { |list| [list.name, list.id]}, { include_blank: true } %>
-    <%= f.submit class: 'btn btn-outline-success'%>
+  <% List.all.where(user_id: current_user.id).each do |list| %>
+    <% if list.book_in_list?(@book) %>
+      <%= link_to "delete from list", { controller: 'books_lists', action: "destroy", id: @book, list_id: list.id }, remote: true, method: :delete %>
+      <%= list.name %><br>
+    <% else %>
+      <%= link_to "add to list", { controller: 'books_lists', action: "create", id: @book, list_id: list.id }, remote: true, method: :post %>
+      <%= list.name %><br>
+    <% end %>
   <% end %>
 <% end %>
-
+<br>
 <%= link_to "Back to books", root_path %>
 
