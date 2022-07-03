@@ -22,4 +22,7 @@ Rails.application.routes.draw do
 
   get "/books_lists/:id", to: "books_lists#destroy"
   get "/books_lists", to: "books_lists#create"
+
+  get "/rating_books/:id", to: "rating_books#destroy"
+  get "/rating_books", to: "rating_books#create"
 end
