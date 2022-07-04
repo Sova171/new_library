@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ed8278cd-8f5f-4282-abbf-58d9f9a86d58" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/library.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/library.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/books/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/books/show.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/database.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/database.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -172,6 +175,8 @@
       <workItem from="1656652639349" duration="20859000" />
       <workItem from="1656870473616" duration="768000" />
       <workItem from="1656912471116" duration="3955000" />
+      <workItem from="1656939551141" duration="2966000" />
+      <workItem from="1656942555818" duration="1185000" />
     </task>
     <servers />
   </component>
