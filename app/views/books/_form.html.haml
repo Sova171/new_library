@@ -1,0 +1,25 @@
+= form_with model: book do |form|
+  .form-group.mb-2
+    = form.file_field :cover
+  %div
+    %h5 Authors:
+    = form.collection_check_boxes(:author_ids, Author.all, :id, :full_name) do |i|
+      = i.label { i.check_box }
+      = i.label
+      %br/
+  .form-group.mb-2
+    - @book.errors.full_messages_for(:title).each do |message|
+      %div= message
+    = form.text_field :title, class: 'form-control w-50', placeholder: "Title"
+  .form-group.mb-2
+    - @book.errors.full_messages_for(:description).each do |message|
+      %div= message
+    = form.text_area :description, class: 'form-control w-50', placeholder: "Description"
+  .form-group.mb-2
+    = form.number_field :pages_count, class: 'form-control w-50', placeholder: "Pages count"
+  .form-group.mb-2
+    = form.text_field :published_at, class: 'form-control w-50', placeholder: "Published at"
+  .form-group.mb-2
+    = form.text_field :publisher, class: 'form-control w-50', placeholder: "Publisher"
+  .form-group.mb-2
+    = form.submit class: 'btn btn-outline-success'

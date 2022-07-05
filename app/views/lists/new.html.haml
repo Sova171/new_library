@@ -1,0 +1,7 @@
+%strong Add a list:
+= form_with model: [ current_user, current_user.lists.build ] do |form|
+  .form-group.mb-2
+    = form.text_field :name, class: 'form-control', placeholder: "Name of list"
+  .form-group.mb-2
+    = form.button :submit, class: 'btn btn-outline-success'
+= link_to "Back", user_lists_path, class: 'btn btn-outline-secondary btn-sm'

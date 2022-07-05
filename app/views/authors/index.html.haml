@@ -1,0 +1,9 @@
+.card-title.d-flex.justify-content-between
+  - if user_signed_in? && current_user.admin?
+    %h5.card-subtitle.mb-2.text-muted Welcome admin
+    = link_to "New author", new_author_path
+%h1.card-title Authors
+- @authors.each do |author|
+  .card.mb-2
+    .card-body
+      %h5.card-title= link_to author.full_name, author_path(author)

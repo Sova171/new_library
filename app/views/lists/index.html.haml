@@ -1,0 +1,15 @@
+%h2.card-title Lists:
+%h4
+  .float-center= link_to "Add list", new_user_list_path
+- if @lists.count == 0
+  %h4
+    .float-center No lists yet
+- else
+  - @lists.each do |list|
+    .card.mb-2
+      .card-body
+        .float-center= link_to list.name, user_list_path(current_user, list)
+        .float-right= link_to "Destroy", user_list_path(current_user, list), data: { |
+              turbo_method: :delete,                                       |
+              turbo_confirm: "Are you sure?"                               |
+            }, class: "text-danger"                                        |

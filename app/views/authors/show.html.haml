@@ -1,0 +1,30 @@
+.card-title.d-flex.justify-content-between
+  %div
+    %strong Name:
+    = @author.full_name
+    %br/
+    %strong Birthdate:
+    = @author.birthdate
+    %br/
+    %strong Biography:
+    = @author.biography
+    %br/
+    - unless @author.books.empty?
+      %strong Books:
+      - @author.books.each do |book|
+        %ul
+          %li= link_to book.title, book_path(book)
+  - if user_signed_in? && current_user.admin?
+    %div
+      %ul.navbar-nav.ms-auto
+        %li= link_to "Edit", edit_author_path(@author)
+        %li= link_to "Destroy", author_path(@author), data: { |
+              turbo_method: :delete,                         |
+              turbo_confirm: "Are you sure?"                 |
+            }, class: "text-danger"                          |
+  %div
+    - if @author.avatar.attached?
+      = image_tag @author.avatar, width: "250pt"
+    - else
+      = image_tag("NoAvatarImg.png", option = {height: "250pt"})
+= link_to "Back to authors", authors_path
