@@ -1,0 +1,30 @@
+Documentation:
+  Enabled: false
+
+Metrics/CyclomaticComplexity:
+  Exclude:
+    - "bin/bundle"
+
+Metrics/MethodLength:
+  Exclude:
+    - "bin/bundle"
+    - "db/migrate/20220623085059_create_active_storage_tables.active_storage.rb"
+
+Metrics/PerceivedComplexity:
+  Exclude:
+    - "bin/bundle"
+
+Layout/LineLength:
+  Exclude:
+    - "bin/bundle"
+    - "config/initializers/devise.rb"
+    - "db/seeds.rb"
+
+Metrics/BlockLength:
+  Exclude:
+    - "db/schema.rb"
+
+Metrics/AbcSize:
+  Exclude:
+    - "db/migrate/20220623085059_create_active_storage_tables.active_storage.rb"
+

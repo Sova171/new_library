@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RatingBooksController < ApplicationController
   before_action :find_book, :find_rating
 

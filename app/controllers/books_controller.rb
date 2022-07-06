@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class BooksController < ApplicationController
   before_action :find_book, only: %i[show edit destroy update]
 
@@ -42,7 +44,7 @@ class BooksController < ApplicationController
       redirect_to root_path
     else
       @parameter = params[:search].downcase
-      @results = Book.all.where("lower(title) LIKE :search", search: "%#{@parameter}%")
+      @results = Book.all.where('lower(title) LIKE :search', search: "%#{@parameter}%")
     end
   end
 
@@ -55,5 +57,4 @@ class BooksController < ApplicationController
   def book_params
     params.require(:book).permit(:title, :description, :pages_count, :published_at, :publisher, :cover, author_ids: [])
   end
-
 end

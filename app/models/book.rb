@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Book < ApplicationRecord
   MIN_DESCRIPTION_LENGTH = 5
   has_one_attached :cover

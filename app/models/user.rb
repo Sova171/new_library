@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -6,8 +8,8 @@ class User < ApplicationRecord
 
   has_many :lists, dependent: :destroy
 
-  #favorite
-  has_many :favorites, class_name: "Favorite", foreign_key: :user_id, dependent: :destroy
+  # favorite
+  has_many :favorites, class_name: 'Favorite', foreign_key: :user_id, dependent: :destroy
   has_many :favorites_book, through: :favorites, source: :book
 
   def follow_book(book)
@@ -22,8 +24,8 @@ class User < ApplicationRecord
     favorites_book.include?(book)
   end
 
-  #rating
-  has_many :ratings, class_name: "RatingBook", foreign_key: :user_id, dependent: :destroy
+  # rating
+  has_many :ratings, class_name: 'RatingBook', foreign_key: :user_id, dependent: :destroy
   has_many :ratings_book, through: :ratings, source: :book
 
   def rating_book(book, rating)

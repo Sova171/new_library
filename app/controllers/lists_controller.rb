@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class ListsController < ApplicationController
-  before_action :find_list, only: [:show, :destroy]
+  before_action :find_list, only: %i[show destroy]
 
   def index
     @lists = List.all.where(user_id: current_user.id)
@@ -12,12 +14,12 @@ class ListsController < ApplicationController
   def create
     @user = User.find(params[:user_id])
     @list = @user.lists.create(list_params)
-    redirect_to user_lists_path, notice: "List was successfully created."
+    redirect_to user_lists_path, notice: 'List was successfully created.'
   end
 
   def destroy
     @list.destroy
-    redirect_to user_lists_path, alert: "List was successfully destroyed."
+    redirect_to user_lists_path, alert: 'List was successfully destroyed.'
   end
 
   private
@@ -29,5 +31,4 @@ class ListsController < ApplicationController
   def find_list
     @list = List.find(params[:id])
   end
-
 end
