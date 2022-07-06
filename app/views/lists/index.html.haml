@@ -1,9 +1,9 @@
 %h2.card-title Lists:
 %h4
-  .float-center= link_to "Add list", new_user_list_path
+  .align-center= link_to "Add list", new_user_list_path
 - if @lists.count == 0
   %h4
-    .float-center No lists yet
+    .align-center No lists yet
 - else
   - @lists.each do |list|
     .card.mb-2

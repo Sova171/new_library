@@ -1,4 +1,4 @@
-.float-right
+.align-right
   - if user_signed_in? && current_user.admin?
     = link_to "Edit", edit_book_path(@book)
     = link_to "Destroy", book_path(@book), data: { |

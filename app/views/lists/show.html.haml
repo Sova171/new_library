@@ -1,11 +1,11 @@
-%h5.float-center= @list.name
+%h5.align-center= @list.name
 - books = []
 - books_id = []
 - @books_ids.each{ |books| books_id.push(books.book_id) }
 - books_id.each do |book|
   - books.push(Book.find(book))
 - if books.empty?
-  %h6.float-center You got nothing here yet
+  %h6.align-center You got nothing here yet
 .row
   - books.each do |book|
     .card.text-center.mx-auto.mb-3{:style => "width: 18rem;"}

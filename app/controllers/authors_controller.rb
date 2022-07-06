@@ -1,12 +1,11 @@
 class AuthorsController < ApplicationController
-  before_action :find_author, only: [:show, :edit, :destroy, :update]
+  before_action :find_author, only: %i[show edit destroy update]
 
   def index
-    @authors = Author.all.order('created_at')
+    @authors = Author.all.order(:created_at)
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @author = Author.new
@@ -22,8 +21,7 @@ class AuthorsController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @author.update(author_params)
@@ -46,7 +44,7 @@ class AuthorsController < ApplicationController
   end
 
   def author_params
-    params.require(:author).permit(:full_name, :birthdate, :biography, :avatar, :book_ids => [])
+    params.require(:author).permit(:full_name, :birthdate, :biography, :avatar, book_ids: [])
   end
 
 end
