@@ -8,8 +8,8 @@
   - @lists.each do |list|
     .card.mb-2
       .card-body
-        .float-center= link_to list.name, user_list_path(current_user, list)
-        .float-right= link_to "Destroy", user_list_path(current_user, list), data: { |
+        .align-center= link_to list.name, user_list_path(current_user, list)
+        .align-right= link_to "Destroy", user_list_path(current_user, list), data: { |
               turbo_method: :delete,                                       |
               turbo_confirm: "Are you sure?"                               |
             }, class: "text-danger"                                        |

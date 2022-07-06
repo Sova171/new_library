@@ -31,3 +31,8 @@
 
 en:
   hello: "Hello world"
+  books_lists:
+    create:
+      success_message: "Book %{book} was added to list %{list}"
+    delete:
+      destroy_message: "Book %{book} was deleted from list %{list}"

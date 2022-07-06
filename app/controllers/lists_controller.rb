@@ -4,7 +4,7 @@ class ListsController < ApplicationController
   before_action :find_list, only: %i[show destroy]
 
   def index
-    @lists = List.all.where(user_id: current_user.id)
+    @lists = current_user.lists
   end
 
   def show

@@ -5,14 +5,14 @@ class BooksListsController < ApplicationController
 
   def create
     @list.add_book_to_list(@book)
-    flash[:notice] = "#{@book.title} was added to list #{@list.name}" if @list.book_in_list?(@book)
-    redirect_back(fallback_location: '/')
+    flash[:notice] = I18n.t('books_lists.create.success_message', list: @list.name, book: @book.title)
+    redirect_back(fallback_location: 'root_path')
   end
 
   def destroy
     @list.delete_book_from_list(@book)
-    flash[:notice] = "#{@book.title} was deleted from list #{@list.name}" unless @list.book_in_list?(@book)
-    redirect_back(fallback_location: '/')
+    flash[:notice] = I18n.t('books_lists.delete.destroy_message', list: @list.name, book: @book.title)
+    redirect_back(fallback_location: 'root_path')
   end
 
   def find_book
