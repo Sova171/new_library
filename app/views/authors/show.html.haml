@@ -17,8 +17,8 @@
   - if user_signed_in? && current_user.admin?
     %div
       %ul.navbar-nav.ms-auto
-        %li= link_to "Edit", edit_author_path(@author)
-        %li= link_to "Destroy", author_path(@author), data: { |
+        %li= link_to t('author.edit'), edit_author_path(@author)
+        %li= link_to t('author.delete'), author_path(@author), data: { |
               turbo_method: :delete,                         |
               turbo_confirm: "Are you sure?"                 |
             }, class: "text-danger"                          |
@@ -27,4 +27,4 @@
       = image_tag @author.avatar, width: "250pt"
     - else
       = image_tag("NoAvatarImg.png", option = {height: "250pt"})
-= link_to "Back to authors", authors_path
+= link_to t('author.back'), authors_path

@@ -19,10 +19,13 @@ Layout/LineLength:
     - "bin/bundle"
     - "config/initializers/devise.rb"
     - "db/seeds.rb"
+    - "config/initializers/simple_form_bootstrap.rb"
+    - "config/initializers/simple_form.rb"
 
 Metrics/BlockLength:
   Exclude:
     - "db/schema.rb"
+    - "config/initializers/simple_form_bootstrap.rb"
 
 Metrics/AbcSize:
   Exclude:

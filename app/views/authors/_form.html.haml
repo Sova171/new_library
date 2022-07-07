@@ -1,19 +1,15 @@
-= form_with model: author do |form|
+= simple_form_for @author do |f|
   .form-group.mb-2
-    = form.file_field :avatar
-  %div
-    %h5 Books:
-    = form.collection_check_boxes(:book_ids, Book.all, :id, :title) do |i|
-      = i.label { i.check_box }
-      = i.label
-      %br/
+    = f.file_field :avatar
   .form-group.mb-2
-    = form.date_select :birthdate, start_year: 1800, end_year: Time.now.year
+    = f.association :books, as: :check_boxes, item_wrapper_class: "inline_block"
+  .form-group.mb-2
+    = f.date_select :birthdate, start_year: 1800, end_year: Time.now.year
   .form-group.mb-2
     - @author.errors.full_messages_for(:full_name).each do |message|
       %div= message
-    = form.text_field :full_name, class: 'form-control w-50', placeholder: "Full name"
+    = f.text_field :full_name, class: 'form-control w-50', placeholder: t('author.name')
   .form-group.mb-2
-    = form.text_area :biography, class: 'form-control w-50', placeholder: "Biography"
+    = f.text_area :biography, class: 'form-control w-50', placeholder: t('author.biography')
   .form-group.mb-2
-    = form.submit class: 'btn btn-outline-success'
+    = f.button :submit, class: 'btn btn-outline-success'

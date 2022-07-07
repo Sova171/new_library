@@ -31,6 +31,21 @@
 
 en:
   hello: "Hello world"
+
+  author:
+    name: "Full name"
+    biography: "Biography"
+    edit: "Edit author"
+    new: "New author"
+    delete: "Destroy"
+    back: "Back to authors"
+
+  admin: "Welcome admin"
+
+  book:
+    new: "New book"
+    search: "Search books"
+
   books_lists:
     create:
       success_message: "List was successfully created"
@@ -40,3 +55,6 @@ en:
       success_message: "Book %{book} was added to list %{list}"
     delete_book:
       destroy_message: "Book %{book} was deleted from list %{list}"
+
+  button:
+    search: "Search"

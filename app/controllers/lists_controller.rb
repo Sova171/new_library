@@ -8,7 +8,9 @@ class ListsController < ApplicationController
   end
 
   def show
-    @books_ids = @list.books_lists # need some refactor
+    @books = []
+    @books_id = @list.books_lists.map(&:book_id)
+    @books_id.each{ |book| @books.push(Book.find(book))}
   end
 
   def create

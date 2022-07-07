@@ -1,1 +1,4 @@
-= render "shared/books_enumeration", books_ids: @favorite_books
+%h5.align-center My favorites
+- if @favorite_books.empty?
+  %h6.align-center You got nothing here yet
+= render "shared/books_card", books: @favorite_books, which_controller: 'favorites', additional_component: false, delete: true

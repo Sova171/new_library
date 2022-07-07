@@ -1,19 +1,4 @@
 %h5.align-center= @list.name
-- books = []
-- books_id = []
-- @books_ids.each{ |books| books_id.push(books.book_id) }
-- books_id.each do |book|
-  - books.push(Book.find(book))
-- if books.empty?
+- if @books.empty?
   %h6.align-center You got nothing here yet
-.row
-  - books.each do |book|
-    .card.text-center.mx-auto.mb-3{:style => "width: 18rem;"}
-      - if book.cover.attached?
-        = link_to image_tag( book.cover, width: "250pt" ), book_path(book), class: "card-img-top"
-      - else
-        = link_to image_tag( "NoBookCover.png", width: "250pt" ), book_path(book), class: "card-img-top"
-      .card-body
-        = book.title
-        %br/
-        = link_to "Delete", { controller: 'books_lists', action: "destroy", id: book, list_id: @list }, remote: true, method: :delete
+= render "shared/books_card", books: @books, which_controller: 'books_lists', component: @list, additional_component:true, delete: true
