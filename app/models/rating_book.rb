@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class RatingBook < ApplicationRecord
-  belongs_to :book, class_name: 'Book'
-  belongs_to :user, class_name: 'User'
-  belongs_to :rating, class_name: 'Rating'
+  belongs_to :book
+  belongs_to :user
+  belongs_to :rating
 end

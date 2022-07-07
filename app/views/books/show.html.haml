@@ -53,7 +53,7 @@
   .card-title.d-flex.justify-content-between
     %div
       - Rating.all.each do |rating|
-        - if current_user.already_rating?(@book) && rating.id == RatingBook.find_by(book_id: @book.id, user_id: current_user.id).rating_id
+        - if current_user.already_rated?(@book) && rating.id == RatingBook.find_by(book_id: @book.id, user_id: current_user.id).rating_id
           = link_to rating.title, { controller: 'rating_books', action: "destroy", id: @book, rating_id: rating.id }, remote: true, method: :delete, class: "btn btn-success"
           %br/
         - else
@@ -63,7 +63,7 @@
     - votes = Hash.new
     - rating = RatingBook.all.where(book_id: @book.id)
     - Rating.all.each do |vote|
-      - votes[vote.title] = rating.all.where(rating_id: counter).count
+      - votes[vote.title] = rating.where(rating_id: counter).count
       - counter += 1
     = pie_chart votes
   = link_to "Back to books", root_path

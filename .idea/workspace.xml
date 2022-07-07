@@ -2,14 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ed8278cd-8f5f-4282-abbf-58d9f9a86d58" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/5d39c553-bc30-45ed-be7d-0ea6c270da4d.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/5d39c553-bc30-45ed-be7d-0ea6c270da4d.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/5d39c553-bc30-45ed-be7d-0ea6c270da4d/storage_v2/_src_/database/library_development.t98N4g/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/5d39c553-bc30-45ed-be7d-0ea6c270da4d/storage_v2/_src_/database/library_development.t98N4g/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/books_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/books_controller.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/books_lists_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/books_lists_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/favorites_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/favorites_controller.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/lists_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/lists_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/lists/index.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/lists/index.html.haml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/rating_books_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/rating_books_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/helpers/application_helper.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/helpers/authors_helper.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/helpers/books_helper.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/helpers/books_lists_helper.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/helpers/favorites_helper.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/helpers/lists_helper.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/helpers/rating_books_helper.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/book.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/book.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/books_list.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/books_list.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/favorite.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/favorite.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/list.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/list.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/rating_book.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/rating_book.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/user.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/user.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/books/show.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/books/show.html.haml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/locales/en.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/locales/en.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -191,7 +201,8 @@
       <workItem from="1656939551141" duration="2966000" />
       <workItem from="1656942555818" duration="1185000" />
       <workItem from="1657091515383" duration="9848000" />
-      <workItem from="1657121505384" duration="1215000" />
+      <workItem from="1657121505384" duration="2062000" />
+      <workItem from="1657173174121" duration="4176000" />
     </task>
     <servers />
   </component>

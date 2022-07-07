@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_many :lists, dependent: :destroy
 
   # favorite
-  has_many :favorites, class_name: 'Favorite', foreign_key: :user_id, dependent: :destroy
+  has_many :favorites, foreign_key: :user_id, dependent: :destroy
   has_many :favorites_book, through: :favorites, source: :book
 
   def follow_book(book)
@@ -25,18 +25,18 @@ class User < ApplicationRecord
   end
 
   # rating
-  has_many :ratings, class_name: 'RatingBook', foreign_key: :user_id, dependent: :destroy
-  has_many :ratings_book, through: :ratings, source: :book
+  has_many :rating_books, foreign_key: :user_id, dependent: :destroy
+  has_many :rating, through: :rating_books, source: :book
 
-  def rating_book(book, rating)
-    ratings.create(book_id: book.id, rating_id: rating)
+  def rate_book(book, rating)
+    rating_books.create(book_id: book.id, rating_id: rating)
   end
 
-  def unrating_book(book)
-    ratings.find_by(book_id: book.id).destroy
+  def delete_rating(book)
+    rating_books.find_by(book_id: book.id).destroy
   end
 
-  def already_rating?(book)
-    ratings_book.include?(book)
+  def already_rated?(book)
+    rating.include?(book)
   end
 end

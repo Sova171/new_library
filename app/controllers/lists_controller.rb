@@ -8,18 +8,17 @@ class ListsController < ApplicationController
   end
 
   def show
-    @books_ids = BooksList.all.where(list_id: @list.id)
+    @books_ids = @list.books_lists # need some refactor
   end
 
   def create
-    @user = User.find(params[:user_id])
-    @list = @user.lists.create(list_params)
-    redirect_to user_lists_path, notice: 'List was successfully created.'
+    @list = current_user.lists.create(list_params)
+    redirect_to user_lists_path, notice: I18n.t('books_lists.create.success_message')
   end
 
   def destroy
     @list.destroy
-    redirect_to user_lists_path, alert: 'List was successfully destroyed.'
+    redirect_to user_lists_path, alert: I18n.t('books_lists.delete.destroy_message')
   end
 
   private

@@ -3,7 +3,7 @@
 class List < ApplicationRecord
   belongs_to :user
 
-  has_many :books_lists, class_name: 'BooksList', foreign_key: :list_id, dependent: :destroy
+  has_many :books_lists, foreign_key: :list_id, dependent: :destroy
   has_many :books_of_list, through: :books_lists, source: :book
 
   def add_book_to_list(book)
