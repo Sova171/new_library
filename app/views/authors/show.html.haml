@@ -18,10 +18,7 @@
     %div
       %ul.navbar-nav.ms-auto
         %li= link_to t('author.edit'), edit_author_path(@author)
-        %li= link_to t('author.delete'), author_path(@author), data: { |
-              turbo_method: :delete,                         |
-              turbo_confirm: "Are you sure?"                 |
-            }, class: "text-danger"                          |
+        %li= link_to t('author.delete'), author_path(@author), method: :delete, data: { confirm: t('confirmation') }, class: "text-danger"
   %div
     - if @author.avatar.attached?
       = image_tag @author.avatar, width: "250pt"

@@ -10,6 +10,6 @@
         %br/
         - unless delete == false
           - if additional_component == true
-            = link_to t('delete'), { controller: which_controller, action: :destroy, id: book, list_id: component }, remote: true, method: :delete
+            = link_to t('delete'), { controller: which_controller, action: :destroy, book_id: book, list_id: component }, method: :delete
           - else
-            = link_to t('delete'), { controller: which_controller, action: :destroy, id: book }, remote: true, method: :delete
+            = link_to t('delete'), { controller: which_controller, action: :destroy, book_id: book }, method: :delete

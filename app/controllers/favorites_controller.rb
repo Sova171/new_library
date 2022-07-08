@@ -5,9 +5,9 @@ class FavoritesController < ApplicationController
   before_action :find_book, only: %i[create destroy]
 
   def index
-    @favorite_books = []
-    @books = current_user.favorites.map(&:book_id)
-    @books.each { |book| @favorite_books.push(Book.find(book)) }
+    #@favorite_books = []
+    @favorite_books = current_user.favorites.map(&:book)
+    #@books.each { |book| @favorite_books.push(Book.find(book)) }
   end
 
   def create
@@ -27,6 +27,6 @@ class FavoritesController < ApplicationController
   private
 
   def find_book
-    @book = Book.find(params[:id])
+    @book = Book.find(params[:book_id])
   end
 end
