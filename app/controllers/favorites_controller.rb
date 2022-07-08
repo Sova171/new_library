@@ -7,7 +7,7 @@ class FavoritesController < ApplicationController
   def index
     @favorite_books = []
     @books = current_user.favorites.map(&:book_id)
-    @books.each{ |book| @favorite_books.push(Book.find(book))}
+    @books.each { |book| @favorite_books.push(Book.find(book)) }
   end
 
   def create

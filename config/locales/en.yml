@@ -35,6 +35,7 @@ en:
   books: "Books"
   empty: "You got nothing here yet"
   delete: "Delete"
+  confirmation: "Are you sure?"
 
   devise:
     sign_out: "Sign out"
@@ -72,6 +73,7 @@ en:
     add: "Add list"
     empty: "No lists yet"
     users: "My Lists"
+    name: "Name of list"
     create:
       create_label: "Add list"
       success_message: "List was successfully created"

@@ -1,16 +1,4 @@
-.align-right
-  - if user_signed_in? && current_user.admin?
-    = link_to t('book.edit'), edit_book_path(@book)
-    = link_to t('book.delete'), book_path(@book), data: { |
-        turbo_method: :delete,                     |
-        turbo_confirm: "Are you sure?"             |
-      }, class: "text-danger"                      |
-  - else
-    %strong Favorite:
-    - if !user_signed_in? || !current_user.following_book?(@book)
-      = link_to image_tag("star-empty.jpg", option = {height: "25px"}), { controller: 'favorites', action: "create", id: @book }, method: :post
-    - else
-      = link_to image_tag("star.jpg", option = {height: "25px"}), { controller: 'favorites', action: "destroy", id: @book }, remote: true, method: :delete
+=render "books/adminpanel_and_favorites", book: @book
 .card-title.d-flex.justify-content-between
   %div
     %strong= t('book.title')
@@ -38,33 +26,5 @@
       = image_tag @book.cover, width: "250pt"
     - else
       = image_tag("NoBookCover.png", option = {height: "250pt"})
-- if user_signed_in?
-  - unless current_user.lists.none?
-    - List.all.where(user_id: current_user.id).each do |list|
-      - if list.book_in_list?(@book)
-        = link_to "delete from list", { controller: 'books_lists', action: "destroy", id: @book, list_id: list.id }, remote: true, method: :delete
-        = list.name
-        %br/
-      - else
-        = link_to "add to list", { controller: 'books_lists', action: "create", id: @book, list_id: list.id }, remote: true, method: :post
-        = list.name
-        %br/
-  %br/
-  .card-title.d-flex.justify-content-between
-    %div
-      - Rating.all.each do |rating|
-        - if current_user.already_rated?(@book) && rating.id == RatingBook.find_by(book_id: @book.id, user_id: current_user.id).rating_id
-          = link_to rating.title, { controller: 'rating_books', action: "destroy", id: @book, rating_id: rating.id }, remote: true, method: :delete, class: "btn btn-success"
-          %br/
-        - else
-          = link_to rating.title, { controller: 'rating_books', action: "create", id: @book, rating_id: rating.id }, remote: true, method: :post, class: "btn btn-primary"
-          %br/
-
-- counter = 1
-- votes = Hash.new
-- rating = RatingBook.all.where(book_id: @book.id)
-- Rating.all.each do |vote|
-  - votes[vote.title] = rating.where(rating_id: counter).count
-  - counter += 1
-= pie_chart votes
-= link_to "Back to books", root_path
+=render 'books/chart_and_list', book: @book
+= link_to t('book.back'), root_path

@@ -1,6 +1,6 @@
 .row
   - books.each do |book|
-    .card.text-center.mx-auto.mb-3{:style => "width: 18rem;"}
+    .card.text-center.mx-auto.mb-3{style: "width: 18rem;"}
       - if book.cover.attached?
         = link_to image_tag( book.cover, width: "250pt" ), book_path(book), class: "card-img-top"
       - else

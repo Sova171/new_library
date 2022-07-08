@@ -1,15 +1,15 @@
-= simple_form_for @book do |form|
+= simple_form_for book do |form|
   .form-group.mb-2
     = form.file_field :cover
   .form-group.mb-2
     = form.association :authors, as: :check_boxes, item_wrapper_class: "inline_block",
                                label_method: lambda { |author| "#{author.full_name}" }
   .form-group.mb-2
-    - @book.errors.full_messages_for(:title).each do |message|
+    - book.errors.full_messages_for(:title).each do |message|
       %div= message
     = form.text_field :title, class: 'form-control w-50', placeholder: t('book.title')
   .form-group.mb-2
-    - @book.errors.full_messages_for(:description).each do |message|
+    - book.errors.full_messages_for(:description).each do |message|
       %div= message
     = form.text_area :description, class: 'form-control w-50', placeholder: t('book.description')
   .form-group.mb-2

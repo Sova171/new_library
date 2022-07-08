@@ -12,10 +12,10 @@
   %body
     .container.pt-5
       = render "shared/navbar"
-      - if notice
-        %p.notice.alert.alert-info.text-center= notice
-      - elsif alert
-        %p.alert.alert.alert-warning.text-center= alert
+      - if flash[:notice]
+        %p.notice.alert.alert-info.text-center= flash[:notice]
+      - elsif flash[:alert]
+        %p.alert.alert.alert-warning.text-center= flash[:alert]
       .card
         .card-body
           = yield

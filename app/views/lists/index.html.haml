@@ -1,7 +1,7 @@
 %h2.card-title Lists:
 %h4
   .align-center= link_to t('books_lists.create.create_label'), new_user_list_path
-- if @lists.count == 0
+- if @lists.blank?
   %h4
     .align-center= t('books_lists.empty')
 - else

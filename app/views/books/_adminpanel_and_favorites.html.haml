@@ -1,0 +1,13 @@
+.align-center
+  - if user_signed_in? && current_user.admin?
+    = link_to t('book.edit'), edit_book_path(book)
+    = link_to t('book.delete'), book_path(book), data: { |
+        turbo_method: :delete,                     |
+        turbo_confirm: "Are you sure?"             |
+      }, class: "text-danger"                      |
+  - else
+    %strong Favorite:
+    - if !user_signed_in? || !current_user.following_book?(book)
+      = link_to image_tag("star-empty.jpg", option = {height: "25px"}), { controller: 'favorites', action: :create, id: book }, method: :post
+    - else
+      = link_to image_tag("star.jpg", option = {height: "25px"}), { controller: 'favorites', action: :destroy, id: book }, remote: true, method: :delete
