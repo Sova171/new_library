@@ -7,16 +7,16 @@
   .form-group.mb-2
     - @book.errors.full_messages_for(:title).each do |message|
       %div= message
-    = form.text_field :title, class: 'form-control w-50', placeholder: "Title"
+    = form.text_field :title, class: 'form-control w-50', placeholder: t('book.title')
   .form-group.mb-2
     - @book.errors.full_messages_for(:description).each do |message|
       %div= message
-    = form.text_area :description, class: 'form-control w-50', placeholder: "Description"
+    = form.text_area :description, class: 'form-control w-50', placeholder: t('book.description')
   .form-group.mb-2
-    = form.number_field :pages_count, class: 'form-control w-50', placeholder: "Pages count"
+    = form.number_field :pages_count, class: 'form-control w-50', placeholder: t('book.pages')
   .form-group.mb-2
-    = form.text_field :published_at, class: 'form-control w-50', placeholder: "Published at"
+    = form.text_field :published_at, class: 'form-control w-50', placeholder: t('book.published')
   .form-group.mb-2
-    = form.text_field :publisher, class: 'form-control w-50', placeholder: "Publisher"
+    = form.text_field :publisher, class: 'form-control w-50', placeholder: t('book.publisher')
   .form-group.mb-2
     = form.button :submit, class: 'btn btn-outline-success'

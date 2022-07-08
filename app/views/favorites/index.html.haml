@@ -1,4 +1,4 @@
-%h5.align-center My favorites
+%h5.align-center= t('favorites.users')
 - if @favorite_books.empty?
-  %h6.align-center You got nothing here yet
+  %h6.align-center= t('empty')
 = render "shared/books_card", books: @favorite_books, which_controller: 'favorites', additional_component: false, delete: true

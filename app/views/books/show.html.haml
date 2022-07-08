@@ -1,7 +1,7 @@
 .align-right
   - if user_signed_in? && current_user.admin?
-    = link_to "Edit", edit_book_path(@book)
-    = link_to "Destroy", book_path(@book), data: { |
+    = link_to t('book.edit'), edit_book_path(@book)
+    = link_to t('book.delete'), book_path(@book), data: { |
         turbo_method: :delete,                     |
         turbo_confirm: "Are you sure?"             |
       }, class: "text-danger"                      |
@@ -13,23 +13,23 @@
       = link_to image_tag("star.jpg", option = {height: "25px"}), { controller: 'favorites', action: "destroy", id: @book }, remote: true, method: :delete
 .card-title.d-flex.justify-content-between
   %div
-    %strong Name:
+    %strong= t('book.title')
     = @book.title
     %br/
-    %strong Description:
+    %strong= t('book.description')
     = @book.description
     %br/
-    %strong Number of pages:
+    %strong= t('book.pages')
     = @book.pages_count
     %br/
-    %strong Published at:
+    %strong= t('book.published')
     = @book.published_at
     %br/
-    %strong Publisher:
+    %strong= t('book.publisher')
     = @book.publisher
     %br/
     - unless @book.authors.empty?
-      %strong Authors:
+      %strong= t('authors')
       - @book.authors.each do |author|
         %ul
           %li= link_to author.full_name, author_path(author)
@@ -59,11 +59,12 @@
         - else
           = link_to rating.title, { controller: 'rating_books', action: "create", id: @book, rating_id: rating.id }, remote: true, method: :post, class: "btn btn-primary"
           %br/
-    - counter = 1
-    - votes = Hash.new
-    - rating = RatingBook.all.where(book_id: @book.id)
-    - Rating.all.each do |vote|
-      - votes[vote.title] = rating.where(rating_id: counter).count
-      - counter += 1
-    = pie_chart votes
-  = link_to "Back to books", root_path
+
+- counter = 1
+- votes = Hash.new
+- rating = RatingBook.all.where(book_id: @book.id)
+- Rating.all.each do |vote|
+  - votes[vote.title] = rating.where(rating_id: counter).count
+  - counter += 1
+= pie_chart votes
+= link_to "Back to books", root_path

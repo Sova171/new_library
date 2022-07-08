@@ -1,16 +1,16 @@
 .card-title.d-flex.justify-content-between
   %div
-    %strong Name:
+    %strong= t('author.name')
     = @author.full_name
     %br/
-    %strong Birthdate:
+    %strong= t('author.birthday')
     = @author.birthdate
     %br/
-    %strong Biography:
+    %strong= t('author.biography')
     = @author.biography
     %br/
     - unless @author.books.empty?
-      %strong Books:
+      %strong= t('books')
       - @author.books.each do |book|
         %ul
           %li= link_to book.title, book_path(book)

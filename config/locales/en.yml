@@ -31,26 +31,53 @@
 
 en:
   hello: "Hello world"
+  authors: "Authors"
+  books: "Books"
+  empty: "You got nothing here yet"
+  delete: "Delete"
+
+  devise:
+    sign_out: "Sign out"
+    sign_in: "Sign in"
+    register: "Register"
 
   author:
     name: "Full name"
     biography: "Biography"
+    birthday: "Birthday"
     edit: "Edit author"
     new: "New author"
-    delete: "Destroy"
+    delete: "Destroy author"
     back: "Back to authors"
 
   admin: "Welcome admin"
 
   book:
     new: "New book"
+    edit: "Edit book"
+    delete: "Destroy book"
     search: "Search books"
+    search_result_error: "Results not found"
+    title: "Title:"
+    description: "Description:"
+    pages: "Pages count:"
+    published: "Published at:"
+    publisher: "Publisher:"
+    back: "Back to books"
+
+  favorites:
+    users: "My favorites books"
 
   books_lists:
+    add: "Add list"
+    empty: "No lists yet"
+    users: "My Lists"
     create:
+      create_label: "Add list"
       success_message: "List was successfully created"
     delete:
-        destroy_message: "List was deleted"
+      delete_label: "Destroy"
+      destroy_message: "List was deleted"
     add_book:
       success_message: "Book %{book} was added to list %{list}"
     delete_book:
@@ -58,3 +85,4 @@ en:
 
   button:
     search: "Search"
+    back: "Back"

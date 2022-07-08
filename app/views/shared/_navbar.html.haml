@@ -3,20 +3,20 @@
     #navbarNav.collapse.navbar-collapse
       %ul.navbar-nav
         %li.nav-item
-          = link_to "Books", root_path, method: :delete, class: 'nav-link'
+          = link_to t('books'), root_path, method: :delete, class: 'nav-link'
         %li.nav-item
-          = link_to "Authors", authors_path, method: :delete, class: 'nav-link'
+          = link_to t('authors'), authors_path, method: :delete, class: 'nav-link'
         - if user_signed_in? && !current_user.admin
           %li.nav-item
-            = link_to "Favorite books", favorite_books_path, class: 'nav-link'
+            = link_to t('favorites.users'), favorite_books_path, class: 'nav-link'
           %li.nav-item
-            = link_to "My Lists", user_lists_path(current_user), class: 'nav-link'
+            = link_to t('books_lists.users'), user_lists_path(current_user), class: 'nav-link'
       %ul.navbar-nav.ms-auto
         - if user_signed_in?
           %li.nav-item
-            = link_to "Sign out", destroy_user_session_path, method: :delete, class: 'nav-link'
+            = link_to t('devise.sign_out'), destroy_user_session_path, method: :delete, class: 'nav-link'
         - else
           %li.nav-item
-            = link_to "Register", new_user_registration_path, class: 'nav-link'
+            = link_to t('devise.register'), new_user_registration_path, class: 'nav-link'
           %li.nav-item
-            = link_to "Sign in", new_user_session_path, class: 'nav-link'
+            = link_to t('devise.sign_in'), new_user_session_path, class: 'nav-link'
