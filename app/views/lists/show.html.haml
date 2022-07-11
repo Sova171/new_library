@@ -1,4 +1,4 @@
 %h5.align-center= @list.name
 - if @books.empty?
-  %h6.align-center= t('empty')
+  %h6.align-center= t('.empty')
 = render "shared/books_card", books: @books, which_controller: 'books_lists', component: @list, additional_component:true, delete: true

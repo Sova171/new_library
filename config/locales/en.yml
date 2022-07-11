@@ -30,61 +30,96 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
-  authors: "Authors"
-  books: "Books"
-  empty: "You got nothing here yet"
-  delete: "Delete"
-  confirmation: "Are you sure?"
+  authors:
+    index:
+      authors: Authors
+      admin: Welcome admin
+      new: New author
+    show:
+      name: Name
+      birthday: Birthday
+      biography: Biography
+      books: Books
+      back: Back to authors
+      edit: Edit author
+      delete: Delete author
+      confirmation: Are you sure?
+    form:
+      name: Full name
+      biography: Biography
+      birthday: Birthday
+    new:
+      new: New author
+    edit:
+      edit: Edit author
 
-  devise:
-    sign_out: "Sign out"
-    sign_in: "Sign in"
-    register: "Register"
-
-  author:
-    name: "Full name"
-    biography: "Biography"
-    birthday: "Birthday"
-    edit: "Edit author"
-    new: "New author"
-    delete: "Destroy author"
-    back: "Back to authors"
-
-  admin: "Welcome admin"
-
-  book:
-    new: "New book"
-    edit: "Edit book"
-    delete: "Destroy book"
-    search: "Search books"
-    search_result_error: "Results not found"
-    title: "Title:"
-    description: "Description:"
-    pages: "Pages count:"
-    published: "Published at:"
-    publisher: "Publisher:"
-    back: "Back to books"
+  books:
+    index:
+      books: Books
+      admin: Welcome admin
+      new: New book
+      search: Search
+      search_book: Book title
+    adminpanel_and_favorites:
+      edit: Edit book
+      delete: Delete book
+      confirmation: Are you sure?
+    show:
+      title: Title
+      description: Description
+      pages: Pages count
+      published: Published
+      publisher: Publisher
+      authors: Authors
+      back: Back to books
+    new:
+      new: New book
+    edit:
+      edit: Edit book
+    search:
+      search: Results
+      back: Back to books
+    form:
+      title: Title
+      description: Description
+      pages: Pages count
+      published: Published
+      publisher: Publisher
+      authors: Authors
+      back: Back to books
 
   favorites:
-    users: "My favorites books"
+    index:
+      welcome: My favorites
+      empty: You got nothing here yet
+
+  lists:
+    index:
+      add_list: Add list
+      delete_list: Delete
+      empty: You got nothing here yet
+    new:
+      add_list: Add new list
+      name: Name
+      back: Back to lists
+    show:
+      empty: You got nothing here yet
+    create: List was successfully created
+    delete: List was deleted
 
   books_lists:
-    add: "Add list"
-    empty: "No lists yet"
-    users: "My Lists"
-    name: "Name of list"
-    create:
-      create_label: "Add list"
-      success_message: "List was successfully created"
-    delete:
-      delete_label: "Destroy"
-      destroy_message: "List was deleted"
-    add_book:
-      success_message: "Book %{book} was added to list %{list}"
-    delete_book:
-      destroy_message: "Book %{book} was deleted from list %{list}"
+    add_book: "Book %{book} was added to list %{list}"
+    delete_book: "Book %{book} was deleted from list %{list}"
 
-  button:
-    search: "Search"
-    back: "Back"
+  shared:
+    navbar:
+      authors: Authors
+      books: Books
+      sign_out: Sign out
+      sign_in: Sign in
+      register: Register
+      favorites: My favorites
+      lists: My lists
+    books_card:
+      delete: Delete
+

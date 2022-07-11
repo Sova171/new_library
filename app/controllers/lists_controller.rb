@@ -8,19 +8,17 @@ class ListsController < ApplicationController
   end
 
   def show
-    #@books = []
     @books = @list.books_lists.map(&:book)
-    #@books_id.each { |book| @books.push(Book.find(book)) }
   end
 
   def create
     @list = current_user.lists.create(list_params)
-    redirect_to user_lists_path, notice: I18n.t('books_lists.create.success_message')
+    redirect_to user_lists_path, notice: I18n.t('lists.create')
   end
 
   def destroy
     @list.destroy
-    redirect_to user_lists_path, alert: I18n.t('books_lists.delete.destroy_message')
+    redirect_to user_lists_path, alert: I18n.t('lists.delete')
   end
 
   private

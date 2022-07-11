@@ -1,15 +1,15 @@
 %h2.card-title Lists:
 %h4
-  .align-center= link_to t('books_lists.create.create_label'), new_user_list_path
+  .align-center= link_to t('.add_list'), new_user_list_path
 - if @lists.blank?
   %h4
-    .align-center= t('books_lists.empty')
+    .align-center= t('.empty')
 - else
   - @lists.each do |list|
     .card.mb-2
       .card-body
         .align-center= link_to list.name, user_list_path(current_user, list)
-        .align-right= link_to t('books_lists.delete.delete_label'), user_list_path(current_user, list), data: { |
+        .align-right= link_to t('.delete_list'), user_list_path(current_user, list), data: { |
               turbo_method: :delete,                                       |
               turbo_confirm: "Are you sure?"                               |
             }, class: "text-danger"                                        |

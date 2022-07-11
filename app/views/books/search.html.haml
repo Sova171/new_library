@@ -1,6 +1,6 @@
-%h3= t('book.search')
+%h3= t('.search')
 - if @results.blank?
-  %strong= t('book.search_result_error')
+  %strong= t('.search_result_error')
   %br/
 = render "shared/books_card", books: @results, delete: false
-= link_to t('button.back'), root_path, class: 'btn btn-outline-secondary btn-sm'
+= link_to t('.back'), root_path, class: 'btn btn-outline-secondary btn-sm'

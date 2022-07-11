@@ -4,13 +4,13 @@
   .form-group.mb-2
     = f.association :books, as: :check_boxes, item_wrapper_class: "inline_block"
   .form-group.mb-2
-    = f.label t('author.birthday')
+    = f.label t('.birthday')
     = f.date_select :birthdate, start_year: 1800, end_year: Time.now.year
   .form-group.mb-2
     - author.errors.full_messages_for(:full_name).each do |message|
       %div= message
-    = f.text_field :full_name, class: 'form-control w-50', placeholder: t('author.name')
+    = f.text_field :full_name, class: 'form-control w-50', placeholder: t('.name')
   .form-group.mb-2
-    = f.text_area :biography, class: 'form-control w-50', placeholder: t('author.biography')
+    = f.text_area :biography, class: 'form-control w-50', placeholder: t('.biography')
   .form-group.mb-2
     = f.button :submit, class: 'btn btn-outline-success'

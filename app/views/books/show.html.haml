@@ -1,23 +1,23 @@
 =render "books/adminpanel_and_favorites", book: @book
 .card-title.d-flex.justify-content-between
   %div
-    %strong= t('book.title')
+    %strong= t('.title')
     = @book.title
     %br/
-    %strong= t('book.description')
+    %strong= t('.description')
     = @book.description
     %br/
-    %strong= t('book.pages')
+    %strong= t('.pages')
     = @book.pages_count
     %br/
-    %strong= t('book.published')
+    %strong= t('.published')
     = @book.published_at
     %br/
-    %strong= t('book.publisher')
+    %strong= t('.publisher')
     = @book.publisher
     %br/
     - unless @book.authors.empty?
-      %strong= t('authors')
+      %strong= t('.authors')
       - @book.authors.each do |author|
         %ul
           %li= link_to author.full_name, author_path(author)
@@ -27,4 +27,4 @@
     - else
       = image_tag("NoBookCover.png", option = {height: "250pt"})
 =render 'books/chart_and_list', book: @book
-= link_to t('book.back'), root_path
+= link_to t('.back'), root_path

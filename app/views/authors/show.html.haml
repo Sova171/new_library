@@ -1,27 +1,27 @@
 .card-title.d-flex.justify-content-between
   %div
-    %strong= t('author.name')
+    %strong= t('.name')
     = @author.full_name
     %br/
-    %strong= t('author.birthday')
+    %strong= t('.birthday')
     = @author.birthdate
     %br/
-    %strong= t('author.biography')
+    %strong= t('.biography')
     = @author.biography
     %br/
     - unless @author.books.empty?
-      %strong= t('books')
+      %strong= t('.books')
       - @author.books.each do |book|
         %ul
           %li= link_to book.title, book_path(book)
   - if user_signed_in? && current_user.admin?
     %div
       %ul.navbar-nav.ms-auto
-        %li= link_to t('author.edit'), edit_author_path(@author)
-        %li= link_to t('author.delete'), author_path(@author), method: :delete, data: { confirm: t('confirmation') }, class: "text-danger"
+        %li= link_to t('.edit'), edit_author_path(@author)
+        %li= link_to t('.delete'), author_path(@author), method: :delete, data: { confirm: t('.confirmation') }, class: "text-danger"
   %div
     - if @author.avatar.attached?
       = image_tag @author.avatar, width: "250pt"
     - else
       = image_tag("NoAvatarImg.png", option = {height: "250pt"})
-= link_to t('author.back'), authors_path
+= link_to t('.back'), authors_path

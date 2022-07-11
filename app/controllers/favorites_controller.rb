@@ -5,9 +5,7 @@ class FavoritesController < ApplicationController
   before_action :find_book, only: %i[create destroy]
 
   def index
-    #@favorite_books = []
     @favorite_books = current_user.favorites.map(&:book)
-    #@books.each { |book| @favorite_books.push(Book.find(book)) }
   end
 
   def create
