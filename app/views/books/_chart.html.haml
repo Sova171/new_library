@@ -1,0 +1,13 @@
+.align-center
+  - Rating.all.each do |rating|
+    - if current_user.already_rated?(book) && rating.id == RatingBook.find_by(book_id: book, user_id: current_user.id).rating_id
+      = link_to rating.title, rating_book_path(id: book, rating_id: rating.id), method: :delete, class: "btn btn-success"
+    - else
+      = link_to rating.title, rating_books_path(id: book, rating_id: rating.id), method: :post, class: "btn btn-primary"
+- counter = 1
+- votes = Hash.new
+- rating = RatingBook.where(book_id: book.id)
+- Rating.all.each do |vote|
+  - votes[vote.title] = rating.where(rating_id: counter).count
+  - counter += 1
+= pie_chart votes

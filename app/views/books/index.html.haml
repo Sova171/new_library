@@ -8,4 +8,4 @@
     = search_field_tag :search, params[:search], placeholder: t('.search_book'), class: 'form-control'
     .input-group-btn
       = button_tag t('.search'), class: 'btn btn-outline-success', name: nil
-= render 'shared/books_card', books: @books, delete: false
+= render 'shared/books_card', books: @books

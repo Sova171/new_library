@@ -18,14 +18,12 @@ body {
     background: url('back1.jpg');
 }
 
-.align-right {
-    dalignisplay: flex;
-    align-items: center;
-    justify-content: right;
-}
-
 .align-center {
     display: flex;
     align-items: center;
     justify-content: center
+}
+
+.style {
+    width: 18rem;
 }

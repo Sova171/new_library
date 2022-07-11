@@ -26,5 +26,6 @@
       = image_tag @book.cover, width: "250pt"
     - else
       = image_tag("NoBookCover.png", option = {height: "250pt"})
-=render 'books/chart_and_list', book: @book
+= render 'books/list', book: @book
+= render "books/chart", book: @book
 = link_to t('.back'), root_path

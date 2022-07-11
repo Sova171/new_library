@@ -1,6 +1,6 @@
 .row
   - books.each do |book|
-    .card.text-center.mx-auto.mb-3{style: "width: 18rem;"}
+    .card.text-center.mx-auto.mb-3.style
       - if book.cover.attached?
         = link_to image_tag( book.cover, width: "250pt" ), book_path(book), class: "card-img-top"
       - else
@@ -8,8 +8,4 @@
       .card-body
         = book.title
         %br/
-        - unless delete == false
-          - if additional_component == true
-            = link_to t('.delete'), { controller: which_controller, action: :destroy, book_id: book, list_id: component }, method: :delete
-          - else
-            = link_to t('.delete'), { controller: which_controller, action: :destroy, book_id: book }, method: :delete
+        = yield(book) if block_given?

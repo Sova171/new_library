@@ -2,5 +2,5 @@
 - if @results.blank?
   %strong= t('.search_result_error')
   %br/
-= render "shared/books_card", books: @results, delete: false
+= render "shared/books_card", books: @results
 = link_to t('.back'), root_path, class: 'btn btn-outline-secondary btn-sm'

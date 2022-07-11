@@ -2,30 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ed8278cd-8f5f-4282-abbf-58d9f9a86d58" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/library.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/library.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/books/_list.html.haml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/books_lists_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/books_lists_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/favorites_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/favorites_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/lists_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/lists_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/authors/_form.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/authors/_form.html.haml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/authors/edit.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/authors/edit.html.haml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/authors/index.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/authors/index.html.haml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/authors/new.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/authors/new.html.haml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/authors/show.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/authors/show.html.haml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/books/_adminpanel_and_favorites.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/books/_adminpanel_and_favorites.html.haml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/books/_chart_and_list.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/books/_chart_and_list.html.haml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/books/_form.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/books/_form.html.haml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/books/edit.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/books/edit.html.haml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/application.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/application.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/books/_chart_and_list.html.haml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/books/index.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/books/index.html.haml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/books/new.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/books/new.html.haml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/books/search.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/books/search.html.haml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/books/show.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/books/show.html.haml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/favorites/index.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/favorites/index.html.haml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/lists/index.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/lists/index.html.haml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/lists/new.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/lists/new.html.haml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/lists/show.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/lists/show.html.haml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/shared/_books_card.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/shared/_books_card.html.haml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/shared/_navbar.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/shared/_navbar.html.haml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/locales/en.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/locales/en.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -210,7 +197,7 @@
       <workItem from="1657121505384" duration="2062000" />
       <workItem from="1657173174121" duration="30042000" />
       <workItem from="1657258644594" duration="17963000" />
-      <workItem from="1657518246432" duration="7469000" />
+      <workItem from="1657518246432" duration="13510000" />
     </task>
     <servers />
   </component>

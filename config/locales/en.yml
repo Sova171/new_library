@@ -87,6 +87,9 @@ en:
       publisher: Publisher
       authors: Authors
       back: Back to books
+    list:
+      add_book: Add book to list
+      delete_book: Delete book from list
 
   favorites:
     index:
@@ -98,9 +101,10 @@ en:
       add_list: Add list
       delete_list: Delete
       empty: You got nothing here yet
+      confirmation: Are you sure?
     new:
       add_list: Add new list
-      name: Name
+      name: Name of list
       back: Back to lists
     show:
       empty: You got nothing here yet

@@ -1,0 +1,12 @@
+- if user_signed_in?
+  - unless current_user.lists.blank?
+    - List.where(user_id: current_user.id).each do |list|
+      - if list.book_in_list?(book)
+        = link_to t('.delete_book'), books_list_path(book_id: book, list_id: list.id), method: :delete
+        = list.name
+        %br/
+      - else
+        = link_to t('.add_book'), books_lists_path(book_id: book, list_id: list.id), method: :post
+        = list.name
+        %br/
+  %br/
