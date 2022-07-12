@@ -4,7 +4,7 @@ class BooksController < ApplicationController
   before_action :find_book, only: %i[show edit destroy update]
 
   def index
-    @books = Book.all.order(:created_at)
+    @pagy, @books = pagy(Book.all.order(:created_at))
   end
 
   def show; end

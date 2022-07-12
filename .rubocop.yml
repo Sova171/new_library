@@ -26,6 +26,7 @@ Metrics/BlockLength:
   Exclude:
     - "db/schema.rb"
     - "config/initializers/simple_form_bootstrap.rb"
+    - "config/environments/development.rb"
 
 Metrics/AbcSize:
   Exclude:

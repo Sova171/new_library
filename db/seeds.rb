@@ -2,10 +2,10 @@
 
 require 'faker'
 
-#require_relative 'seeds/books'
-#require_relative 'seeds/authors'
-#require_relative 'seeds/rating'
-#require_relative 'seeds/users'
+# require_relative 'seeds/books'
+# require_relative 'seeds/authors'
+# require_relative 'seeds/rating'
+# require_relative 'seeds/users'
 
 RatingBook.destroy_all
 

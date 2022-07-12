@@ -17,6 +17,8 @@ gem 'chartkick'
 
 gem 'faker', require: false
 
+gem 'pagy'
+
 gem 'simple_form'
 
 gem 'devise'

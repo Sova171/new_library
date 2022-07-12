@@ -9,3 +9,5 @@
     .input-group-btn
       = button_tag t('.search'), class: 'btn btn-outline-success', name: nil
 = render 'shared/books_card', books: @books
+.align-center
+  = pagy_bootstrap_nav(@pagy).html_safe
