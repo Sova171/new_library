@@ -5,7 +5,7 @@
     = f.association :books, as: :check_boxes, item_wrapper_class: "inline_block"
   .form-group.mb-2
     = f.label t('.birthday')
-    = f.date_select :birthdate, start_year: 1800, end_year: Time.now.year
+    = f.date_select :date_of_birth, start_year: 1800, end_year: Time.now.year
   .form-group.mb-2
     - author.errors.full_messages_for(:full_name).each do |message|
       %div= message

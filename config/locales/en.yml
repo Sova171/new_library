@@ -79,6 +79,7 @@ en:
     search:
       search: Results
       back: Back to books
+      search_result_error: No results found
     form:
       title: Title
       description: Description
