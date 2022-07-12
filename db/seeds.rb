@@ -1,7 +1,16 @@
 # frozen_string_literal: true
 
-# Rating.new({ title: 'Eager to read' }).save!
-# Rating.new({ title: 'Enjoyed'}).save!
-# Rating.new({ title: 'Unsatisfied'}).save!
-# Rating.new({ title: 'For one-time reading'}).save!
-# User.new({ email: 'admin@example.com', password: 'AdminPassword', password_confirmation: 'AdminPassword', admin: true }).save!
+require 'faker'
+
+#require_relative 'seeds/books'
+#require_relative 'seeds/authors'
+#require_relative 'seeds/rating'
+#require_relative 'seeds/users'
+
+RatingBook.destroy_all
+
+Book.all.each do |book|
+  User.all.each do |user|
+    RatingBook.create(book_id: book.id, user_id: user.id, rating_id: rand(Rating.first.id..Rating.last.id))
+  end
+end

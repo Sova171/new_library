@@ -2,18 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ed8278cd-8f5f-4282-abbf-58d9f9a86d58" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/views/books/_list.html.haml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/library.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/library.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/application.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/application.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/books/_chart_and_list.html.haml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/books/index.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/books/index.html.haml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/books/search.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/books/search.html.haml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/books/show.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/books/show.html.haml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/favorites/index.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/favorites/index.html.haml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/lists/index.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/lists/index.html.haml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/lists/show.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/lists/show.html.haml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/shared/_books_card.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/shared/_books_card.html.haml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/locales/en.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/locales/en.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/books/_chart.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/books/_chart.html.haml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/seeds.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/seeds.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,22 +31,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/vladyslav/library/app/assets/images&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;ruby.rails.projectView.checked&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/home/vladyslav/new_library",
+    "nodejs_package_manager_path": "npm",
+    "ruby.rails.projectView.checked": "true",
+    "settings.editor.selected.configurable": "editor.preferences.fonts.default"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/assets/images" />
@@ -198,6 +192,8 @@
       <workItem from="1657173174121" duration="30042000" />
       <workItem from="1657258644594" duration="17963000" />
       <workItem from="1657518246432" duration="13510000" />
+      <workItem from="1657615614576" duration="1003000" />
+      <workItem from="1657616756719" duration="6200000" />
     </task>
     <servers />
   </component>
@@ -215,7 +211,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/initial-branch" />
+                        <option value="initial-branch" />
                       </list>
                     </value>
                   </entry>

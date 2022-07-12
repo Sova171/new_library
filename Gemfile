@@ -15,6 +15,8 @@ gem 'jquery-rails'
 
 gem 'chartkick'
 
+gem 'faker', require: false
+
 gem 'simple_form'
 
 gem 'devise'
