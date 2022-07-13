@@ -13,6 +13,8 @@ gem 'sprockets-rails'
 
 gem 'jquery-rails'
 
+gem 'select2-rails'
+
 gem 'chartkick'
 
 gem 'faker', require: false

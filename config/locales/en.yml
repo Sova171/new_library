@@ -48,6 +48,7 @@ en:
       name: Full name
       biography: Biography
       birthday: Birthday
+      books: Author's books
     new:
       new: New author
     edit:
@@ -86,7 +87,7 @@ en:
       pages: Pages count
       published: Published
       publisher: Publisher
-      authors: Authors
+      authors: The authors of the book
       back: Back to books
     list:
       add_book: Add book to list

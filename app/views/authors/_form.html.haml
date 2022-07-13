@@ -1,8 +1,9 @@
 = simple_form_for author do |f|
   .form-group.mb-2
-    = f.file_field :avatar
+    = f.file_field :avatar, include_blank: true
   .form-group.mb-2
-    = f.association :books, as: :check_boxes, item_wrapper_class: "inline_block"
+    = f.label t('.books')
+    = f.collection_select :book_ids, Book.order(:title), :id, :title, {}, { class: 'dropdown', multiple: true }
   .form-group.mb-2
     = f.label t('.birthday')
     = f.date_select :date_of_birth, start_year: 1800, end_year: Time.now.year

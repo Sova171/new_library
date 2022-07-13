@@ -1,9 +1,9 @@
 = simple_form_for book do |form|
   .form-group.mb-2
-    = form.file_field :cover
+    = form.file_field :cover, include_blank: true
   .form-group.mb-2
-    = form.association :authors, as: :check_boxes, item_wrapper_class: "inline_block",
-                               label_method: lambda { |author| "#{author.full_name}" }
+    = form.label t('.authors')
+    = form.collection_select :author_ids, Author.order(:full_name), :id, :full_name, {}, { class: 'dropdown', multiple: true }
   .form-group.mb-2
     - book.errors.full_messages_for(:title).each do |message|
       %div= message

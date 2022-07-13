@@ -4,14 +4,16 @@
     <list default="true" id="ed8278cd-8f5f-4282-abbf-58d9f9a86d58" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/5d39c553-bc30-45ed-be7d-0ea6c270da4d.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/5d39c553-bc30-45ed-be7d-0ea6c270da4d.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/5d39c553-bc30-45ed-be7d-0ea6c270da4d/storage_v2/_src_/database/library_development.t98N4g/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/5d39c553-bc30-45ed-be7d-0ea6c270da4d/storage_v2/_src_/database/library_development.t98N4g/schema/public.abK9xQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/library.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/library.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migrate/20220623141857_create_authors_books.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/migrate/20220623141857_create_authors_books.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migrate/20220624125915_create_favorites.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/migrate/20220624125915_create_favorites.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migrate/20220629072031_create_books_lists.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/migrate/20220629072031_create_books_lists.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migrate/20220701100831_create_rating_books.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/migrate/20220701100831_create_rating_books.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/seeds.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/seeds.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/seeds/authors.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/seeds/authors.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/application.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/application.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/javascript/application.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/application.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/authors/_form.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/authors/_form.html.haml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/books/_form.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/books/_form.html.haml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/initializers/pagy.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/initializers/pagy.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/locales/en.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/locales/en.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -198,7 +200,7 @@
       <workItem from="1657518246432" duration="13510000" />
       <workItem from="1657615614576" duration="1003000" />
       <workItem from="1657616756719" duration="17720000" />
-      <workItem from="1657690420450" duration="1954000" />
+      <workItem from="1657690420450" duration="17873000" />
     </task>
     <servers />
   </component>
