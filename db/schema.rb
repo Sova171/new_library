@@ -51,10 +51,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_01_100831) do
   end
 
   create_table "authors_books", id: false, force: :cascade do |t|
-    t.integer "author_id"
-    t.integer "book_id"
+    t.bigint "author_id"
+    t.bigint "book_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["author_id"], name: "index_authors_books_on_author_id"
+    t.index ["book_id"], name: "index_authors_books_on_book_id"
   end
 
   create_table "books", force: :cascade do |t|
@@ -68,8 +70,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_01_100831) do
   end
 
   create_table "books_lists", force: :cascade do |t|
-    t.integer "book_id"
-    t.integer "list_id"
+    t.bigint "book_id"
+    t.bigint "list_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["book_id", "list_id"], name: "index_books_lists_on_book_id_and_list_id", unique: true
@@ -78,8 +80,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_01_100831) do
   end
 
   create_table "favorites", force: :cascade do |t|
-    t.integer "book_id"
-    t.integer "user_id"
+    t.bigint "book_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["book_id", "user_id"], name: "index_favorites_on_book_id_and_user_id", unique: true
@@ -96,9 +98,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_01_100831) do
   end
 
   create_table "rating_books", force: :cascade do |t|
-    t.integer "book_id"
-    t.integer "user_id"
-    t.integer "rating_id"
+    t.bigint "book_id"
+    t.bigint "user_id"
+    t.bigint "rating_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["book_id", "user_id", "rating_id"], name: "index_rating_books_on_book_id_and_user_id_and_rating_id", unique: true
