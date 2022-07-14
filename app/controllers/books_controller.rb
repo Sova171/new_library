@@ -44,7 +44,7 @@ class BooksController < ApplicationController
       redirect_to root_path
     else
       @parameter = params[:search].downcase
-      @results = Book.search(@parameter, fields: [{ title: :text_middle }])
+      @results = Book.search(@parameter, fields: [{ title: :text_middle }], misspellings: false)
     end
   end
 
