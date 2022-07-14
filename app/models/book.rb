@@ -3,6 +3,7 @@
 class Book < ApplicationRecord
   MIN_DESCRIPTION_LENGTH = 5
 
+  searchkick text_middle: [:title]
   has_one_attached :cover
   has_and_belongs_to_many :authors
   # books of list

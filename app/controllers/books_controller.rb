@@ -44,7 +44,7 @@ class BooksController < ApplicationController
       redirect_to root_path
     else
       @parameter = params[:search].downcase
-      @results = Book.all.where('lower(title) LIKE :search', search: "%#{@parameter}%")
+      @results = Book.search(@parameter, fields: [{ title: :text_middle }])
     end
   end
 

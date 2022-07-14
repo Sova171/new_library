@@ -15,6 +15,10 @@ gem 'jquery-rails'
 
 gem 'select2-rails'
 
+gem 'searchkick'
+
+gem 'opensearch-ruby'
+
 gem 'chartkick'
 
 gem 'faker', require: false

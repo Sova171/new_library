@@ -1,6 +1,10 @@
 Documentation:
   Enabled: false
 
+AllCops:
+  Exclude:
+    - 'db/schema.rb'
+
 Metrics/CyclomaticComplexity:
   Exclude:
     - "bin/bundle"
