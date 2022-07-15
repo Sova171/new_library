@@ -7,10 +7,12 @@ import "controllers"
 import "chartkick"
 import "Chart.bundle"
 
-$( '.dropdown' ).select2({
-    theme: "bootstrap",
-    width: 500,
-    allowClear: true,
-    multiple: true,
-    placeholder: 'Search'
-});
+$(document).on('turbo:load', function() {
+    $( '.dropdown' ).select2({
+        theme: "bootstrap",
+        width: 500,
+        allowClear: true,
+        multiple: true,
+        placeholder: 'Search'
+    });
+})

@@ -1,4 +1,4 @@
-= simple_form_for book, defaults: { wrapper_html: { class: 'form-group mb-3 w-50' }, label: false} do |form|
+= simple_form_for book, html: { data: { turbo: false } }, defaults: { wrapper_html: { class: 'form-group mb-3 w-50' }, label: false} do |form|
 
   = form.input :cover, include_blank: true
   = form.hint t('.authors')
