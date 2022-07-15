@@ -1,22 +1,12 @@
-= simple_form_for book do |form|
-  .form-group.mb-2
-    = form.file_field :cover, include_blank: true
-  .form-group.mb-2
-    = form.label t('.authors')
-    = form.collection_select :author_ids, Author.order(:full_name), :id, :full_name, {}, { class: 'dropdown', multiple: true }
-  .form-group.mb-2
-    - book.errors.full_messages_for(:title).each do |message|
-      %div= message
-    = form.text_field :title, class: 'form-control w-50', placeholder: t('.title')
-  .form-group.mb-2
-    - book.errors.full_messages_for(:description).each do |message|
-      %div= message
-    = form.text_area :description, class: 'form-control w-50', placeholder: t('.description')
-  .form-group.mb-2
-    = form.number_field :pages_count, class: 'form-control w-50', placeholder: t('.pages')
-  .form-group.mb-2
-    = form.text_field :published_at, class: 'form-control w-50', placeholder: t('.published')
-  .form-group.mb-2
-    = form.text_field :publisher, class: 'form-control w-50', placeholder: t('.publisher')
-  .form-group.mb-2
-    = form.button :submit, class: 'btn btn-outline-success'
+= simple_form_for book, defaults: { wrapper_html: { class: 'form-group mb-3 w-50' }, label: false} do |form|
+
+  = form.input :cover, include_blank: true
+  = form.hint t('.authors')
+  = form.input :author_ids, collection: Author.order(:full_name).pluck(:full_name, :id),
+      input_html: { class: :dropdown, multiple: true }
+  = form.input :title, placeholder: t('.title')
+  = form.input :description, placeholder: t('.description')
+  = form.input :pages_count, placeholder: t('.pages')
+  = form.input :published_at, placeholder: t('.published')
+  = form.input :publisher, placeholder: t('.publisher')
+  = form.button :submit, class: 'btn btn-outline-success'

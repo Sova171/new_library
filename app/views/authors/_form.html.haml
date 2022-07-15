@@ -1,17 +1,12 @@
-= simple_form_for author do |f|
-  .form-group.mb-2
-    = f.file_field :avatar, include_blank: true
-  .form-group.mb-2
-    = f.label t('.books')
-    = f.collection_select :book_ids, Book.order(:title), :id, :title, {}, { class: 'dropdown', multiple: true }
-  .form-group.mb-2
-    = f.label t('.birthday')
-    = f.date_select :date_of_birth, start_year: 1800, end_year: Time.now.year
-  .form-group.mb-2
-    - author.errors.full_messages_for(:full_name).each do |message|
-      %div= message
-    = f.text_field :full_name, class: 'form-control w-50', placeholder: t('.name')
-  .form-group.mb-2
-    = f.text_area :biography, class: 'form-control w-50', placeholder: t('.biography')
-  .form-group.mb-2
-    = f.button :submit, class: 'btn btn-outline-success'
+= simple_form_for author, defaults: { wrapper_html: { class: 'form-group mb-3 w-50' }, label: false} do |f|
+
+  = f.input :avatar, include_blank: true
+  = f.hint t('.books')
+  = f.input :book_ids, collection: Book.order(:title).pluck(:title, :id),
+     input_html: { class: :dropdown, multiple: true }
+  = f.hint t('.birthday')
+  = f.input :date_of_birth, start_year: 1800, end_year: Time.now.year
+  = f.input :full_name, placeholder: t('.name')
+  = f.input :biography, placeholder: t('.biography')
+  = f.button :submit, class: 'btn btn-outline-success'
+
