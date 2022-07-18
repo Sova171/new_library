@@ -2,10 +2,10 @@
 
 require 'faker'
 
-#require_relative 'seeds/books'
-#require_relative 'seeds/authors'
-#require_relative 'seeds/rating'
-#require_relative 'seeds/users'
+# require_relative 'seeds/books'
+# require_relative 'seeds/authors'
+# require_relative 'seeds/rating'
+# require_relative 'seeds/users'
 
 RatingBook.destroy_all
 
@@ -14,4 +14,7 @@ Book.all.each do |book|
     RatingBook.create(book_id: book.id, user_id: user.id, rating_id: rand(Rating.first.id..Rating.last.id))
   end
 end
-AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+
+if Rails.env.development?
+  AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
+end
