@@ -52,4 +52,7 @@ ActiveAdmin.register Book do
     end
     f.actions
   end
+
+  filter :authors
+  filter :pages_count
 end

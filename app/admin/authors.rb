@@ -46,4 +46,7 @@ ActiveAdmin.register Author do
     end
     f.actions
   end
+
+  filter :books
+  filter :date_of_birth
 end
