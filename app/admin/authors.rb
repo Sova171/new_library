@@ -41,12 +41,12 @@ ActiveAdmin.register Author do
       f.input :avatar, as: :file
       f.input :book_ids, as: :tags, collection: Book.all, display_name: :title
       f.input :full_name
-      f.input :date_of_birth
+      f.input :date_of_birth, as: :date_time_picker, picker_options: { timepicker: false }
       f.input :biography
     end
     f.actions
   end
 
   filter :books
-  filter :date_of_birth
+  filter :date_of_birth, as: :date_time_picker_filter, picker_options: { timepicker: false }
 end
