@@ -31,6 +31,8 @@ Metrics/BlockLength:
     - "db/schema.rb"
     - "config/initializers/simple_form_bootstrap.rb"
     - "config/environments/development.rb"
+    - "app/admin/authors.rb"
+    - "app/admin/books.rb"
 
 Metrics/AbcSize:
   Exclude:

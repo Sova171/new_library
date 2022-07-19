@@ -18,6 +18,8 @@ gem 'select2-rails'
 
 gem 'activeadmin'
 
+gem 'activeadmin_addons'
+
 gem 'searchkick'
 
 gem 'opensearch-ruby'

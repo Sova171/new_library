@@ -30,6 +30,11 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
+  active_admin:
+    resource:
+      index:
+        name: Name
+        image: Image
   authors:
     index:
       authors: Authors
