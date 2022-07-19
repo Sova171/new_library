@@ -1,7 +1,3 @@
-.card-title.d-flex.justify-content-between
-  - if user_signed_in? && current_user.admin?
-    %h5.card-subtitle.mb-2.text-muted= t('.admin')
-    = link_to t('.new'), new_author_path
 %h1.card-title= t('.authors')
 - @authors.each do |author|
   .card.mb-2

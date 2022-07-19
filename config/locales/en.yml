@@ -70,6 +70,7 @@ en:
       edit: Edit book
       delete: Delete book
       confirmation: Are you sure?
+      favorite: Favorite
     show:
       title: Title
       description: Description
