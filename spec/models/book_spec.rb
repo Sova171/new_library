@@ -6,29 +6,29 @@ require 'faker'
 RSpec.describe Book, type: :model do
   context 'validation tests' do
     it 'title and description presence' do
-      book = Book.create(title: Faker::JapaneseMedia::OnePiece.location, description: Faker::TvShows::FamilyGuy.quote)
+      book = create(:book)
       expect(book).to be_valid
     end
 
     it 'title doesnt presence' do
-      book = Book.create(description: Faker::TvShows::FamilyGuy.quote)
+      book = build(:book, title: nil)
       expect(book).to_not be_valid
     end
 
     it 'description doesnt presence' do
-      book = Book.create(title: Faker::JapaneseMedia::OnePiece.location)
+      book = build(:book, description: nil)
       expect(book).to_not be_valid
     end
 
     it 'title and description presence but description less than 5' do
-      book = Book.create(title: Faker::JapaneseMedia::OnePiece.location, description: 'vlad')
+      book = build(:book, description: 'vlad')
       expect(book).to_not be_valid
     end
   end
 
   context 'relationships between author and book' do
     before(:each) do
-      @book = Book.create(title: Faker::JapaneseMedia::OnePiece.location, description: Faker::TvShows::FamilyGuy.quote)
+      @book = create(:book)
       @author = Author.create(full_name: Faker::TvShows::Friends.character)
     end
 

@@ -4,24 +4,24 @@ require 'rails_helper'
 require 'faker'
 
 RSpec.describe User, type: :model do
-  before(:each) do
-    @user = User.create(email: 'vladkutsak@gmail.com', password: '123456')
-    @book = Book.create(title: Faker::JapaneseMedia::OnePiece.location, description: Faker::TvShows::FamilyGuy.quote)
-    @rate = Rating.create(title: 'Enjoy')
-  end
-
   describe 'valid' do
     it 'should be valid' do
-      expect(@user).to be_valid
+      user = create(:user)
+      expect(user).to be_valid
     end
 
     it 'should be not valid' do
-      new_user = User.create(email: 'vlad.com', password: '123456')
+      new_user = build(:user, email: 'vlad.com')
       expect(new_user).to_not be_valid
     end
   end
 
   describe 'favorites books' do
+    before(:each) do
+      @user = create(:user)
+      @book = create(:book)
+    end
+
     context 'when user' do
       it 'follows a book, one of their favorites books is returned' do
         @user.follow_book(@book)
@@ -41,6 +41,12 @@ RSpec.describe User, type: :model do
   end
 
   describe 'rate of the book by the user' do
+    before(:each) do
+      @user = create(:user)
+      @book = create(:book)
+      @rate = create(:rating)
+    end
+
     context 'when user' do
       it 'rated the book' do
         @user.rate_book(@book, @rate.id)
