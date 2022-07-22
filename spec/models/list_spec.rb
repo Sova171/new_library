@@ -5,9 +5,8 @@ require 'faker'
 
 RSpec.describe List, type: :model do
   before(:each) do
-    @user = User.create(email: 'vladkutsak@gmail.com', password: '123456')
-    @list = List.create(name: Faker::TvShows::Friends.quote, user_id: @user.id)
-    @book = Book.create(title: Faker::JapaneseMedia::OnePiece.location, description: Faker::TvShows::FamilyGuy.quote)
+    @list = create(:list)
+    @book = create(:book)
   end
 
   describe 'interaction of list and book' do
