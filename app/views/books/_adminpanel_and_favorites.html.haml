@@ -1,10 +1,6 @@
 .align-center
-  - if user_signed_in? && current_user.admin?
-    = link_to t('.edit'), edit_book_path(book)
-    = link_to t('.delete'), book_path(book), method: :delete, data: { confirm: t('.confirmation') }, class: "text-danger"
+  %strong= t('.favorite')
+  - if !user_signed_in? || !current_user.following_book?(book)
+    = link_to image_tag('star-empty.jpg', option = {height: '25px'}), book_favorites_path(book_id: book), method: :post
   - else
-    %strong Favorite:
-    - if !user_signed_in? || !current_user.following_book?(book)
-      = link_to image_tag("star-empty.jpg", option = {height: "25px"}), book_favorites_path(book_id: book), method: :post
-    - else
-      = link_to image_tag("star.jpg", option = {height: "25px"}), book_favorites_path(book_id: book), method: :delete
+    = link_to image_tag('star.jpg', option = {height: '25px'}), book_favorites_path(book_id: book), method: :delete

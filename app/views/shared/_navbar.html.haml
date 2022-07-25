@@ -6,7 +6,7 @@
           = link_to t('.books'), root_path, class: 'nav-link'
         %li.nav-item
           = link_to t('.authors'), authors_path, class: 'nav-link'
-        - if user_signed_in? && !current_user.admin
+        - if user_signed_in?
           %li.nav-item
             = link_to t('.favorites'), favorites_path, class: 'nav-link'
           %li.nav-item

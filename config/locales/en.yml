@@ -30,6 +30,11 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
+  active_admin:
+    resource:
+      index:
+        name: Name
+        image: Image
   authors:
     index:
       authors: Authors
@@ -65,6 +70,7 @@ en:
       edit: Edit book
       delete: Delete book
       confirmation: Are you sure?
+      favorite: Favorite
     show:
       title: Title
       description: Description
