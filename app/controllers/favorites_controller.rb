@@ -9,17 +9,15 @@ class FavoritesController < ApplicationController
   end
 
   def create
-    if current_user.following_book?(@book)
-      redirect_to book_path(@book)
-    else
-      current_user.follow_book(@book)
-      redirect_back(fallback_location: 'root_path')
-    end
+    current_user.follow_book(@book) unless current_user.following_book?(@book)
+
+    render turbo_stream: turbo_stream.replace(@book, partial: 'books/favorites', locals: { book: @book })
   end
 
   def destroy
     current_user.unfollow_book(@book)
-    redirect_back(fallback_location: 'root_path')
+
+    render turbo_stream: turbo_stream.replace(@book, partial: 'books/favorites', locals: { book: @book })
   end
 
   private
