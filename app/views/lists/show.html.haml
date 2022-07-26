@@ -1,5 +1,8 @@
 %h5.align-center= @list.name
 - if @books.empty?
   %h6.align-center= t('.empty')
-= render "shared/books_card", books: @books do |book|
-  =  link_to t('.delete'), books_list_path(book_id: book, list_id: @list.id), method: :delete
+
+.row
+  - @books.each do |book|
+    = render "shared/book_card", book: book do
+      =  link_to t('.delete'), books_list_path(book_id: book, list_id: @list.id), method: :delete

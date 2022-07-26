@@ -2,5 +2,9 @@
 - if @results.blank?
   %strong= t('.search_result_error')
   %br/
-= render "shared/books_card", books: @results
+
+.row
+  - @results.each do |book|
+    = render "shared/book_card", book: book
+
 = link_to t('.back'), root_path, class: 'btn btn-outline-secondary btn-sm'

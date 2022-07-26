@@ -10,14 +10,10 @@ class FavoritesController < ApplicationController
 
   def create
     current_user.follow_book(@book) unless current_user.following_book?(@book)
-
-    render turbo_stream: turbo_stream.replace(@book, partial: 'books/favorites', locals: { book: @book })
   end
 
   def destroy
     current_user.unfollow_book(@book)
-
-    render turbo_stream: turbo_stream.replace(@book, partial: 'books/favorites', locals: { book: @book })
   end
 
   private

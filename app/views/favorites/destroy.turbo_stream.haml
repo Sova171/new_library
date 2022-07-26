@@ -1,0 +1,2 @@
+= turbo_stream.remove("favorite_#{@book.id}_item")
+= turbo_stream.replace("favorite_#{@book.id}_toggle", partial: 'books/favorites', locals: { book: @book })

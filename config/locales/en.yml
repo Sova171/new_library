@@ -132,6 +132,6 @@ en:
       register: Register
       favorites: My favorites
       lists: My lists
-    books_card:
+    book_card:
       delete: Delete
 
