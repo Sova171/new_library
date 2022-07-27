@@ -11,9 +11,17 @@ class ListsController < ApplicationController
     @books = @list.books_lists.map(&:book)
   end
 
+  def new
+    @list = current_user.lists.build
+  end
+
   def create
-    @list = current_user.lists.create(list_params)
-    redirect_to user_lists_path, notice: I18n.t('lists.create')
+    @list = current_user.lists.build list_params
+    if @list.save
+      redirect_to user_lists_path, notice: I18n.t('lists.create')
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def destroy
