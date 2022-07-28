@@ -14,4 +14,15 @@ ActiveAdmin.register PublicActivity::Activity do
     column :created_at
     actions
   end
+
+  show do
+    attributes_table do
+      row :trackable_type
+      row :trackable
+      row :owner_type
+      row :owner
+      row :key
+      row :created_at
+    end
+  end
 end
