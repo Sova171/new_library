@@ -36,6 +36,7 @@ ActiveAdmin.register Book do
       row :pages_count
       row :published_at
       row :publisher
+      row :authors
     end
     active_admin_comments
   end

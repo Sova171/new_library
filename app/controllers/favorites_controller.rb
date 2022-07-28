@@ -18,8 +18,10 @@ class FavoritesController < ApplicationController
     current_user.unfollow_book(@book)
 
     respond_to do |format|
-      format.turbo_stream { render turbo_stream: turbo_stream.replace(@book, partial: 'books/favorites', locals: { book: @book }) }
       format.html { redirect_back(fallback_location: root_path) }
+      format.turbo_stream do
+        render turbo_stream: turbo_stream.replace(@book, partial: 'books/favorites', locals: { book: @book })
+      end
     end
   end
 
