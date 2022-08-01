@@ -1,9 +1,8 @@
-= turbo_frame_tag dom_id(@book) do
-  .align-center
-    %strong= t('.favorite')
-    - if !user_signed_in? || !current_user.following_book?(book)
-      = link_to image_tag('star-empty.jpg', option = {height: '25px'}),
-      book_favorites_path(book_id: book), data: { 'turbo-method': :post }
-    - else
-      = link_to image_tag('star.jpg', option = {height: '25px'}),
-      book_favorites_path(book_id: book), data: { 'turbo-method': :delete }
+.align-center
+  %strong= t('.favorite')
+  - if !user_signed_in? || !current_user.following_book?(book)
+    = link_to image_tag('star-empty.jpg', option = {height: '25px'}),
+      book_favorites_path(book_id: book), method: :post
+  - else
+    = link_to image_tag('star.jpg', option = {height: '25px'}),
+      book_favorites_path(book_id: book), method: :delete
