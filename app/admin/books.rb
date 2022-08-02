@@ -38,6 +38,15 @@ ActiveAdmin.register Book do
       row :publisher
       row :authors
     end
+
+    panel 'Activity' do
+      table_for book.activities.push(book.favorites.map(&:activities).flatten) do
+        column :owner_type
+        column :owner
+        column :key
+        column :created_at
+      end
+    end
     active_admin_comments
   end
 
