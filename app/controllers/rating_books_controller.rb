@@ -18,6 +18,8 @@ class RatingBooksController < ApplicationController
     redirect_to book_path(@book)
   end
 
+  private
+
   def find_book
     @book = Book.find(params[:id])
   end

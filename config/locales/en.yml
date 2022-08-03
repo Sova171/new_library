@@ -106,6 +106,7 @@ en:
 
   lists:
     index:
+      lists: Lists
       add_list: Add list
       delete_list: Delete
       empty: You got nothing here yet

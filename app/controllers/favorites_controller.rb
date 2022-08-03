@@ -5,16 +5,12 @@ class FavoritesController < ApplicationController
   before_action :find_book, only: %i[create destroy]
 
   def index
-    @favorite_books = current_user.favorites.map(&:book)
+    @facade = ::Favorites::IndexFacade.new(current_user)
   end
 
   def create
-    if current_user.following_book?(@book)
-      redirect_to book_path(@book)
-    else
-      current_user.follow_book(@book)
-      redirect_back(fallback_location: root_path)
-    end
+    current_user.follow_book(@book)
+    redirect_back(fallback_location: root_path)
   end
 
   def destroy

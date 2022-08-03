@@ -1,22 +1,22 @@
 .card-title.d-flex.justify-content-between
   %div
     %strong= t('.name')
-    = @author.full_name
+    = @facade.author_name
     %br/
     %strong= t('.birthday')
-    = @author.date_of_birth
+    = @facade.author_birth
     %br/
     %strong= t('.biography')
-    = @author.biography
+    = @facade.author_biography
     %br/
-    - unless @author.books.empty?
+    - unless @facade.author_books.empty?
       %strong= t('.books')
-      - @author.books.each do |book|
+      - @facade.author_books.each do |book|
         %ul
           %li= link_to book.title, book_path(book)
   %div
-    - if @author.avatar.attached?
-      = image_tag @author.avatar, width: "250pt"
+    - if @facade.author_avatar.attached?
+      = image_tag @facade.author_avatar, width: "250pt"
     - else
       = image_tag("NoAvatarImg.png", option = {height: "250pt"})
 = link_to t('.back'), authors_path

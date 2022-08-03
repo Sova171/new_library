@@ -4,10 +4,13 @@ class BooksController < ApplicationController
   before_action :find_book, only: :show
 
   def index
-    @pagy, @books = pagy(Book.all.order(:created_at))
+    @facade = ::Books::IndexFacade.new
+    @pagy, @books = pagy(@facade.books) # переробити
   end
 
-  def show; end
+  def show
+    @facade = ::Books::ShowFacade.new(@book)
+  end
 
   def search
     if params[:search].blank?

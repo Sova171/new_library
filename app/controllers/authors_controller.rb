@@ -4,10 +4,12 @@ class AuthorsController < ApplicationController
   before_action :find_author, only: :show
 
   def index
-    @authors = Author.all.order(:created_at)
+    @facade = ::Authors::IndexFacade.new
   end
 
-  def show; end
+  def show
+    @facade = ::Authors::ShowFacade.new(@author)
+  end
 
   private
 
