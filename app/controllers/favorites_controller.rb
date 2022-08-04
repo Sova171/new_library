@@ -5,16 +5,16 @@ class FavoritesController < ApplicationController
   before_action :find_book, only: %i[create destroy]
 
   def index
-    @facade = ::Favorites::IndexFacade.new(current_user)
+    @facade = ::Favorites::IndexFacade.new(user)
   end
 
   def create
-    current_user.follow_book(@book)
+    user.follow_book(@book)
     redirect_back(fallback_location: root_path)
   end
 
   def destroy
-    current_user.unfollow_book(@book)
+    user.unfollow_book(@book)
     redirect_back(fallback_location: root_path)
   end
 
@@ -22,5 +22,9 @@ class FavoritesController < ApplicationController
 
   def find_book
     @book = Book.find(params[:book_id])
+  end
+
+  def user
+    current_user.decorate
   end
 end

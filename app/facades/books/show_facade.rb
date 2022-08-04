@@ -2,10 +2,23 @@
 
 module Books
   class ShowFacade
-    attr_reader :book
+    attr_reader :book, :current_user
 
-    def initialize(book)
+    def initialize(book, current_user)
       @book = book
+      @current_user = current_user
+    end
+
+    def user_follow?(book)
+      current_user.following_book?(book)
+    end
+
+    def user_rated?(book)
+      current_user.already_rated?(book)
+    end
+
+    def lists
+      @lists = current_user.lists.decorate
     end
 
     def book_title

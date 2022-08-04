@@ -26,6 +26,8 @@ gem 'opensearch-ruby'
 
 gem 'chartkick'
 
+gem 'draper'
+
 gem 'faker', require: false
 
 gem 'pagy'

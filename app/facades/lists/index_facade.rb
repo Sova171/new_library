@@ -9,7 +9,7 @@ module Lists
     end
 
     def lists
-      @lists = current_user.lists
+      @lists = current_user.lists.decorate
     end
   end
 end

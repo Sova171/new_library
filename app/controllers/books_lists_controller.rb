@@ -22,6 +22,6 @@ class BooksListsController < ApplicationController
   end
 
   def find_list
-    @list = List.find(params[:list_id])
+    @list = List.find(params[:list_id]).decorate
   end
 end
