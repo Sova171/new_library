@@ -9,6 +9,17 @@ module Books
       @current_user = current_user
     end
 
+    def book_rating(book)
+      counter = Rating.first.id
+      votes = {}
+      rating = RatingBook.where(book_id: book.id)
+      Rating.all.each do |vote|
+        votes[vote.title] = rating.where(rating_id: counter).count
+        counter += 1
+      end
+      votes
+    end
+
     def user_follow?(book)
       current_user.following_book?(book)
     end

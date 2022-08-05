@@ -5,10 +5,5 @@
         = link_to rating.title, rating_book_path(id: book, rating_id: rating.id), method: :delete, class: "btn btn-success"
       - else
         = link_to rating.title, rating_books_path(id: book, rating_id: rating.id), method: :post, class: "btn btn-primary"
-- counter = Rating.first.id
-- votes = Hash.new
-- rating = RatingBook.where(book_id: book.id)
-- Rating.all.each do |vote|
-  - votes[vote.title] = rating.where(rating_id: counter).count
-  - counter += 1
-= pie_chart votes
+
+= pie_chart @facade.book_rating(book)
