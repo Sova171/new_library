@@ -16,8 +16,7 @@ class BooksController < ApplicationController
     if params[:search].blank?
       redirect_to root_path
     else
-      @parameter = params[:search].downcase
-      @results = Book.search(@parameter, fields: [{ title: :text_middle }], misspellings: false)
+      @results = ::Books::Search.call(search: params[:search])
     end
   end
 

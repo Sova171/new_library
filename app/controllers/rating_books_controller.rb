@@ -4,17 +4,12 @@ class RatingBooksController < ApplicationController
   before_action :find_book, :find_rating
 
   def create
-    if user.already_rated?(@book)
-      destroy
-      user.rate_book(@book, @rating.id)
-    else
-      user.rate_book(@book, @rating.id)
-      redirect_to book_path(@book)
-    end
+    ::RatingBooks::Create.call(user:, book: @book, rating: @rating)
+    redirect_to book_path(@book)
   end
 
   def destroy
-    user.delete_rating(@book)
+    ::RatingBooks::Destroy.call(user:, book: @book)
     redirect_to book_path(@book)
   end
 
@@ -25,7 +20,7 @@ class RatingBooksController < ApplicationController
   end
 
   def find_rating
-    @rating = Rating.find(params[:rating_id])
+    @rating = Rating.find(params[:rating_id]).id
   end
 
   def user
