@@ -13,13 +13,13 @@ class FavoritesController < ApplicationController
       redirect_to book_path(@book)
     else
       current_user.follow_book(@book)
-      redirect_back(fallback_location: 'root_path')
+      redirect_back(fallback_location: root_path)
     end
   end
 
   def destroy
     current_user.unfollow_book(@book)
-    redirect_back(fallback_location: 'root_path')
+    redirect_back(fallback_location: root_path)
   end
 
   private

@@ -33,6 +33,12 @@ gem 'pagy'
 gem 'simple_form'
 
 gem 'devise'
+
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-rails_csrf_protection'
+
+gem 'public_activity'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 1.1'
 
