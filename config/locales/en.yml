@@ -66,7 +66,7 @@ en:
       new: New book
       search: Search
       search_book: Book title
-    adminpanel_and_favorites:
+    favorites:
       edit: Edit book
       delete: Delete book
       confirmation: Are you sure?

@@ -1,7 +1,4 @@
-%strong= t('.add_list')
-= form_with model: [ current_user, current_user.lists.build ] do |form|
-  .form-group.mb-2
-    = form.text_field :name, class: 'form-control', placeholder: t('.name')
-  .form-group.mb-2
-    = form.button :submit, class: 'btn btn-outline-success'
-= link_to t('.back'), user_lists_path, class: 'btn btn-outline-secondary btn-sm'
+= simple_form_for [current_user, @list], defaults: { input_html: { class: 'mb-2' } } do |f|
+  = f.input :name, placeholder: t('.name'), label: t('.add_list')
+  = f.button :submit, class: 'btn btn-outline-success mb-2'
+  = link_to t('.back'), user_lists_path, class: 'btn btn-outline-secondary btn-sm'

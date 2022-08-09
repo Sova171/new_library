@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 class Book < ApplicationRecord
+  include PublicActivity::Model
+  tracked owner: proc { |controller| controller.current_admin_user }
+
   MIN_DESCRIPTION_LENGTH = 5
 
   searchkick text_middle: %i[title]
