@@ -4,7 +4,7 @@ class RatingBooksController < ApplicationController
   before_action :find_book, :find_rating
 
   def create
-    if current_user.already_rated?(@book)
+    if current_user.decorate.already_rated?(@book)
       destroy
       current_user.rate_book(@book, @rating.id)
     else

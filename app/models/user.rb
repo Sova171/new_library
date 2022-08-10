@@ -29,10 +29,6 @@ class User < ApplicationRecord
     favorites.find_by(book_id: book.id).destroy
   end
 
-  def following_book?(book)
-    favorites_book.include?(book)
-  end
-
   # rating
   has_many :rating_books, foreign_key: :user_id, dependent: :destroy
   has_many :rating, through: :rating_books, source: :book
@@ -43,9 +39,5 @@ class User < ApplicationRecord
 
   def delete_rating(book)
     rating_books.find_by(book_id: book.id).destroy
-  end
-
-  def already_rated?(book)
-    rating.include?(book)
   end
 end

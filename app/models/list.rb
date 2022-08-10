@@ -18,9 +18,5 @@ class List < ApplicationRecord
     books_lists.find_by(book_id: book.id).destroy
   end
 
-  def book_in_list?(book)
-    books.include?(book)
-  end
-
   validates :name, presence: true
 end
