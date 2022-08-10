@@ -1,5 +1,5 @@
 %h5.align-center= @facade.list_name
-- if @facade.books_list.empty?
+- if @facade.list_books.empty?
   %h6.align-center= t('.empty')
-= render "shared/books_card", books: @facade.books_list do |book|
+= render "shared/books_card", books: @facade.list_books do |book|
   =  link_to t('.delete'), books_list_path(book_id: book, list_id: @list.id), method: :delete

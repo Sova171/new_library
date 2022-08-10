@@ -8,7 +8,7 @@ class List < ApplicationRecord
   belongs_to :user
 
   has_many :books_lists, foreign_key: :list_id, dependent: :destroy
-  has_many :books_of_list, through: :books_lists, source: :book
+  has_many :books, through: :books_lists, source: :book
 
   def add_book_to_list(book)
     books_lists.create(book_id: book.id)
@@ -19,7 +19,7 @@ class List < ApplicationRecord
   end
 
   def book_in_list?(book)
-    books_of_list.include?(book)
+    books.include?(book)
   end
 
   validates :name, presence: true

@@ -2,14 +2,14 @@
 
 module Lists
   class IndexFacade
-    attr_reader :current_user
+    attr_reader :user
 
-    def initialize(current_user)
-      @current_user = current_user
+    def initialize(user:)
+      @user = user
     end
 
     def lists
-      @lists = current_user.lists
+      @lists ||= user.lists
     end
   end
 end

@@ -8,7 +8,7 @@ class AuthorsController < ApplicationController
   end
 
   def show
-    @facade = ::Authors::ShowFacade.new(@author)
+    @facade = ::Authors::ShowFacade.new(author: @author)
   end
 
   private

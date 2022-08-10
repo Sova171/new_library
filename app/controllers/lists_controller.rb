@@ -4,11 +4,11 @@ class ListsController < ApplicationController
   before_action :find_list, only: %i[show destroy]
 
   def index
-    @facade = ::Lists::IndexFacade.new(current_user)
+    @facade = ::Lists::IndexFacade.new(user: current_user) # check
   end
 
   def show
-    @facade = ::Lists::ShowFacade.new(@list)
+    @facade = ::Lists::ShowFacade.new(list: @list)
   end
 
   def new

@@ -3,7 +3,7 @@
 module Authors
   class IndexFacade
     def authors
-      @authors = Author.all.order(:created_at)
+      @authors = Author.order(:created_at)
     end
   end
 end

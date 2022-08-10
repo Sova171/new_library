@@ -5,7 +5,7 @@ class FavoritesController < ApplicationController
   before_action :find_book, only: %i[create destroy]
 
   def index
-    @facade = ::Favorites::IndexFacade.new(current_user)
+    @facade = ::Favorites::IndexFacade.new(user: current_user)
   end
 
   def create
