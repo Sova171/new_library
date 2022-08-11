@@ -9,12 +9,12 @@ class FavoritesController < ApplicationController
   end
 
   def create
-    current_user.follow_book(@book)
+    ::Favorites::Create.call(user: current_user, book: @book)
     redirect_back(fallback_location: root_path)
   end
 
   def destroy
-    current_user.unfollow_book(@book)
+    ::Favorites::Destroy.call(user: current_user, book: @book)
     redirect_back(fallback_location: root_path)
   end
 
