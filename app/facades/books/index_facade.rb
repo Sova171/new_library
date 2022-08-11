@@ -19,6 +19,5 @@ module Books
     def all_books
       Book.order(:created_at)
     end
-
   end
 end

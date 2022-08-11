@@ -9,6 +9,5 @@ module Authors
     end
 
     delegate :full_name, :date_of_birth, :books, :biography, :avatar, to: :author, prefix: true
-
   end
 end
