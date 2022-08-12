@@ -7,8 +7,7 @@ module Books
     end
 
     def call
-      parameter = search
-      Book.search(parameter, fields: [{ title: :text_middle }], misspellings: false)
+      Book.search(search, fields: [{ title: :text_middle }], misspellings: false)
     end
 
     private

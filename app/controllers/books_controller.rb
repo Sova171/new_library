@@ -4,19 +4,11 @@ class BooksController < ApplicationController
   before_action :find_book, only: :show
 
   def index
-    @facade = ::Books::IndexFacade.new(params: params[:page])
+    @facade = ::Books::IndexFacade.new(page: params[:page])
   end
 
   def show
-    @facade = ::Books::ShowFacade.new(book: @book, user:)
-  end
-
-  def search
-    if params[:search].blank?
-      redirect_to root_path
-    else
-      @results = ::Books::Search.call(search: params[:search])
-    end
+    @facade = ::Books::ShowFacade.new(book: @book.decorate, user: current_user)
   end
 
   private
@@ -28,9 +20,5 @@ class BooksController < ApplicationController
   def book_params
     params.require(:book).permit(:title, :description, :pages_count,
                                  :published_at, :publisher, :cover, author_ids: [])
-  end
-
-  def user
-    user_signed_in? ? current_user.decorate : nil
   end
 end

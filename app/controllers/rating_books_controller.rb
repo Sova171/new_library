@@ -4,12 +4,12 @@ class RatingBooksController < ApplicationController
   before_action :find_book, :find_rating
 
   def create
-    ::RatingBooks::Create.call(user: current_user.decorate, book: @book, rating: @rating)
+    ::RatingBooks::Create.call(user: current_user, book: @book.decorate, rating: @rating)
     redirect_to book_path(@book)
   end
 
   def destroy
-    ::RatingBooks::Destroy.call(user: current_user.decorate, book: @book)
+    ::RatingBooks::Destroy.call(user: current_user, book: @book)
     redirect_to book_path(@book)
   end
 

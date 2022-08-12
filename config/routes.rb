@@ -10,13 +10,16 @@ Rails.application.routes.draw do
   resources :books, only: %i[index show] do
     resource :favorites, only: %i[create destroy]
   end
+
   resources :authors, only: %i[index show]
 
   resources :users do
     resources :lists
   end
 
-  get '/search', to: 'books#search'
+  scope module: :books do
+    resources :searches, only: %i[index]
+  end
 
   resources :favorites, only: :index
   resources :books_lists, only: %i[create destroy]

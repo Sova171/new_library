@@ -9,7 +9,7 @@ module RatingBooks
     end
 
     def call
-      user.rating_books.find_by(book_id: book.id).destroy if user.already_rated?(book)
+      user.rating_books.find_by(book_id: book.id).destroy if book.rated_by?(user)
       user.rating_books.create(book_id: book.id, rating_id: rating.id)
     end
 

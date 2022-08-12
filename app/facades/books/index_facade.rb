@@ -3,17 +3,25 @@
 module Books
   class IndexFacade
     include Pagy::Backend
-    attr_reader :params, :paginate, :books
+    attr_reader :page
 
-    def initialize(params = 1)
-      @params = params
-      pagination
+    def initialize(page:)
+      @page = page.nil? ? 1 : page
+      # @page = page || 1
+    end
+
+    def paginate
+      @paginate ||= pagination.first
+    end
+
+    def books
+      @books ||= pagination.last
     end
 
     private
 
     def pagination
-      @paginate, @books = pagy(all_books, page: params[:params])
+      @pagination = pagy(all_books, page:)
     end
 
     def all_books
