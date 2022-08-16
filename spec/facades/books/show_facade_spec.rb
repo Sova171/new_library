@@ -10,18 +10,12 @@ RSpec.describe ::Books::ShowFacade do
     end
 
     it 'chart' do
-      rating_1 = create(:rating)
-      rating_2 = create(:rating)
-      rating_3 = create(:rating)
-      ::RatingBooks::Create.call(user: create(:user), book: @book.decorate, rating: rating_1)
-      ::RatingBooks::Create.call(user: create(:user), book: @book.decorate, rating: rating_2)
-      ::RatingBooks::Create.call(user: create(:user), book: @book.decorate, rating: rating_2)
-      ::RatingBooks::Create.call(user: create(:user), book: @book.decorate, rating: rating_3)
-      ::RatingBooks::Create.call(user: create(:user), book: @book.decorate, rating: rating_3)
-      ::RatingBooks::Create.call(user: create(:user), book: @book.decorate, rating: rating_3)
+      array = [create(:rating), create(:rating), create(:rating)]
+      5.times do
+        ::RatingBooks::Create.call(user: create(:user), book: @book.decorate, rating: array.sample)
+      end
       facade = ::Books::ShowFacade.new(book: @book, user: create(:user))
-      vote = facade.book_rating(@book)
-      expect(vote.count).to eql(3)
+      expect(facade.book_rating(@book).count).to eql(3)
     end
   end
 end
