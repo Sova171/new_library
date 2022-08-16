@@ -14,12 +14,9 @@ module Books
     end
 
     def book_rating(book)
-      counter = Rating.first.id
-      votes = {}
-      rating = RatingBook.where(book_id: book.id)
+      votes = Hash.new(0)
       Rating.all.each do |vote|
-        votes[vote.title] = rating.where(rating_id: counter).count
-        counter += 1
+        votes[vote.title] = RatingBook.where(book_id: book.id, rating_id: vote.id).count
       end
       votes
     end
