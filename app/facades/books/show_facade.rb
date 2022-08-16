@@ -14,7 +14,7 @@ module Books
     end
 
     def book_rating(book)
-      votes = Hash.new(0)
+      votes = {}
       Rating.all.each do |vote|
         votes[vote.title] = RatingBook.where(book_id: book.id, rating_id: vote.id).count
       end

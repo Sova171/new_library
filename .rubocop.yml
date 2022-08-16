@@ -34,8 +34,6 @@ Metrics/BlockLength:
     - "config/environments/development.rb"
     - "app/admin/authors.rb"
     - "app/admin/books.rb"
-    - "spec/models/user_spec.rb"
-    - "spec/models/book_spec.rb"
 
 Metrics/AbcSize:
   Exclude:
@@ -44,8 +42,3 @@ Metrics/AbcSize:
 Lint/MissingSuper:
   Exclude:
     - 'app/operations/**/*'
-
-Style/GuardClause:
-  Exclude:
-    - 'app/controllers/turbo_controller.rb'
-

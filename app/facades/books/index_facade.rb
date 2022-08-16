@@ -5,9 +5,10 @@ module Books
     include Pagy::Backend
     attr_reader :page
 
+    DEFAULT_PAGE = 1
+
     def initialize(page:)
-      @page = page.nil? ? 1 : page
-      # @page = page || 1
+      @page = page.presence || DEFAULT_PAGE
     end
 
     def paginate
@@ -21,7 +22,7 @@ module Books
     private
 
     def pagination
-      @pagination = pagy(all_books, page:)
+      @pagination ||= pagy(all_books, page:)
     end
 
     def all_books
