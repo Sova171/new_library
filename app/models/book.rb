@@ -2,7 +2,7 @@
 
 class Book < ApplicationRecord
   include PublicActivity::Model
-  tracked owner: proc { |controller| controller.current_admin_user }
+  tracked owner: proc { |controller| controller&.current_admin_user }
 
   MIN_DESCRIPTION_LENGTH = 5
 

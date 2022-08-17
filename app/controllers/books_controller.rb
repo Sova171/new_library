@@ -4,18 +4,11 @@ class BooksController < ApplicationController
   before_action :find_book, only: :show
 
   def index
-    @pagy, @books = pagy(Book.all.order(:created_at))
+    @facade = ::Books::IndexFacade.new(page: params[:page])
   end
 
-  def show; end
-
-  def search
-    if params[:search].blank?
-      redirect_to root_path
-    else
-      @parameter = params[:search].downcase
-      @results = Book.search(@parameter, fields: [{ title: :text_middle }], misspellings: false)
-    end
+  def show
+    @facade = ::Books::ShowFacade.new(book: @book.decorate, user: current_user)
   end
 
   private

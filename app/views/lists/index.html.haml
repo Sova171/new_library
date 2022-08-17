@@ -1,11 +1,11 @@
-%h2.card-title Lists:
+%h2.card-title= t('.lists')
 %h4
   .align-center= link_to t('.add_list'), new_user_list_path
-- if @lists.blank?
+- if @facade.lists.blank?
   %h4
     .align-center= t('.empty')
 - else
-  - @lists.each do |list|
+  - @facade.lists.each do |list|
     .card.mb-2
       .card-body
         .align-center= link_to list.name, user_list_path(current_user, list)

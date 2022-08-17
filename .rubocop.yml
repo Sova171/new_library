@@ -41,3 +41,6 @@ Metrics/AbcSize:
   Exclude:
     - "db/migrate/20220623085059_create_active_storage_tables.active_storage.rb"
 
+Lint/MissingSuper:
+  Exclude:
+    - 'app/operations/**/*'
