@@ -1,32 +1,32 @@
-= render "books/favorites", book: @book
+= render "books/favorites", book: @facade.book
 
 .card-title.d-flex.justify-content-between
   %div
     %strong= t('.title')
-    = @book.title
+    = @facade.book_title
     %br/
     %strong= t('.description')
-    = @book.description
+    = @facade.book_description
     %br/
     %strong= t('.pages')
-    = @book.pages_count
+    = @facade.book_pages_count
     %br/
     %strong= t('.published')
-    = @book.published_at
+    = @facade.book_published_at
     %br/
     %strong= t('.publisher')
-    = @book.publisher
+    = @facade.book_publisher
     %br/
-    - unless @book.authors.empty?
+    - unless @facade.book_authors.empty?
       %strong= t('.authors')
-      - @book.authors.each do |author|
+      - @facade.book_authors.each do |author|
         %ul
           %li= link_to author.full_name, author_path(author)
   %div
-    - if @book.cover.attached?
-      = image_tag @book.cover, width: "250pt"
+    - if @facade.book_cover.attached?
+      = image_tag @facade.book_cover, width: "250pt"
     - else
       = image_tag("NoBookCover.png", option = {height: "250pt"})
-= render 'books/list', book: @book
-= render "books/chart", book: @book
+= render 'books/list', book: @facade.book
+= render "books/chart", book: @facade.book
 = link_to t('.back'), root_path
