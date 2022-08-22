@@ -32,7 +32,7 @@ jobs:
           name: Rubocop
           command: rubocop
       - run:
-          name: Install and set Linuxbrew
+          name: Install and set Homebrew
           command: |
             sudo apt-get install build-essential curl file git
             sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
@@ -40,10 +40,13 @@ jobs:
             echo 'export MANPATH="/home/linuxbrew/.linuxbrew/share/man:$MANPATH"' >> $BASH_ENV
             echo 'export INFOPATH="/home/linuxbrew/.linuxbrew/share/info:$INFOPATH"' >> $BASH_ENV
       - run:
+          name: path Homebrew
+          command: |
+            echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/circleci/.profile
+            eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+      - run:
           name: Brew
           command: brew install opensearch
-      - run: sudo apt install dbus
-      - run: docker run -ti -d --privileged ubuntu:20.04 "/sbin/init"
       - run: brew services start opensearch    
       - run:
           name: Run tests
