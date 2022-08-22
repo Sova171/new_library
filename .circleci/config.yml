@@ -41,12 +41,12 @@ jobs:
             echo 'export INFOPATH="/home/linuxbrew/.linuxbrew/share/info:$INFOPATH"' >> $BASH_ENV
       - run:
           name: Brew
-          command: |
-            brew install opensearch
-            brew services start opensearch
+          command: brew install opensearch
       - run:
           name: Run tests
-          command: bundle exec rspec
+          command: |
+            brew services start opensearch
+            bundle exec rspec
 
 workflows:
   test-task:
