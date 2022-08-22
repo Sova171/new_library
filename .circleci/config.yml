@@ -42,6 +42,7 @@ jobs:
       - run:
           name: Brew
           command: brew install opensearch
+      - run: brew services restart opensearch    
       - run:
           name: Run tests
           command: |
