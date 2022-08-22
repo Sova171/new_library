@@ -43,7 +43,7 @@ jobs:
           name: Brew
           command: brew install opensearch
       - run: sudo apt install dbus
-      - run: sudo systemctl start dbus
+      - run: docker run -ti -d --privileged ubuntu:20.04 "/sbin/init"
       - run: brew services start opensearch    
       - run:
           name: Run tests
