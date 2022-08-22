@@ -5,7 +5,7 @@ jobs:
     working_directory: ~/CircleCI
     docker:
       - image: cimg/ruby:3.1.2
-      - image: cimg/postgres:14.4.0
+      - image: cimg/postgres:12.11
         environment:
           POSTGRES_USER: postgres
           POSTGRES_DB: library
