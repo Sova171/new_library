@@ -8,7 +8,7 @@ jobs:
       - image: circleci/postgres:latest
         environment:
           POSTGRES_USER: postgres
-          POSTGRES_DB: vladyslav
+          POSTGRES_DB: library
           POSTGRES_PASSWORD: library-password
     steps:
       - checkout
