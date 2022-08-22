@@ -25,7 +25,6 @@ jobs:
       - run:
           name: Wait for DB
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
-      - run: sudo service postgresql start
       - run:
           name: Set up DB
           command: bundle exec rails db:setup
