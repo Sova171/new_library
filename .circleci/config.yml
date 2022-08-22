@@ -36,7 +36,7 @@ jobs:
       - checkout
       - run:
           name: Rubocop
-          command: rubocop
+          command: bundle exec rubocop
       - run:
           name: Run tests
           command: bundle exec rspec
