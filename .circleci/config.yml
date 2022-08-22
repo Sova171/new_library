@@ -7,7 +7,7 @@ jobs:
       - image: cimg/ruby:3.1.2
       - image: cimg/postgres:12.11
         environment:
-          POSTGRES_USER: postgres
+          POSTGRES_USER: circleci
           POSTGRES_DB: library
           POSTGRES_PASSWORD: postgres
     steps:
