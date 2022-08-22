@@ -45,7 +45,6 @@ jobs:
       - run:
           name: Run tests
           command: |
-            brew services start opensearch
             bundle exec rspec
 
 workflows:
