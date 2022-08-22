@@ -42,7 +42,7 @@ jobs:
       - run:
           name: Run tests
           command: |
-            gem install rspec-rails
+            bundle install
             bundle exec rspec
 
 workflows:
