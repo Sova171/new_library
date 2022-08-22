@@ -37,7 +37,7 @@ jobs:
       - run:
           name: Rubocop
           command: |
-            bundle install rubocop
+            bundle install [rubocop]
             rubocop
       - run:
           name: Run tests
