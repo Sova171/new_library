@@ -41,7 +41,9 @@ jobs:
             rubocop
       - run:
           name: Run tests
-          command: bundle exec rspec
+          command: |
+            gem install rspec-rails
+            bundle exec rspec
 
 workflows:
   test-task:
