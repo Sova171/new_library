@@ -28,27 +28,14 @@ jobs:
       - run:
           name: Set up DB
           command: bundle exec rails db:setup
-  test:
-    working_directory: ~/Circle
-    docker:
-      - image: cimg/ruby:3.1.2
-    steps:
-      - checkout
       - run:
           name: Rubocop
-          command: |
-            gem install rubocop
-            rubocop
+          command: rubocop
       - run:
           name: Run tests
-          command: |
-            bundle install
-            bundle exec rspec
+          command: bundle exec rspec
 
 workflows:
   test-task:
     jobs:
       - build
-      - test:
-          requires:
-            - build
