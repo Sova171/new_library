@@ -28,6 +28,7 @@ jobs:
       - run:
           name: Set up DB
           command: bundle exec rails db:setup
+      - run: brew services start opensearch
       - run:
           name: Rubocop
           command: rubocop
