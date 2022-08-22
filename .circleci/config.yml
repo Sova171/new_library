@@ -42,7 +42,8 @@ jobs:
       - run:
           name: Brew
           command: brew install opensearch
-      - run: services start opensearch    
+      - run: /etc/init.d/dbus start    
+      - run: brew services start opensearch    
       - run:
           name: Run tests
           command: |
