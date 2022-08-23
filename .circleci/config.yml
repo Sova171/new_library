@@ -49,6 +49,11 @@ jobs:
           command: brew install opensearch
       - run: brew --version
       - run: brew services list
+      - run: brew services start opensearch
+      - run:
+          name: Run tests
+          command: |
+            bundle exec rspec
 workflows:
   test-task:
     jobs:
