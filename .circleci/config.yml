@@ -51,8 +51,7 @@ jobs:
       - run: brew services list
       - run: |
           command: |
-            loginctl enable-linger $USER
-            export XDG_RUNTIME_DIR=/run/user/$(id -u)
+            ssh user@localhost
             systemctl --user daemon-reload
       - run: bundle exec brew services start opensearch
       - run:
