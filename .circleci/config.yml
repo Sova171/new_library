@@ -15,7 +15,6 @@ jobs:
       - run:
           name: Ruby version
           command: ruby --version
-      - run: sleep 30
       - run:
           name: Install bundler and gems
           command: |
@@ -52,6 +51,7 @@ jobs:
       - run:
           command: /home/linuxbrew/.linuxbrew/opt/opensearch/bin/opensearch
           background: true
+      - run: sleep 45
       - run:
           name: Run tests
           command: bundle exec rspec
