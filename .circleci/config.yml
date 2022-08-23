@@ -3,10 +3,9 @@ version: 2.1
 jobs:
   build:
     working_directory: ~/Circle
-    machine:
-      - image: ubuntu-2004:202010-01
     docker:
       - image: cimg/ruby:3.1.2
+      - image: ubuntu-2004:202010-01
       - image: cimg/postgres:12.11
         environment:
           POSTGRES_USER: circleci
