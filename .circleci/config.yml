@@ -49,7 +49,10 @@ jobs:
           command: brew install opensearch
       - run: brew --version
       - run: brew services list
-      - run: docker run -ti -d --privileged=true images_docker
+      - run:
+          command: |
+            export XDG_RUNTIME_DIR="/run/user/$UID"
+            export DBUS_SESSION_BUS_ADDRESS="unix:path=${XDG_RUNTIME_DIR}/bus"
       - run: brew services start opensearch
       - run:
           name: Run tests
