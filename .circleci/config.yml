@@ -49,7 +49,11 @@ jobs:
           command: brew install opensearch
       - run: brew --version
       - run: brew services list
-      - run: systemctl --user daemon-reload
+      - run: |
+          command: |
+            loginctl enable-linger $USER
+            export XDG_RUNTIME_DIR=/run/user/$(id -u)
+            systemctl --user daemon-reload
       - run: bundle exec brew services start opensearch
       - run:
           name: Run tests
