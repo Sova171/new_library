@@ -15,6 +15,7 @@ jobs:
       - run:
           name: Ruby version
           command: ruby --version
+      - run: -wait -timeout 1m
       - run:
           name: Install bundler and gems
           command: |
@@ -49,7 +50,7 @@ jobs:
           command: brew install opensearch
       - run: brew --version
       - run:
-          command: /home/linuxbrew/.linuxbrew/opt/opensearch/bin/opensearch -timeout 1m
+          command: /home/linuxbrew/.linuxbrew/opt/opensearch/bin/opensearch
           background: true
       - run:
           name: Run tests
