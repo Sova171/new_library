@@ -49,8 +49,7 @@ jobs:
           command: brew install opensearch
       - run: brew --version
       - run: brew services list
-      - run: users
-      - run: brew services start opensearch
+      - run: bundle exec brew services start opensearch
       - run:
           name: Run tests
           command: |
