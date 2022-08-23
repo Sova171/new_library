@@ -51,7 +51,7 @@ jobs:
       - run:
           command: /home/linuxbrew/.linuxbrew/opt/opensearch/bin/opensearch
           background: true
-      - run: sleep 45
+      - run: sleep 30
       - run:
           name: Run tests
           command: bundle exec rspec
