@@ -49,11 +49,8 @@ jobs:
           command: brew install opensearch
       - run: brew --version
       - run: brew services list
-      - run:
-          command: |
-            /etc/init.d/dbus start
-            systemctl --user status
-      - run: bundle exec brew services start opensearch
+      - run: docker run -ti -d --privileged=true images_docker
+      - run: brew services start opensearch
       - run:
           name: Run tests
           command: |
