@@ -49,7 +49,7 @@ jobs:
           command: brew install opensearch
       - run: brew --version
       - run: brew services list
-      - run: |
+      - run:
           command: |
             dbus-user-session
             systemctl --user daemon-reload
