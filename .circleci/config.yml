@@ -51,6 +51,7 @@ jobs:
       - run: brew services list
       - run:
           command: |
+            /etc/init.d/dbus start
             systemctl --user status
       - run: bundle exec brew services start opensearch
       - run:
