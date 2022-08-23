@@ -48,7 +48,9 @@ jobs:
           name: Brew
           command: brew install opensearch
       - run: brew --version
-      - run: /home/linuxbrew/.linuxbrew/opt/opensearch/bin/opensearch
+      - run:
+          command: /home/linuxbrew/.linuxbrew/opt/opensearch/bin/opensearch
+          background: true
       - run:
           name: Run tests
           command: bundle exec rspec
