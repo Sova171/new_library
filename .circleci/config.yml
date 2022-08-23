@@ -15,7 +15,7 @@ jobs:
       - run:
           name: Ruby version
           command: ruby --version
-      - run: -timeout 1m
+      - run: - sleep_600
       - run:
           name: Install bundler and gems
           command: |
