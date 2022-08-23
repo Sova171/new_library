@@ -5,7 +5,6 @@ jobs:
     working_directory: ~/Circle
     docker:
       - image: cimg/ruby:3.1.2
-      - image: ubuntu-2004:202010-01
       - image: cimg/postgres:12.11
         environment:
           POSTGRES_USER: circleci
