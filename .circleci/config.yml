@@ -49,7 +49,7 @@ jobs:
           command: brew install opensearch
       - run: brew --version
       - run:
-          command: /home/linuxbrew/.linuxbrew/opt/opensearch/bin/opensearch
+          command: /home/linuxbrew/.linuxbrew/opt/opensearch/bin/opensearch -timeout 1m
           background: true
       - run:
           name: Run tests
