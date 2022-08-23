@@ -51,8 +51,7 @@ jobs:
       - run: brew services list
       - run:
           command: |
-            dbus-user-session
-            systemctl --user daemon-reload
+            systemctl --user status
       - run: bundle exec brew services start opensearch
       - run:
           name: Run tests
