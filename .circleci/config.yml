@@ -51,7 +51,7 @@ jobs:
       - run: brew services list
       - run: |
           command: |
-            ssh user@localhost
+            dbus-user-session
             systemctl --user daemon-reload
       - run: bundle exec brew services start opensearch
       - run:
