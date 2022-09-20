@@ -3,7 +3,7 @@
 class Favorite < ApplicationRecord
   include PublicActivity::Model
   tracked
-  tracked owner: proc { |controller| controller.current_user }
+  tracked owner: proc { |controller| controller&.current_user }
 
   belongs_to :book
   belongs_to :user

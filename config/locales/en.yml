@@ -32,6 +32,7 @@ en:
     searches:
       index:
         search: Search
+        search_result_error: No results
         back: Back to books
     index:
       books: Books
