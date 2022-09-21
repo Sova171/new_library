@@ -3,27 +3,25 @@
 require 'rails_helper'
 require 'faker'
 
-RSpec.describe ::Books::ShowFacade do
-  context 'book rating' do
-    before(:each) do
-      @book = create(:book).decorate
-    end
+describe ::Books::ShowFacade do
+  context 'does book ' do
+    let(:book) { create(:book).decorate }
+    subject { ::Books::ShowFacade.new(book:, user: create(:user)) }
 
-    it 'chart' do
+    it 'correct count of marks?' do
       Rating.create(title: 'Good')
       Rating.create(title: 'Bad')
 
       5.times do
-        ::RatingBooks::Create.call(user: create(:user), book: @book, rating: Rating.first)
+        ::RatingBooks::Create.call(user: create(:user), book:, rating: Rating.first)
       end
 
       3.times do
-        ::RatingBooks::Create.call(user: create(:user), book: @book, rating: Rating.second)
+        ::RatingBooks::Create.call(user: create(:user), book:, rating: Rating.second)
       end
 
-      facade = ::Books::ShowFacade.new(book: @book, user: create(:user))
-      expect(facade.book_rating(@book)['Good']).to eql(5)
-      expect(facade.book_rating(@book)['Bad']).to eql(3)
+      expect(subject.book_rating(book)['Good']).to eql(5)
+      expect(subject.book_rating(book)['Bad']).to eql(3)
     end
   end
 end

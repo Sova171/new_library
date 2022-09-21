@@ -34,8 +34,7 @@ Metrics/BlockLength:
     - "config/environments/development.rb"
     - "app/admin/authors.rb"
     - "app/admin/books.rb"
-    - "spec/operations/books_search_spec.rb"
-    - "spec/operations/rating_books_spec.rb"
+    - "spec/operations/**/*"
 
 Metrics/AbcSize:
   Exclude:

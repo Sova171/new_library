@@ -3,7 +3,7 @@
 require 'rails_helper'
 require 'faker'
 
-RSpec.describe ::Books::Search, search: true do
+describe ::Books::Search, search: true do
   before(:each) do
     Book.create(title: 'Yard', description: Faker::TvShows::FamilyGuy.quote)
     Book.create(title: 'Upper Yard', description: Faker::TvShows::FamilyGuy.quote)
