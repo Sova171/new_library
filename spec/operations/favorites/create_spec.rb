@@ -1,15 +1,15 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
-require 'faker'
 
 describe ::Favorites::Create do
+  subject { ::Favorites::Create.call(user:, book:) }
+
   let(:user) { create(:user) }
   let(:book) { create(:book).decorate }
-  subject(:follow_book) { ::Favorites::Create.call(user:, book:) }
 
   it 'follow book' do
-    follow_book
+    subject
     expect(book.followed_by?(user)).to eql(true)
   end
 end

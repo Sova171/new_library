@@ -1,27 +1,28 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
-require 'faker'
 
 describe ::Books::ShowFacade do
-  context 'does book ' do
+  describe '#book_rating' do
+    subject { described_class.new(book:, user:) }
+
+    let(:user) { create(:user) }
     let(:book) { create(:book).decorate }
-    subject { ::Books::ShowFacade.new(book:, user: create(:user)) }
+    let(:creates) { ::RatingBooks::Create }
+    let(:pretty_rate) { create(:pretty_rate) }
+    let(:bad_rate) { create(:bad_rate) }
 
-    it 'correct count of marks?' do
-      Rating.create(title: 'Good')
-      Rating.create(title: 'Bad')
-
+    it 'is the rating correct?' do
       5.times do
-        ::RatingBooks::Create.call(user: create(:user), book:, rating: Rating.first)
+        creates.call(user: create(:user), book:, rating: pretty_rate)
       end
 
       3.times do
-        ::RatingBooks::Create.call(user: create(:user), book:, rating: Rating.second)
+        creates.call(user: create(:user), book:, rating: bad_rate)
       end
 
-      expect(subject.book_rating(book)['Good']).to eql(5)
-      expect(subject.book_rating(book)['Bad']).to eql(3)
+      expect(subject.book_rating['Pretty']).to eql(5)
+      expect(subject.book_rating['Bad']).to eql(3)
     end
   end
 end

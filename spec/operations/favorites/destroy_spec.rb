@@ -1,17 +1,19 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
-require 'faker'
 
 describe ::Favorites::Destroy do
+  subject { ::Favorites::Destroy.call(user:, book:) }
+
   let(:user) { create(:user) }
   let(:book) { create(:book).decorate }
-  subject(:follow_book) { ::Favorites::Create.call(user:, book:) }
-  subject(:unfollow_book) { ::Favorites::Destroy.call(user:, book:) }
+
+  before do
+    ::Favorites::Create.call(user:, book:)
+  end
 
   it 'unfollow book' do
-    follow_book
-    unfollow_book
+    subject
     expect(book.followed_by?(user)).to eql(false)
   end
 end

@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
-require 'faker'
 
 describe ::Books::Search, search: true do
   before(:each) do

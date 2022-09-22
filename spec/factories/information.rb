@@ -13,6 +13,17 @@ FactoryBot.define do
 
   factory :rating do
     title { Faker::JapaneseMedia::OnePiece.location }
+
+    trait 'pretty' do
+      title { 'Pretty' }
+    end
+
+    trait 'bad' do
+      title { 'Bad' }
+    end
+
+    factory :pretty_rate, traits: [:pretty]
+    factory :bad_rate, traits: [:bad]
   end
 
   factory :list do

@@ -34,7 +34,7 @@ Metrics/BlockLength:
     - "config/environments/development.rb"
     - "app/admin/authors.rb"
     - "app/admin/books.rb"
-    - "spec/operations/**/*"
+    - "spec/**/*"
 
 Metrics/AbcSize:
   Exclude:
@@ -43,3 +43,4 @@ Metrics/AbcSize:
 Lint/MissingSuper:
   Exclude:
     - 'app/operations/**/*'
+    - 'app/services/**/*'

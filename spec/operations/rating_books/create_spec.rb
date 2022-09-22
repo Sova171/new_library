@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
-require 'faker'
 
 describe ::RatingBooks::Create do
   let(:book) { create(:book).decorate }
