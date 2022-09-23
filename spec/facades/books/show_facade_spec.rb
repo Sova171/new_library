@@ -8,17 +8,16 @@ describe ::Books::ShowFacade do
 
     let(:user) { create(:user) }
     let(:book) { create(:book).decorate }
-    let(:creates) { ::RatingBooks::Create }
-    let(:pretty_rate) { create(:pretty_rate) }
-    let(:bad_rate) { create(:bad_rate) }
+    let(:bad_rating) { create(:bad_rating) }
+    let(:pretty_rating) { create(:pretty_rating) }
 
     it 'is the rating correct?' do
       5.times do
-        creates.call(user: create(:user), book:, rating: pretty_rate)
+        create(:rating_book, user: create(:user), book:, rating: pretty_rating)
       end
 
       3.times do
-        creates.call(user: create(:user), book:, rating: bad_rate)
+        create(:rating_book, user: create(:user), book:, rating: bad_rating)
       end
 
       expect(subject.book_rating['Pretty']).to eql(5)

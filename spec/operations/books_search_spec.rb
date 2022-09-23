@@ -4,11 +4,11 @@ require 'rails_helper'
 
 describe ::Books::Search, search: true do
   before(:each) do
-    Book.create(title: 'Yard', description: Faker::TvShows::FamilyGuy.quote)
-    Book.create(title: 'Upper Yard', description: Faker::TvShows::FamilyGuy.quote)
-    Book.create(title: 'Potter', description: Faker::TvShows::FamilyGuy.quote)
-    Book.create(title: 'Friends', description: Faker::TvShows::FamilyGuy.quote)
-    Book.create(title: 'Upper friends', description: Faker::TvShows::FamilyGuy.quote)
+    create(:book, title: 'Yard')
+    create(:book, title: 'Upper Yard')
+    create(:book, title: 'Potter')
+    create(:book, title: 'Friends')
+    create(:book, title: 'Upper friends')
     Book.search_index.refresh
   end
 
