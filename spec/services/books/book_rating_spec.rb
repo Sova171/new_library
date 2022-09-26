@@ -14,7 +14,7 @@ describe ::Books::BookRating do
     FactoryBot.create_list(:rating_book, 3, book:, rating: bad_rating)
   end
 
-  it 'is the rating correct?' do
+  it 'returns the correct rating' do
     expect(subject['Pretty']).to eql(5)
     expect(subject['Bad']).to eql(3)
   end

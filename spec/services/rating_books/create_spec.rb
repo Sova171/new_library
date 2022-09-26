@@ -9,14 +9,14 @@ describe ::RatingBooks::Create do
   let(:book)          { create(:book).decorate }
   let(:rating)        { create(:rating) }
   let(:other_rating)  { create(:rating) }
-  let(:create_rating) { described_class.call(user:, book:, rating:) }
+  let(:create_rating) { create(:rating_book, user:, book:, rating:) }
 
   before(:each) do
     create_rating
   end
 
-  context 'when user' do
-    it 'rating book for the first time' do
+  context 'when book is rated by user' do
+    it 'for the first time' do
       expect(user.rating_books.where(book:, rating:)).to exist
     end
 
