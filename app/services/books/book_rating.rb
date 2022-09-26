@@ -10,7 +10,7 @@ module Books
       Rating
         .joins(:rating_books)
         .where(rating_books: { book: })
-        .group('rating_id, ratings.title')
+        .group(:title)
         .count
     end
 
