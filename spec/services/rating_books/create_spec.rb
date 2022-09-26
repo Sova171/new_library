@@ -9,10 +9,9 @@ describe ::RatingBooks::Create do
   let(:book)          { create(:book).decorate }
   let(:rating)        { create(:rating) }
   let(:other_rating)  { create(:rating) }
-  let(:create_rating) { create(:rating_book, user:, book:, rating:) }
 
   before(:each) do
-    create_rating
+    create(:rating_book, user:, book:, rating:)
   end
 
   context 'when book is rated by user' do

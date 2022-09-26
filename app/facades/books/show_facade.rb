@@ -14,7 +14,11 @@ module Books
     end
 
     def book_rating
-      ::Books::BookRating.call(book:)
+      Rating
+        .joins(:rating_books)
+        .where(rating_books: { book: })
+        .group(:title)
+        .count
     end
 
     delegate :title, :description, :pages_count, :published_at,
