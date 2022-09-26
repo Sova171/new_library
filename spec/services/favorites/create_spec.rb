@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 describe ::Favorites::Create do
-  subject { ::Favorites::Create.call(user:, book:) }
+  subject { described_class.call(user:, book:) }
 
   let(:user) { create(:user) }
   let(:book) { create(:book).decorate }

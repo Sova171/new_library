@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 describe ::BooksLists::Create do
-  subject { ::BooksLists::Create.call(book:, list:) }
+  subject { described_class.call(book:, list:) }
 
   let(:book) { create(:book) }
   let(:list) { create(:list) }

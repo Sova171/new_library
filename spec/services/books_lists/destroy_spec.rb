@@ -9,10 +9,10 @@ describe ::BooksLists::Destroy do
   let(:list) { create(:list) }
 
   before do
-    ::BooksLists::Create.call(book:, list:)
+    create(:books_list, book:, list:)
   end
 
-  it 'destroy list' do
+  it 'destroys list' do
     expect { subject }.to change(BooksList, :count).by(-1)
   end
 end

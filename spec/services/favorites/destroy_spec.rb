@@ -3,13 +3,13 @@
 require 'rails_helper'
 
 describe ::Favorites::Destroy do
-  subject { ::Favorites::Destroy.call(user:, book:) }
+  subject { described_class.call(user:, book:) }
 
   let(:user) { create(:user) }
   let(:book) { create(:book).decorate }
 
   before do
-    ::Favorites::Create.call(user:, book:)
+    create(:favorite, user:, book:)
   end
 
   it 'unfollow book' do

@@ -11,6 +11,16 @@ FactoryBot.define do
     description { Faker::TvShows::FamilyGuy.quote }
   end
 
+  factory :books_list do
+    book
+    list
+  end
+
+  factory :favorite do
+    book
+    user
+  end
+
   factory :rating do
     title { Faker::JapaneseMedia::OnePiece.location }
 

@@ -42,5 +42,4 @@ Metrics/AbcSize:
 
 Lint/MissingSuper:
   Exclude:
-    - 'app/operations/**/*'
     - 'app/services/**/*'
