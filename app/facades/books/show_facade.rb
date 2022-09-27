@@ -22,6 +22,6 @@ module Books
     end
 
     delegate :title, :description, :pages_count, :published_at,
-             :publisher, :authors, :cover, to: :book, prefix: true
+             :publisher, :authors, :cover, :category, to: :book, prefix: true
   end
 end

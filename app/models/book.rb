@@ -18,4 +18,13 @@ class Book < ApplicationRecord
 
   validates :title, presence: true
   validates :description, presence: true, length: { minimum: MIN_DESCRIPTION_LENGTH }
+
+  enum category: {
+    biography: 'biography',
+    detective: 'detective',
+    fantasy: 'fantasy',
+    mystery: 'mystery',
+    horror: 'horror',
+    other: 'other'
+  }
 end
