@@ -1,13 +1,14 @@
 # frozen_string_literal: true
 
 ActiveAdmin.register Book do
-  permit_params :title, :description, :pages_count,
+  permit_params :title, :description, :category, :pages_count,
                 :published_at, :publisher, :cover, author_ids: []
 
   index do
     selectable_column
     column :title
     column :description
+    column :category
     column :pages_count
     column :published_at
     column :publisher
@@ -33,6 +34,7 @@ ActiveAdmin.register Book do
         end
       end
       row :description
+      row :category
       row :pages_count
       row :published_at
       row :publisher
@@ -55,6 +57,7 @@ ActiveAdmin.register Book do
       f.input :cover, as: :file
       f.input :author_ids, as: :tags, collection: Author.all, display_name: :full_name
       f.input :title
+      f.input :category, as: :select, collection: Book.categories
       f.input :description
       f.input :pages_count
       f.input :published_at
@@ -65,4 +68,5 @@ ActiveAdmin.register Book do
 
   filter :authors
   filter :pages_count
+  filter :category, as: :select, collection: Book.categories
 end
