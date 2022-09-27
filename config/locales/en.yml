@@ -48,6 +48,7 @@ en:
     show:
       title: Title
       description: Description
+      category: Category
       pages: Pages count
       published: Published
       publisher: Publisher
