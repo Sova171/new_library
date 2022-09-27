@@ -5,4 +5,4 @@
         = link_to rating.title, rating_book_path(id: book, rating_id: rating), method: :delete, class: "btn btn-success"
       - else
         = link_to rating.title, rating_books_path(id: book, rating_id: rating), method: :post, class: "btn btn-primary"
-= pie_chart @facade.book_rating(book)
+= pie_chart @facade.book_rating

@@ -8,7 +8,7 @@ module RatingBooks
     end
 
     def call
-      user.rating_books.find_by(book_id: book.id).destroy
+      user.rating_books.find_by(book:).destroy
     end
 
     private

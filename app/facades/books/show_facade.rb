@@ -13,12 +13,12 @@ module Books
       user.lists.decorate
     end
 
-    def book_rating(book)
-      votes = {}
-      Rating.all.each do |vote|
-        votes[vote.title] = RatingBook.where(book_id: book.id, rating_id: vote.id).count
-      end
-      votes
+    def book_rating
+      Rating
+        .joins(:rating_books)
+        .where(rating_books: { book: })
+        .group(:title)
+        .count
     end
 
     delegate :title, :description, :pages_count, :published_at,
