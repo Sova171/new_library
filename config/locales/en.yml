@@ -36,7 +36,7 @@ en:
         back: Back to books
     index:
       books: Books
-      admin: Welcome admin
+      all: all categories
       new: New book
       search: Search
       search_book: Book title

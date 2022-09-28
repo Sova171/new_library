@@ -3,12 +3,13 @@
 module Books
   class IndexFacade
     include Pagy::Backend
-    attr_reader :page
+    attr_reader :page, :category
 
     DEFAULT_PAGE = 1
 
-    def initialize(page:)
+    def initialize(page:, category:)
       @page = page.presence || DEFAULT_PAGE
+      @category = category
     end
 
     def paginate
@@ -19,6 +20,10 @@ module Books
       @books ||= pagination.last
     end
 
+    def categories
+      Book.categories
+    end
+
     private
 
     def pagination
@@ -26,7 +31,11 @@ module Books
     end
 
     def all_books
-      Book.order(:created_at)
+      if category.presence
+        Book.where(category:)
+      else
+        Book.order(:created_at)
+      end
     end
   end
 end

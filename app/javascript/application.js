@@ -6,8 +6,9 @@ import "@hotwired/turbo-rails"
 import "controllers"
 import "chartkick"
 import "Chart.bundle"
+import * as bootstrap from 'bootstrap'
 
-$(document).on('turbo:load', function() {
+/*$(document).on('turbo:load', function() {
     $( '.dropdown' ).select2({
         theme: "bootstrap",
         width: 500,
@@ -15,4 +16,4 @@ $(document).on('turbo:load', function() {
         multiple: true,
         placeholder: 'Search'
     });
-})
+})*/
