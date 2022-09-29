@@ -55,8 +55,8 @@ module Books
 
     def sorted_books
       ids = []
-      sorted = query_ratings.sort_by { |k, v| -v }
-      sorted.each { |k, v| ids.push(k) }
+      sorted = query_ratings.sort_by { |_k, v| -v }
+      sorted.each { |k, _v| ids.push(k) }
       Book.where(id: ids).in_order_of(:id, ids)
     end
   end
