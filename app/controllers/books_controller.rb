@@ -4,7 +4,7 @@ class BooksController < ApplicationController
   before_action :find_book, only: :show
 
   def index
-    @facade = ::Books::IndexFacade.new(page: params[:page], category: params[:category])
+    @facade = ::Books::IndexFacade.new(page: params[:page], category: params[:category], rating: params[:rating])
   end
 
   def show
