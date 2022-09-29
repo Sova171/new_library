@@ -12,12 +12,12 @@ jobs:
           POSTGRES_USER: circleci
           POSTGRES_DB: library
           POSTGRES_PASSWORD: postgres
-#      - image: opensearchproject/opensearch:latest
-#        environment:
-#          - transport.host: localhost
-#          - http.port: 9200
-#          - discovery.type: single-node
-#          - plugins.security.disabled: true
+      - image: opensearchproject/opensearch:latest
+        environment:
+          transport.host: localhost
+          http.port: 9200
+          discovery.type: single-node
+          plugins.security.disabled: true
     steps:
       - checkout
       - run:
