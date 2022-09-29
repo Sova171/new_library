@@ -16,6 +16,8 @@ class Book < ApplicationRecord
   has_many :favorites, foreign_key: :book_id, dependent: :destroy
   has_many :favorites_book, through: :favorites, source: :user
 
+  has_many :rating_books
+
   validates :title, presence: true
   validates :description, presence: true, length: { minimum: MIN_DESCRIPTION_LENGTH }
 
