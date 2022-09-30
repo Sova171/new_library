@@ -5,56 +5,57 @@ jobs:
     working_directory: ~/Circle
     docker:
       - image: cimg/ruby:3.1.2
-      - image: cimg/postgres:12.11
+        environment:
+          RAILS_ENV: test
+      - image: cimg/postgres:14.5
         environment:
           POSTGRES_USER: circleci
           POSTGRES_DB: library
           POSTGRES_PASSWORD: postgres
+      - image: opensearchproject/opensearch:latest
+        environment:
+          transport.host: localhost
+          http.port: 9200
+          discovery.type: single-node
+          plugins.security.disabled: true
     steps:
       - checkout
       - run:
           name: Ruby version
           command: ruby --version
+
       - run:
-          name: Install bundler and gems
-          command: |
-            gem install bundler
-            bundle install
-      - run: sudo apt-get update
-      - run: sudo apt-get install postgresql-client
+          name: Bundler version
+          command: bundler --version
+
+      - restore_cache:
+          keys:
+            # when lock file changes, use increasingly general patterns to restore cache
+            - v1-gem-cache-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+            - v1-gem-cache-{{ arch }}-{{ .Branch }}-
+            - v1-gem-cache-{{ arch }}-
+      - run: bundle install
+      - run: bundle clean --force
+      - save_cache:
+          paths:
+            - ~/.bundle
+          key: v1-gem-cache-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+
+      - run:
+          name: Rubocop
+          command: rubocop
+
       - run:
           name: Wait for DB
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run:
           name: Set up DB
           command: bundle exec rails db:setup
-      - run:
-          name: Rubocop
-          command: rubocop
-      - run:
-          name: Install and set Homebrew
-          command: |
-            sudo apt-get install build-essential curl file git
-            sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
-            echo 'export PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin/:$PATH"' >> $BASH_ENV
-            echo 'export MANPATH="/home/linuxbrew/.linuxbrew/share/man:$MANPATH"' >> $BASH_ENV
-            echo 'export INFOPATH="/home/linuxbrew/.linuxbrew/share/info:$INFOPATH"' >> $BASH_ENV
-      - run:
-          name: path Homebrew
-          command: |
-            echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/circleci/.profile
-            eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-      - run:
-          name: Brew
-          command: brew install opensearch
-      - run: brew --version
-      - run:
-          command: /home/linuxbrew/.linuxbrew/opt/opensearch/bin/opensearch
-          background: true
-      - run: sleep 30
+
       - run:
           name: Run tests
           command: bundle exec rspec
+
 workflows:
   test-task:
     jobs:
