@@ -1,0 +1,5 @@
+en:
+  welcome_email:
+    header: "Welcome to library, %{user_email}"
+    body: "Thank you for registering, now you can browse all books, create custom book lists and add them to your favorites on this site"
+    footer: "Thanks for joining and have a great day!"

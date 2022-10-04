@@ -1,6 +1,7 @@
 %h1
-  Welcome to library, #{@user.email}
+  =I18n.t('welcome_email.header', user_email: @user.email)
 %p
-  Thank you for registering, now you can browse all books, create custom book lists and add them to your favorites on this site
+  =I18n.t('welcome_email.body')
   %br/
-%p Thanks for joining and have a great day!
+%p
+  =I18n.t('welcome_email.footer')
