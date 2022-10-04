@@ -32,12 +32,12 @@ module Books
     private
 
     def pagination
-      @pagination ||= pagy(all_books, page:)
+      @pagination ||= category.presence ? pagy_searchkick(all_books, page:) : pagy(all_books, page:)
     end
 
     def all_books
       if category.presence
-        Book.where(category:)
+        Book.pagy_search(category, fields: [:category])
       elsif rating.presence
         sorted_books
       else
@@ -49,7 +49,7 @@ module Books
       Book
         .joins(:rating_books)
         .where(rating_books: { rating_id: rating })
-        .group(:id)
+        .group(:book_id)
         .count
     end
 
