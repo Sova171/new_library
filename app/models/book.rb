@@ -2,6 +2,7 @@
 
 class Book < ApplicationRecord
   include PublicActivity::Model
+  extend Pagy::Searchkick
   tracked owner: proc { |controller| controller&.current_admin_user }
 
   MIN_DESCRIPTION_LENGTH = 5
