@@ -2,7 +2,7 @@
 
 .dropdown
   %button#dropdownMenuButton1.btn.dropdown-toggle{"aria-expanded" => "false", "data-bs-toggle" => "dropdown", type: "button"}
-    =I18n.t('.categories')
+    = t('.categories')
   %ul.dropdown-menu{ "aria-labelledby" => "dropdownMenuButton1" }
     %li
       = link_to t('.all'), root_path, class: "dropdown-item"
@@ -12,7 +12,7 @@
 
 .dropdown
   %button#dropdownMenuButton1.btn.dropdown-toggle{"aria-expanded" => "false", "data-bs-toggle" => "dropdown", type: "button"}
-    Ratings
+    = t('.ratings')
   %ul.dropdown-menu{"aria-labelledby" => "dropdownMenuButton1"}
     %li
     - @facade.ratings.each do |rating|

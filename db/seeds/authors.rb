@@ -4,9 +4,9 @@ Author.delete_all
 
 def create_authors
   author = Author.create(
-    full_name: Faker::TvShows::Friends.character,
-    date_of_birth: Date.today - rand(2000),
-    biography: Faker::JapaneseMedia::OnePiece.quote
+    full_name:     Faker::TvShows::Friends.character,
+    biography:     Faker::JapaneseMedia::OnePiece.quote,
+    date_of_birth: Date.today - rand(2000)
   )
   author.save!
 end
