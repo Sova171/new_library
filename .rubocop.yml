@@ -43,3 +43,7 @@ Metrics/AbcSize:
 Lint/MissingSuper:
   Exclude:
     - 'app/services/**/*'
+
+Layout/HashAlignment:
+  Exclude:
+    - 'app/models/book.rb'

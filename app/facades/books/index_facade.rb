@@ -32,13 +32,16 @@ module Books
     private
 
     def pagination
-      @pagination ||= category.presence ? pagy_searchkick(all_books, page:) : pagy(all_books, page:)
+      if category.presence
+        result = Book.pagy_search(category, fields: [:category])
+        @pagination ||= pagy_searchkick(result, page:)
+      else
+        @pagination ||= pagy(all_books, page:)
+      end
     end
 
     def all_books
-      if category.presence
-        Book.pagy_search(category, fields: [:category])
-      elsif rating.presence
+      if rating.presence
         sorted_books
       else
         Book.order(:created_at)
