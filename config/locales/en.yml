@@ -41,6 +41,8 @@ en:
       new: New book
       search: Search
       search_book: Book title
+      categories: Categories
+      ratings: Ratings
     favorites:
       edit: Edit book
       delete: Delete book
@@ -111,6 +113,3 @@ en:
       lists: My lists
     books_card:
       delete: Delete
-
-  categories: Categories
-  ratings: Ratings
