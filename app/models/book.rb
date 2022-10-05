@@ -25,9 +25,9 @@ class Book < ApplicationRecord
   enum category: {
     biography: 'biography',
     detective: 'detective',
-    fantasy: 'fantasy',
-    mystery: 'mystery',
-    horror: 'horror',
-    other: 'other'
+    fantasy:   'fantasy',
+    mystery:   'mystery',
+    horror:    'horror',
+    other:     'other'
   }
 end

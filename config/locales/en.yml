@@ -4,6 +4,7 @@ en:
       index:
         name: Name
         image: Image
+
   authors:
     index:
       authors: Authors
@@ -110,3 +111,5 @@ en:
       lists: My lists
     books_card:
       delete: Delete
+
+  categories: Categories

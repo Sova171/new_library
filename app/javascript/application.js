@@ -2,18 +2,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require select2
-import "@hotwired/turbo-rails"
-import "controllers"
-import "chartkick"
-import "Chart.bundle"
+import '@hotwired/turbo-rails'
+import 'controllers'
+import 'chartkick'
+import 'Chart.bundle'
 import * as bootstrap from 'bootstrap'
-
-/*$(document).on('turbo:load', function() {
-    $( '.dropdown' ).select2({
-        theme: "bootstrap",
-        width: 500,
-        allowClear: true,
-        multiple: true,
-        placeholder: 'Search'
-    });
-})*/
