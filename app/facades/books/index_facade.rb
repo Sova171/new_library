@@ -43,6 +43,7 @@ module Books
     end
 
     def results_by_category
+      Book.reindex
       Book.pagy_search(category, fields: [:category])
     end
 

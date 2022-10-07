@@ -25,7 +25,7 @@ class Book < ApplicationRecord
 
   def search_data
     attributes.merge(
-      book_rating_id: result&.pluck(:rating_id)
+      book_rating_id: rating_books&.pluck(:rating_id)
     )
   end
 
