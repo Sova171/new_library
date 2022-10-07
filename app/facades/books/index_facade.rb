@@ -32,35 +32,22 @@ module Books
     private
 
     def pagination
-      if category.presence
-        result = Book.pagy_search(category, fields: [:category])
-        @pagination ||= pagy_searchkick(result, page:)
-      else
-        @pagination ||= pagy(all_books, page:)
-      end
+      @pagination ||= pagy_searchkick(results, page:)
     end
 
-    def all_books
-      if rating.presence
-        sorted_books
-      else
-        Book.order(:created_at)
-      end
+    def results
+      return results_by_category if category.presence
+      return results_by_rating if rating.presence
+
+      Book.pagy_search('*', order: { created_at: :desc })
     end
 
-    def query_ratings
-      Book
-        .joins(:rating_books)
-        .where(rating_books: { rating_id: rating })
-        .group(:book_id)
-        .count
+    def results_by_category
+      Book.pagy_search(category, fields: [:category])
     end
 
-    def sorted_books
-      ids = []
-      sorted = query_ratings.sort_by { |_k, v| -v }
-      sorted.each { |k, _v| ids.push(k) }
-      Book.where(id: ids).in_order_of(:id, ids)
+    def results_by_rating
+      Book.pagy_search('*', where: { book_rating_id: rating })
     end
   end
 end
