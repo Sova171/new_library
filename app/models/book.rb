@@ -22,7 +22,6 @@ class Book < ApplicationRecord
   validates :title, presence: true
   validates :description, presence: true, length: { minimum: MIN_DESCRIPTION_LENGTH }
 
-
   def search_data
     attributes.merge(
       book_rating_id: rating_books&.pluck(:rating_id)
