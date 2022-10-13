@@ -23,7 +23,7 @@ module RatingBooks
 
     def update_rating_count
       rate_count = RatingCount.find_by(book_id: book.id, rating_id: find_rating)
-      rate_count.update_attribute(:count, rate_count.count -= 1)
+      rate_count&.update_attribute(:counts, rate_count.counts -= 1)
     end
   end
 end

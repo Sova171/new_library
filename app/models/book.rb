@@ -17,10 +17,18 @@ class Book < ApplicationRecord
   has_many :favorites, foreign_key: :book_id, dependent: :destroy
   has_many :favorites_book, through: :favorites, source: :user
 
-  has_many :rating_books
+  has_many :rating_books, dependent: :destroy
+  has_many :rating_counts, dependent: :destroy
 
   validates :title, presence: true
   validates :description, presence: true, length: { minimum: MIN_DESCRIPTION_LENGTH }
+
+  def search_data
+    attributes.merge(
+      book_count:     rating_counts.pluck(:counts),
+      book_rating_id: rating_counts.pluck(:rating_id)
+    )
+  end
 
   enum category: {
     biography: 'biography',

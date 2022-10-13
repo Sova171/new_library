@@ -3,14 +3,14 @@
 module RatingBooks
   class Create < ::Callable
     def initialize(book:, user:, rating:)
-      @book = book
-      @user = user
+      @book   = book
+      @user   = user
       @rating = rating
     end
 
     def call
-      create_rating_book
       update_rating_count
+      create_rating_book
     end
 
     private
@@ -22,9 +22,16 @@ module RatingBooks
       user.rating_books.create(book:, rating:)
     end
 
+    def update_when_rated
+      rating = RatingBook.find_by(book:, user:)
+      rate_count = RatingCount.find_by(book_id: book.id, rating_id: rating.rating_id)
+      rate_count&.update_attribute(:counts, rate_count.counts -= 1)
+    end
+
     def update_rating_count
+      update_when_rated if book.rated_by?(user)
       rate_count = RatingCount.find_by(book_id: book.id, rating_id: rating)
-      rate_count.update_attribute(:count, rate_count.count += 1)
+      rate_count&.update_attribute(:counts, rate_count.counts += 1)
     end
   end
 end

@@ -6,6 +6,7 @@ class BooksController < ApplicationController
   def index
     @facade = ::Books::IndexFacade.new(
       page:     params[:page],
+      rating:   params[:rating],
       category: params[:category]
     )
   end

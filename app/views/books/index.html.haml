@@ -10,6 +10,15 @@
       %li
         = link_to category.first, books_path(category:), class: "dropdown-item"
 
+.dropdown
+  %button#dropdownMenuButton1.btn.dropdown-toggle{"aria-expanded" => "false", "data-bs-toggle" => "dropdown", type: "button"}
+    = t('.ratings')
+  %ul.dropdown-menu{"aria-labelledby" => "dropdownMenuButton1"}
+    %li
+    - @facade.ratings.each do |rating|
+      %li
+        = link_to rating.title, books_path(rating:), class: "dropdown-item"
+
 = form_tag(searches_path, method: :get) do
   .input-group.mb-2
     = search_field_tag :search, params[:search], placeholder: t('.search_book'), class: 'form-control'
