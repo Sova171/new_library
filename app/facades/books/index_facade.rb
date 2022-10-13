@@ -3,14 +3,13 @@
 module Books
   class IndexFacade
     include Pagy::Backend
-    attr_reader :page, :category, :rating
+    attr_reader :page, :category
 
     DEFAULT_PAGE = 1
 
-    def initialize(page:, category:, rating:)
+    def initialize(page:, category:)
       @page = page.presence || DEFAULT_PAGE
       @category = category
-      @rating = rating
     end
 
     def paginate
@@ -25,42 +24,20 @@ module Books
       Book.categories
     end
 
-    def ratings
-      Rating.all
-    end
-
     private
 
     def pagination
-      if category.presence
-        result = Book.pagy_search(category, fields: [:category])
-        @pagination ||= pagy_searchkick(result, page:)
-      else
-        @pagination ||= pagy(all_books, page:)
-      end
+      @pagination ||= pagy_searchkick(results, page:)
     end
 
-    def all_books
-      if rating.presence
-        sorted_books
-      else
-        Book.order(:created_at)
-      end
+    def results
+      return results_by_category if category.presence
+
+      Book.pagy_search('*', order: { created_at: :desc })
     end
 
-    def query_ratings
-      Book
-        .joins(:rating_books)
-        .where(rating_books: { rating_id: rating })
-        .group(:book_id)
-        .count
-    end
-
-    def sorted_books
-      ids = []
-      sorted = query_ratings.sort_by { |_k, v| -v }
-      sorted.each { |k, _v| ids.push(k) }
-      Book.where(id: ids).in_order_of(:id, ids)
+    def results_by_category
+      Book.pagy_search(category, fields: [:category])
     end
   end
 end
