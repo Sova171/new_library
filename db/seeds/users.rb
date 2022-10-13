@@ -8,7 +8,7 @@ User.new({ email: 'boris_soltus@gmail.com', password: 'boris_', password_confirm
 
 def create_user
   user = User.create(
-    email: Faker::Internet.email,
+    email:    Faker::Internet.email,
     password: Faker::Internet.password
   )
   user.save!

@@ -43,3 +43,9 @@ Metrics/AbcSize:
 Lint/MissingSuper:
   Exclude:
     - 'app/services/**/*'
+
+Layout/HashAlignment:
+  EnforcedColonStyle: table
+  Exclude:
+    - 'config/initializers/simple_form_bootstrap.rb'
+    - 'db/migrate/20220623085059_create_active_storage_tables.active_storage.rb'

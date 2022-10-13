@@ -1,4 +1,15 @@
 %h1.card-title= t('.books')
+
+.dropdown
+  %button#dropdownMenuButton1.btn.dropdown-toggle{"aria-expanded" => "false", "data-bs-toggle" => "dropdown", type: "button"}
+    = t('.categories')
+  %ul.dropdown-menu{ "aria-labelledby" => "dropdownMenuButton1" }
+    %li
+      = link_to t('.all'), root_path, class: "dropdown-item"
+    - @facade.categories.each do |category|
+      %li
+        = link_to category.first, books_path(category:), class: "dropdown-item"
+
 = form_tag(searches_path, method: :get) do
   .input-group.mb-2
     = search_field_tag :search, params[:search], placeholder: t('.search_book'), class: 'form-control'

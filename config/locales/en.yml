@@ -4,6 +4,7 @@ en:
       index:
         name: Name
         image: Image
+
   authors:
     index:
       authors: Authors
@@ -36,10 +37,12 @@ en:
         back: Back to books
     index:
       books: Books
-      admin: Welcome admin
+      all: all categories
       new: New book
       search: Search
       search_book: Book title
+      categories: Categories
+      ratings: Ratings
     favorites:
       edit: Edit book
       delete: Delete book
@@ -48,6 +51,7 @@ en:
     show:
       title: Title
       description: Description
+      category: Category
       pages: Pages count
       published: Published
       publisher: Publisher

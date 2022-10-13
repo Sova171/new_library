@@ -4,7 +4,10 @@ class BooksController < ApplicationController
   before_action :find_book, only: :show
 
   def index
-    @facade = ::Books::IndexFacade.new(page: params[:page])
+    @facade = ::Books::IndexFacade.new(
+      page:     params[:page],
+      category: params[:category]
+    )
   end
 
   def show
@@ -18,7 +21,7 @@ class BooksController < ApplicationController
   end
 
   def book_params
-    params.require(:book).permit(:title, :description, :pages_count,
+    params.require(:book).permit(:title, :description, :category, :pages_count,
                                  :published_at, :publisher, :cover, author_ids: [])
   end
 end
