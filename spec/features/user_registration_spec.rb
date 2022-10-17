@@ -11,6 +11,10 @@ RSpec.feature 'User Registration', type: :feature do
     fill_in 'Password confirmation', with: 'Password' unless test.metadata[:logged_out]
   end
 
+  after(:all) do
+    Book.delete_all
+  end
+
   context 'shows errors when the user submits to the form' do
     scenario 'empty email and password', :logged_out do
       subject
@@ -33,9 +37,12 @@ RSpec.feature 'User Registration', type: :feature do
   end
 
   context 'must be successful when' do
+    FactoryBot.create_list(:book, 5)
+
     scenario 'all fields are valid' do
       fill_in 'Email', with: 'vlad@gmail.com'
       expect { subject }.to change { User.count }.by(1)
+      expect(page).to have_current_path(root_path)
     end
   end
 end
