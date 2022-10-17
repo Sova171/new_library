@@ -21,7 +21,6 @@ RSpec.feature 'Book Index', type: :feature do
     end
   end
 
-
   context 'when user pick category:' do
     scenario 'all categories' do
       find('#filter-categories').click
