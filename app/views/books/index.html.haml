@@ -1,9 +1,9 @@
 %h1.card-title= t('.books')
 
 .dropdown
-  %button#dropdownMenuButton1.btn.dropdown-toggle{"aria-expanded" => "false", "data-bs-toggle" => "dropdown", type: "button"}
+  %button#filter-categories.btn.dropdown-toggle{"aria-expanded" => "false", "data-bs-toggle" => "dropdown", type: "button"}
     = t('.categories')
-  %ul.dropdown-menu{ "aria-labelledby" => "dropdownMenuButton1" }
+  %ul.dropdown-menu{ "aria-labelledby" => "filter-categories" }
     %li
       = link_to t('.all'), root_path, class: "dropdown-item"
     - @facade.categories.each do |category|
