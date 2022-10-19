@@ -43,6 +43,7 @@ en:
       search_book: Book title
       categories: Categories
       ratings: Ratings
+      nothing: Nothing here yet
     favorites:
       edit: Edit book
       delete: Delete book

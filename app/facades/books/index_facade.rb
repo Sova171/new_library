@@ -33,7 +33,7 @@ module Books
     def results
       return results_by_category if category.presence
 
-      Book.pagy_search('*', order: { created_at: :desc })
+      Book.pagy_search('*')
     end
 
     def results_by_category

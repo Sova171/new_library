@@ -7,27 +7,23 @@ RSpec.feature 'User Registration', type: :feature do
 
   before(:each) do |test|
     visit new_user_registration_path
-    fill_in 'Password',              with: 'Password' unless test.metadata[:logged_out]
-    fill_in 'Password confirmation', with: 'Password' unless test.metadata[:logged_out]
-  end
-
-  after(:all) do
-    Book.delete_all
+    fill_in 'Password',              with: 'Password' unless test.metadata[:focus]
+    fill_in 'Password confirmation', with: 'Password' unless test.metadata[:focus]
   end
 
   context 'shows errors when the user submits to the form' do
-    scenario 'empty email and password', :logged_out do
+    it 'empty email and password', :focus do
       subject
       expect(page).to have_content("Email can't be blank")
       expect(page).to have_content("Password can't be blank")
     end
 
-    scenario 'no valid email' do
+    it 'no valid email' do
       fill_in 'Email', with: 'wrong_email'
       expect { subject }.to_not(change { User.count })
     end
 
-    scenario 'email which is already in db' do
+    it 'email which is already in db' do
       create(:user, email: 'vlad@gmail.com')
       fill_in 'Email', with: 'vlad@gmail.com'
 
@@ -37,9 +33,7 @@ RSpec.feature 'User Registration', type: :feature do
   end
 
   context 'must be successful when' do
-    FactoryBot.create_list(:book, 5)
-
-    scenario 'all fields are valid' do
+    it 'all fields are valid' do
       fill_in 'Email', with: 'vlad@gmail.com'
       expect { subject }.to change { User.count }.by(1)
       expect(page).to have_current_path(root_path)

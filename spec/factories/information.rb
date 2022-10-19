@@ -9,6 +9,7 @@ FactoryBot.define do
   factory :book do
     title { Faker::JapaneseMedia::OnePiece.location }
     description { Faker::TvShows::FamilyGuy.quote }
+    category { %w[horror biography detective fantasy mystery other].sample }
   end
 
   factory :books_list do
