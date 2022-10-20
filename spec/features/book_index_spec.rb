@@ -6,39 +6,42 @@ RSpec.feature 'Book index', type: :feature do
   context 'when there are no books on the' do
     let(:nothing) { 'Nothing here yet' }
 
-    before(:each) do |test|
-      create(:book, title: 'JO', category: 'other')          unless test.metadata[:focus]
-      create(:book, title: 'Joestar', category: 'detective') unless test.metadata[:focus]
-      Book.reindex
-
-      visit root_path
-    end
-
     context 'root page' do
-      it 'show empty message', :focus do
-        expect(page).to have_content(nothing)
-      end
-    end
-
-    context 'page category: horror' do
-      before do
-        find('#filter-categories').click
-        find('.dropdown-item', text: 'horror').click
-      end
-
       it 'show empty message' do
+        visit root_path
         expect(page).to have_content(nothing)
       end
     end
 
-    context 'search request' do
-      before do
-        fill_in 'Book title', with: 'Yard'
-        click_button 'Search'
+    context 'page' do
+      before(:each) do
+        create(:book, title: 'JO', category: 'other')
+        create(:book, title: 'Joestar', category: 'detective')
+        Book.reindex
+
+        visit root_path
       end
 
-      it 'show no results message' do
-        expect(page).to have_content('No results')
+      context 'category: horror' do
+        before do
+          find('#filter-categories').click
+          find('.dropdown-item', text: 'horror').click
+        end
+
+        it 'show empty message' do
+          expect(page).to have_content(nothing)
+        end
+      end
+
+      context 'search request' do
+        before do
+          fill_in 'Book title', with: 'Yard'
+          click_button 'Search'
+        end
+
+        it 'show no results message' do
+          expect(page).to have_content('No results')
+        end
       end
     end
   end
