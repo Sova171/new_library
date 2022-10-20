@@ -1,5 +1,5 @@
 %h1.card-title= t('.books')
-- if @facade.books.blank?
+- unless @facade.book_presence
   = t('.nothing')
 - else
   .dropdown

@@ -14,57 +14,76 @@ RSpec.feature 'Book index', type: :feature do
       visit root_path
     end
 
-    it 'root page', :focus do
-      expect(page).to have_content(nothing)
+    context 'root page' do
+      it 'show empty message', :focus do
+        expect(page).to have_content(nothing)
+      end
     end
 
-    it 'category: horror' do
-      find('#filter-categories').click
-      find('.dropdown-item', text: 'horror').click
-      expect(page).to have_content(nothing)
+    context 'page category: horror' do
+      before do
+        find('#filter-categories').click
+        find('.dropdown-item', text: 'horror').click
+      end
+
+      it 'show empty message' do
+        expect(page).to have_content(nothing)
+      end
     end
 
-    it 'db' do
-      fill_in 'Book title', with: 'Yard'
-      click_button 'Search'
-      expect(page).to have_content('No results')
+    context 'search request' do
+      before do
+        fill_in 'Book title', with: 'Yard'
+        click_button 'Search'
+      end
+
+      it 'show no results message' do
+        expect(page).to have_content('No results')
+      end
     end
   end
 
-  context 'must be some books when user is visiting' do
+  context 'when user is try to' do
     before(:each) do
       create(:book, title: 'JO')
-      create(:book, title: 'Joestar')
-      create(:book, title: 'Kujo')
+      create(:book, title: 'Joestar', category: 'horror')
       create(:book, title: 'Higashikata', category: 'horror')
-      create(:book, title: 'Giovanna')
+      create(:book, title: 'Giovanna', category: 'detective')
       Book.reindex
-    end
 
-    it 'first page' do
       visit root_path
-      expect(page).to have_content('JO')
-      expect(page).to_not have_content('Giovanna')
     end
 
-    it 'second page' do
-      visit '/?page=2'
-      expect(page).to_not have_content('JO')
-      expect(page).to have_content('Giovanna')
+    context 'search book' do
+      before do
+        fill_in 'Book title', with: 'Giovanna'
+        click_button 'Search'
+      end
+
+      it 'return correct results' do
+        expect(page).to have_content('Giovanna')
+      end
+
+      it 'return correct page' do
+        expect(page).to have_current_path('/searches?search=Giovanna')
+      end
     end
 
-    it 'search book' do
-      visit root_path
-      fill_in 'Book title', with: 'Giovanna'
-      click_button 'Search'
-      expect(page).to have_content('Giovanna')
-    end
+    context 'picks category: horror' do
+      before do
+        find('#filter-categories').click
+        find('.dropdown-item', text: 'horror').click
+      end
 
-    it 'category: horror' do
-      visit root_path
-      find('#filter-categories').click
-      find('.dropdown-item', text: 'horror').click
-      expect(page).to have_content('Higashikata')
+      it 'return all books with horror category' do
+        expect(page).to have_content('Joestar')
+        expect(page).to have_content('Higashikata')
+        expect(page).to_not have_content('Giovanna')
+      end
+
+      it 'return correct page' do
+        expect(page).to have_current_path('/books?category%5B%5D=horror&category%5B%5D=horror')
+      end
     end
   end
 end

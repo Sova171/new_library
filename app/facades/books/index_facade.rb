@@ -24,6 +24,10 @@ module Books
       Book.categories
     end
 
+    def book_presence
+      books.any?
+    end
+
     private
 
     def pagination

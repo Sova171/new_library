@@ -9,7 +9,7 @@ def create_book
     description:  Faker::TvShows::FamilyGuy.quote,
     pages_count:  rand(10..320),
     published_at: Faker::TvShows::Friends.quote,
-    category:     %w[horror biography detective fantasy mystery other].sample
+    category:     Book.categories.keys.sample
   )
   book.save!
 end
