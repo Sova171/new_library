@@ -12,7 +12,7 @@ describe ::Favorites::Destroy do
     create(:favorite, user:, book:)
   end
 
-  it 'unfollow book' do
+  it "removing a book from the user's favorites list" do
     subject
     expect(book.followed_by?(user)).to eql(false)
   end

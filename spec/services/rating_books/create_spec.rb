@@ -14,15 +14,19 @@ describe ::RatingBooks::Create do
     create(:rating_book, user:, book:, rating:)
   end
 
-  context 'when book is rated by user' do
-    it 'for the first time' do
-      expect(user.rating_books.where(book:, rating:)).to exist
+  context 'when user' do
+    context 'rates a book for the first time' do
+      it 'creates a new record with user rating for this book' do
+        expect(user.rating_books.where(book:, rating:)).to exist
+      end
     end
 
-    it 'changing the book rating' do
-      subject
-      expect(user.rating_books.where(book:, rating:)).to_not exist
-      expect(user.rating_books.where(book:, rating: other_rating)).to exist
+    context 'changing the book rating' do
+      it 'updates record with user rating for this book' do
+        subject
+        expect(user.rating_books.where(book:, rating:)).to_not exist
+        expect(user.rating_books.where(book:, rating: other_rating)).to exist
+      end
     end
   end
 end

@@ -24,7 +24,7 @@ module Books
       Book.categories
     end
 
-    def book_presence
+    def book_present?
       books.any?
     end
 

@@ -57,7 +57,7 @@ RSpec.feature 'Book index', type: :feature do
       visit root_path
     end
 
-    context 'search book' do
+    context 'search for an existing book' do
       before do
         fill_in 'Book title', with: 'Giovanna'
         click_button 'Search'
