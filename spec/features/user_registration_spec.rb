@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.feature 'User Registration', type: :feature do
   subject { click_button 'Sign up' }
 
-  before(:each) do
+  before do
     visit new_user_registration_path
   end
 
@@ -22,7 +22,7 @@ RSpec.feature 'User Registration', type: :feature do
     end
 
     context 'with fields' do
-      before(:each) do
+      before do
         fill_in 'Password',              with: 'Password'
         fill_in 'Password confirmation', with: 'Password'
       end
@@ -30,21 +30,23 @@ RSpec.feature 'User Registration', type: :feature do
       context 'where are all correct' do
         before do
           fill_in 'Email', with: 'vlad@gmail.com'
+          subject
         end
 
         it 'will create a user account and redirect to root path' do
-          expect { subject }.to change { User.count }.by(1)
           expect(page).to have_current_path(root_path)
+          expect(page).to have_content('Welcome! You have signed up successfully')
         end
       end
 
-      context 'where is invalid email' do
+      context 'when email is invalid' do
         before do
           fill_in 'Email', with: 'wrong_email'
+          subject
         end
 
         it 'will not create a user account' do
-          expect { subject }.to_not(change { User.count })
+          expect(page).to have_current_path(user_registration_path)
         end
       end
 

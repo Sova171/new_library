@@ -3,89 +3,85 @@
 require 'rails_helper'
 
 RSpec.feature 'Book index', type: :feature do
-  context 'when there are no books on the' do
-    let(:nothing) { 'Nothing here yet' }
+  let(:no_books_message) { 'Nothing here yet' }
 
-    context 'root page' do
-      it 'show empty message' do
-        visit root_path
-        expect(page).to have_content(nothing)
-      end
+  context 'when there are no books in db' do
+    before do
+      visit root_path
     end
 
-    context 'page' do
-      before(:each) do
-        create(:book, title: 'JO', category: 'other')
-        create(:book, title: 'Joestar', category: 'detective')
-        Book.reindex
-
-        visit root_path
-      end
-
-      context 'category: horror' do
-        before do
-          find('#filter-categories').click
-          find('.dropdown-item', text: 'horror').click
-        end
-
-        it 'show empty message' do
-          expect(page).to have_content(nothing)
-        end
-      end
-
-      context 'search request' do
-        before do
-          fill_in 'Book title', with: 'Yard'
-          click_button 'Search'
-        end
-
-        it 'show no results message' do
-          expect(page).to have_content('No results')
-        end
-      end
+    it 'show empty message' do
+      expect(page).to have_content(no_books_message)
     end
   end
 
-  context 'when user is try to' do
-    before(:each) do
-      create(:book, title: 'JO')
-      create(:book, title: 'Joestar', category: 'horror')
-      create(:book, title: 'Higashikata', category: 'horror')
-      create(:book, title: 'Giovanna', category: 'detective')
+  context 'when books dont exist in' do
+    before do
+      FactoryBot.create_list(:book, 4, category: 'other')
       Book.reindex
 
       visit root_path
     end
 
-    context 'search for an existing book' do
-      before do
-        fill_in 'Book title', with: 'Giovanna'
-        click_button 'Search'
-      end
-
-      it 'return correct results' do
-        expect(page).to have_content('Giovanna')
-      end
-
-      it 'return correct page' do
-        expect(page).to have_current_path('/searches?search=Giovanna')
-      end
-    end
-
-    context 'picks category: horror' do
+    context 'category: horror' do
       before do
         find('#filter-categories').click
         find('.dropdown-item', text: 'horror').click
       end
 
-      it 'return all books with horror category' do
-        expect(page).to have_content('Joestar')
-        expect(page).to have_content('Higashikata')
-        expect(page).to_not have_content('Giovanna')
+      it 'show empty message' do
+        expect(page).to have_content(no_books_message)
+      end
+    end
+
+    context 'search request' do
+      before do
+        fill_in 'Book title', with: 'Lebron James'
+        click_button 'Search'
+      end
+
+      it 'show no results message' do
+        expect(page).to have_content('No results')
+      end
+    end
+  end
+
+  context 'when book exist and user tries to' do
+    let(:list) { Book.all }
+    let(:random_book) { list.sample }
+
+    before do
+      FactoryBot.create_list(:book, 4)
+      Book.reindex
+
+      visit root_path
+    end
+
+    context 'search book' do
+      before do
+        fill_in 'Book title', with: random_book.title
+        click_button 'Search'
+      end
+
+      it 'return correct results' do
+        expect(page).to have_content(random_book.title)
+      end
+    end
+
+    context 'picks category' do
+      before do
+        find('#filter-categories').click
+        find('.dropdown-item', text: random_book.category).click
+      end
+
+      it 'return all books with selected category' do
+        expect(page).to have_content(random_book.title)
       end
 
       it 'return correct page' do
-        expect(page).to have_current_path('/books?category%5B%5D=horror&category%5B%5D=horror')
+        expect(page).to have_current_path(
+          "/books?category%5B%5D=#{random_book.category}&category%5B%5D=#{random_book.category}"
+        )
       end
     end
   end
