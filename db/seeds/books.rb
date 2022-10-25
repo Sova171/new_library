@@ -8,7 +8,8 @@ def create_book
     publisher:    Faker::Sports::Basketball.team,
     description:  Faker::TvShows::FamilyGuy.quote,
     pages_count:  rand(10..320),
-    published_at: Faker::TvShows::Friends.quote
+    published_at: Faker::TvShows::Friends.quote,
+    category:     Book.categories.keys.sample
   )
   book.save!
 end

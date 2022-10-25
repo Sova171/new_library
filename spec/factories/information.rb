@@ -2,12 +2,13 @@
 
 FactoryBot.define do
   factory :user do
-    email { Faker::Internet.email }
+    email    { Faker::Internet.email }
     password { '123456' }
   end
 
   factory :book do
-    title { Faker::JapaneseMedia::OnePiece.location }
+    title       { Faker::JapaneseMedia::OnePiece.location }
+    category    { Book.categories.keys.sample }
     description { Faker::TvShows::FamilyGuy.quote }
   end
 

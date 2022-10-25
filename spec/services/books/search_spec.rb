@@ -17,7 +17,7 @@ describe ::Books::Search, search: true do
   context 'when search for no exist title' do
     let(:search) { 'Upper Dot' }
 
-    it 'no results' do
+    it 'return no results' do
       expect(result.count).to eql(0)
     end
   end
@@ -25,7 +25,7 @@ describe ::Books::Search, search: true do
   context 'when search by unique title' do
     let(:search) { 'Potter' }
 
-    it '1 result' do
+    it 'return 1 result' do
       expect(result.count).to eql(1)
     end
   end
@@ -33,24 +33,24 @@ describe ::Books::Search, search: true do
   context 'when search by non unique part of title' do
     let(:search) { 'Upper' }
 
-    it '2 results' do
+    it 'return 2 results' do
       expect(result.count).to eql(2)
     end
   end
 
-  context 'when search by one letter' do
+  context 'when search by one letter e' do
     let(:search) { 'e' }
 
-    it 'search by e' do
+    it 'return correct results' do
       expect(result.all? { |book| book.title.include?('e') }).to eql(true)
       expect(result.count).to eql(4)
     end
   end
 
-  context 'when search for one storage' do
+  context 'when search for one storage ends' do
     let(:search) { 'ends' }
 
-    it 'search by ends' do
+    it 'return correct results' do
       expect(result.all? { |book| book.title.include?('ends') }).to eql(true)
       expect(result.count).to eql(2)
     end

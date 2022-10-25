@@ -11,7 +11,10 @@ class BooksController < ApplicationController
   end
 
   def show
-    @facade = ::Books::ShowFacade.new(book: @book.decorate, user: current_user)
+    @facade = ::Books::ShowFacade.new(
+      book: @book.decorate,
+      user: current_user
+    )
   end
 
   private
