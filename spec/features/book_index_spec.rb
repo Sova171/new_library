@@ -47,11 +47,11 @@ RSpec.feature 'Book index', type: :feature do
   end
 
   context 'when book exist and user tries to' do
-    let(:list) { Book.all }
-    let(:random_book) { list.sample }
+    let(:book_list)   { create_list(:book, 4) }
+    let(:random_book) { book_list.sample }
 
     before do
-      FactoryBot.create_list(:book, 4)
+      book_list
       Book.reindex
 
       visit root_path
