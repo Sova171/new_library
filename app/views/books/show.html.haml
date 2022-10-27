@@ -30,6 +30,10 @@
       = image_tag @facade.book_cover, width: "250pt"
     - else
       = image_tag("NoBookCover.png", option = {height: "250pt"})
+
 = render 'books/list', book: @facade.book
 = render "books/chart", book: @facade.book
+= render 'comments/form', book: @facade.book
+= render 'comments/content', book_comments: @facade.book_comments
+
 = link_to t('.back'), root_path

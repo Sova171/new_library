@@ -1,0 +1,8 @@
+%hr/
+= simple_form_for [book, book.comments.build] do |f|
+  .card-title.d-flex.justify-content-between
+    %div
+      = f.text_area :content, size: '100%', placeholder: t('.placeholder')
+    %div
+      .form-group.mb-2
+        = f.button :submit, t('.add'), class: 'btn btn-outline-success'

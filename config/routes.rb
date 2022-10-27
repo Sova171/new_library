@@ -11,6 +11,10 @@ Rails.application.routes.draw do
     resource :favorites, only: %i[create destroy]
   end
 
+  resources :books, only: [:show] do
+    resource :comments
+  end
+
   resources :authors, only: %i[index show]
 
   resources :users do

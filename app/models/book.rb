@@ -19,6 +19,8 @@ class Book < ApplicationRecord
 
   has_many :rating_books
 
+  has_many :comments, dependent: :destroy
+
   validates :title, presence: true
   validates :description, presence: true, length: { minimum: MIN_DESCRIPTION_LENGTH }
 

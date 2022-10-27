@@ -1,0 +1,13 @@
+%hr/
+- book_comments.each do |comment|
+  .container
+    .row.text-muted
+      .col
+        = image_tag('UserAvatar.png', option = {height: '20px'})
+        = comment.user.email
+      .col.text-end
+        = comment.created_at.strftime('%d.%m.%Y, %H:%M')
+    .row
+      .col
+        = comment.content
+  %hr/
