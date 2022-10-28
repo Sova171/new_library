@@ -2,20 +2,15 @@
 
 module Comments
   class Create < ::Callable
-    def initialize(comment:, comment_params:, book:, user:)
-      @user           = user
+    def initialize(comment_params:, book:)
       @book           = book
-      @comment        = comment
       @comment_params = comment_params
     end
 
     def call
-      @comment = book.comments.create(comment_params)
-      @comment.user = user
-
-      @comment
+      book.comments.create(comment_params)
     end
 
-    attr_reader :book, :user, :comment, :comment_params
+    attr_reader :book, :comment_params
   end
 end

@@ -21,8 +21,8 @@ module Books
         .count
     end
 
-    def book_comments
-      book.comments.order(created_at: :desc)
+    def list_comments
+      book.comments.decorate.order(created_at: :desc)
     end
 
     delegate :title, :description, :pages_count, :published_at,

@@ -33,7 +33,7 @@
 
 = render 'books/list', book: @facade.book
 = render "books/chart", book: @facade.book
-= render 'comments/form', book: @facade.book
-= render 'comments/content', book_comments: @facade.book_comments
+= render 'comments/form', book: @facade.book if user_signed_in?
+= render partial: 'comments/content', collection: @facade.list_comments, as: :comment
 
 = link_to t('.back'), root_path

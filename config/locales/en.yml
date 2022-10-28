@@ -80,6 +80,7 @@ en:
 
 
   comments:
+    invalid: Invalid comment (length must be in range 1..500)
     form:
       placeholder: You can live your comment here
       add: Add comment

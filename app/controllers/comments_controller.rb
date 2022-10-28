@@ -4,9 +4,13 @@ class CommentsController < ApplicationController
   before_action :authenticate_user!, :find_book
 
   def create
-    @comment = ::Comments::Create.call(comment: @comment, book: @book, comment_params:, user: current_user)
+    @comment = ::Comments::Create.call(comment_params:, book: @book)
 
-    redirect_to book_path(@book) if @comment.save
+    if @comment.valid?
+      redirect_to book_path(@book)
+    else
+      redirect_to book_path(@book), alert: I18n.t('comments.invalid')
+    end
   end
 
   private
@@ -16,6 +20,9 @@ class CommentsController < ApplicationController
   end
 
   def comment_params
-    params.require(:comment).permit(:content)
+    params
+      .require(:comment)
+      .permit(:content)
+      .merge(user_id: current_user.id)
   end
 end
