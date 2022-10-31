@@ -5,6 +5,7 @@ class CommentsController < ApplicationController
 
   def create
     @comment = ::Comments::Create.call(comment_params:, book: @book)
+
     return redirect_to book_path(@book) if @comment.valid?
 
     redirect_to book_path(@book), alert: I18n.t('comments.invalid')
