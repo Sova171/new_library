@@ -308,6 +308,8 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.4.3)
       loofah (~> 2.3)
+    rails_warden (0.6.0)
+      warden (>= 1.2.0)
     railties (7.0.4)
       actionpack (= 7.0.4)
       activesupport (= 7.0.4)
@@ -463,6 +465,7 @@ DEPENDENCIES
   public_activity
   puma (~> 5.0)
   rails (~> 7.0.3)
+  rails_warden
   rspec-rails
   rubocop
   sassc-rails

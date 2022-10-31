@@ -24,4 +24,6 @@ class User < ApplicationRecord
   # rating
   has_many :rating_books, foreign_key: :user_id, dependent: :destroy
   has_many :rating, through: :rating_books, source: :book
+
+  has_many :comments, dependent: :destroy
 end

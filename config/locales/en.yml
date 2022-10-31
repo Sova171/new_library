@@ -78,6 +78,13 @@ en:
       add_book: Add book to list
       delete_book: Delete book from list
 
+
+  comments:
+    invalid: Invalid comment (length must be in range 1..500)
+    form:
+      placeholder: You can live your comment here
+      add: Add comment
+
   favorites:
     index:
       welcome: My favorites

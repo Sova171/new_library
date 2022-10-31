@@ -1,0 +1,11 @@
+.container
+  .row.text-muted
+    .col
+      = image_tag('UserAvatar.png', option = {height: '20px'})
+      = comment.comment_user
+    .col.text-end
+      = comment.comment_date
+  .row
+    .col
+      = comment.content
+  %hr/
