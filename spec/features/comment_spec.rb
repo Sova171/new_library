@@ -10,10 +10,11 @@ RSpec.feature 'Book commentary', type: :feature do
     click_button 'Add comment'
   end
 
-  let(:user)        { create(:user) }
-  let(:comment)     { content }
-  let(:book_list)   { create_list(:book, 4) }
-  let(:random_book) { book_list.sample }
+  let(:user)          { create(:user) }
+  let(:comment)       { content }
+  let(:book_list)     { create_list(:book, 4) }
+  let(:random_book)   { book_list.sample }
+  let(:alert_message) { 'Invalid comment (length must be in range 1..500)' }
 
   before do
     book_list
@@ -29,7 +30,7 @@ RSpec.feature 'Book commentary', type: :feature do
       let(:content) { nil }
 
       it 'return alert message' do
-        expect(page).to have_content('Invalid comment (length must be in range 1..500)')
+        expect(page).to have_content(alert_message)
       end
     end
 
@@ -37,7 +38,7 @@ RSpec.feature 'Book commentary', type: :feature do
       let(:content) { SecureRandom.base58(501) }
 
       it 'return alert message' do
-        expect(page).to have_content('Invalid comment (length must be in range 1..500)')
+        expect(page).to have_content(alert_message)
       end
     end
   end

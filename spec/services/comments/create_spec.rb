@@ -10,7 +10,15 @@ describe ::Comments::Create do
   let(:comment)        { Faker::JapaneseMedia::OnePiece.quote }
   let(:comment_params) { { content: comment, user: } }
 
-  it 'create new comment' do
+  it 'creates new comment' do
     expect { subject }.to change(Comment, :count).by(1)
+  end
+
+  context 'when comment is invalid' do
+    let(:comment) { nil }
+
+    it "doesn't creates new comment" do
+      expect { subject }.to change(Comment, :count).by(0)
+    end
   end
 end
