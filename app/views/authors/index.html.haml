@@ -2,4 +2,12 @@
 - @facade.authors.each do |author|
   .card.mb-2
     .card-body
-      %h5.card-title= link_to author.full_name, author_path(author)
+      .container
+      .row.text-muted
+        .col
+          %h5.card-title= link_to author.full_name, author_path(author)
+        .col.text-end
+          - if author.avatar.attached?
+            = image_tag author.avatar, width: "30pt"
+          - else
+            = image_tag("NoAvatarImg.png", option = {height: "30pt"})
