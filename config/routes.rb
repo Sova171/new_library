@@ -17,9 +17,7 @@ Rails.application.routes.draw do
 
   resources :authors, only: %i[index show]
 
-  resources :users do
-    resources :lists
-  end
+  resources :lists
 
   scope module: :books do
     resources :searches, only: %i[index]
