@@ -1,6 +1,6 @@
 %h2.card-title= t('.lists')
 %h4
-  .align-center= link_to t('.add_list'), new_user_list_path
+  .align-center= link_to t('.add_list'), new_list_path
 - if @facade.lists.blank?
   %h4
     .align-center= t('.empty')
@@ -8,5 +8,5 @@
   - @facade.lists.each do |list|
     .card.mb-2
       .card-body
-        .align-center= link_to list.name, user_list_path(current_user, list)
-        = link_to t('.delete_list'), user_list_path(current_user, list), method: :delete, data: { confirm: t('.confirmation') }, class: "text-danger"
+        .align-center= link_to list.name, list_path(list)
+        = link_to t('.delete_list'), list_path(list), method: :delete, data: { confirm: t('.confirmation') }, class: "text-danger"
