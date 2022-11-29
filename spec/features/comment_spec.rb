@@ -6,15 +6,15 @@ RSpec.feature 'Book commentary', type: :feature do
   subject do
     visit book_path(random_book)
 
-    fill_in 'You can live your comment here', with: comment
-    click_button 'Add comment'
+    fill_in 'comment_content', with: comment
+    click_button I18n.t('comments.form.add')
   end
 
   let(:user)          { create(:user) }
   let(:comment)       { content }
   let(:book_list)     { create_list(:book, 4) }
   let(:random_book)   { book_list.sample }
-  let(:alert_message) { 'Invalid comment (length must be in range 1..500)' }
+  let(:alert_message) { I18n.t('comments.invalid') }
 
   before do
     book_list
