@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.feature 'Book index', type: :feature do
-  let(:no_books_message) { 'Nothing here yet' }
+  let(:no_books_message) { I18n.t('books.index.nothing') }
 
   context 'when there are no books in db' do
     before do
@@ -36,12 +36,12 @@ RSpec.feature 'Book index', type: :feature do
 
     context 'search request' do
       before do
-        fill_in 'Book title', with: 'Lebron James'
-        click_button 'Search'
+        fill_in I18n.t('books.index.search_book'), with: 'Lebron James'
+        click_button I18n.t('books.index.search')
       end
 
       it 'show no results message' do
-        expect(page).to have_content('No results')
+        expect(page).to have_content(I18n.t('books.searches.index.search_result_error'))
       end
     end
   end
@@ -59,8 +59,8 @@ RSpec.feature 'Book index', type: :feature do
 
     context 'search book' do
       before do
-        fill_in 'Book title', with: random_book.title
-        click_button 'Search'
+        fill_in I18n.t('books.index.search_book'), with: random_book.title
+        click_button I18n.t('books.index.search')
       end
 
       it 'return correct results' do
