@@ -79,5 +79,6 @@ group :test do
   gem 'database_cleaner'
   gem 'rails_warden'
   gem 'selenium-webdriver'
+  gem 'shoulda-matchers'
   gem 'webdrivers'
 end
