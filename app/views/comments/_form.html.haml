@@ -1,8 +1,12 @@
 %hr/
 = simple_form_for [book, book.comments.build] do |f|
-  .card-title.d-flex.justify-content-between
-    %div
-      = f.text_area :content, size: '100%', placeholder: t('.placeholder')
+  .card-title.d-flex.justify-content-between{ "data-controller": "comment" }
+    %div.w-100.me-2
+      = f.text_area :content, placeholder: t('.placeholder'), class: 'w-100 form-control mb-2',
+        "data-comment-target": "field"
+      %unicode-emoji-picker.d-none{ "data-comment-target": "emojiPicker" }
+    %div.form-group
+      %a.btn.btn-outline-secondary.me-2{ "data-action": "click->comment#toggleEmoji" }= t('.emoji')
     %div
       .form-group.mb-2
         = f.button :submit, t('.add'), class: 'btn btn-outline-success'
